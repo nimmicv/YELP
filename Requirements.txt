@@ -1,5 +1,0 @@
-Can you take all of the reviews of a business and predict when it will be the most busy, 
-or when the business is open? Can you predict if a business is good for kids? Has Wi-Fi? 
-Has Parking? How much of a business's success is really just location, location, location? 
-What businesses deserve their own subcategory (i.e., Szechuan or Hunan versus just 
-"Chinese restaurants")? What makes a tip useful?
