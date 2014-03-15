@@ -6,12 +6,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import com.google.common.base.Optional;
-import com.yammer.metrics.annotation.Timed;
-
 import com.kaizen.yelp.domain.HelloMessage;
+import com.yammer.metrics.annotation.Timed;
 
 
 @Path("/kaizen")
