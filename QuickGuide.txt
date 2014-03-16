@@ -2,3 +2,5 @@ From STS :
 Disable maven project
 go to folder => mvn eclipse:clean
 project configure => configure to maven project
+
+Test add
