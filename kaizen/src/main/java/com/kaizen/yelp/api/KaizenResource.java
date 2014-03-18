@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+//import javax.ws.rs.core.Response;
 
 import com.google.common.base.Optional;
 import com.kaizen.yelp.domain.HelloMessage;
@@ -57,14 +57,14 @@ public class KaizenResource {
     @GET
     @Path("/city")
     @Timed(name = "get-city")
-	public void getCity() {
+	public DBObject getCity() {
         //return db.business.find().limit(5);
         //Mongo mongoClient = new Mongo();
 	DB db = mongo.getDB("273project");
 	DBCollection coll = db.getCollection("business");
 	DBObject myDoc = coll.findOne();
 	System.out.println(myDoc);
-	//return myDoc;
+	return myDoc;
     }
 
 
