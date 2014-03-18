@@ -65,7 +65,7 @@ public class KaizenResource {
 	DBCollection coll = db.getCollection("business");
 	//DBObject myDoc = coll.findOne();
 	BasicDBObject query = new BasicDBObject("city", city);
-	BObject myDoc = coll.find(query);
+	DBObject myDoc = coll.find(query);
 	//System.out.println(myDoc);
 	return myDoc;
     }
