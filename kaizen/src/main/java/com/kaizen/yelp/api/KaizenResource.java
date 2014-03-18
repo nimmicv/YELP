@@ -74,4 +74,37 @@ public class KaizenResource {
 	
        return myDoc;
 }
+
+	@GET
+	@Path("/{city}/{categories}")
+	@Timed(name = "get-categories")
+	public DBObject getCategory(@PathParam("city") String city, @PathParam("categories") String category) {
+
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("business");
+
+
+		BasicDBObject searchQuery = new BasicDBObject("city", city);
+		searchQuery.append("categories", category);
+
+		//BasicDBObject query = new BasicDBObject("categories", "Mexican");
+		
+		
+		DBCursor myCol = coll.find(searchQuery);
+		DBObject myDoc= coll.findOne(myCol);
+		myCol.limit(5);
+
+				
+		try {
+			while(myCol.hasNext()) {
+				System.out.println(myCol.next());
+				//return myCol.next();
+			}
+		} finally { myCol.close(); }
+
+		return myDoc;
+
+	}
+
+
 }
