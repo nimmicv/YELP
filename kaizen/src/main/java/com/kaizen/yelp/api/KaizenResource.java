@@ -63,7 +63,8 @@ public class KaizenResource {
         //Mongo mongoClient = new Mongo();
 	DB db = mongo.getDB("273project");
 	DBCollection coll = db.getCollection("business");
-	DBObject myDoc = coll.findOne();
+	//DBObject myDoc = coll.findOne();
+	DBCollection coll = db.business.find( {"city" : city } );
 	//System.out.println(myDoc);
 	return myDoc;
     }
