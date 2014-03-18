@@ -58,14 +58,15 @@ public class KaizenResource {
     @GET
     @Path("/{city}")
     @Timed(name = "get-city")
-	public DBObject getCity(@PathParam("city") String city) {
+    //	public DBObject getCity(@PathParam("city") String city) {
+	public DBCursor getCity(@PathParam("city") String city) {
         //return db.business.find().limit(5);
         //Mongo mongoClient = new Mongo();
 	DB db = mongo.getDB("273project");
 	DBCollection coll = db.getCollection("business");
 	//DBObject myDoc = coll.findOne();
 	BasicDBObject query = new BasicDBObject("city", city);
-	DBObject myDoc = coll.find(query);
+	DBCursor myDoc = coll.find(query);
 	//System.out.println(myDoc);
 	return myDoc;
     }
