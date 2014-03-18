@@ -64,13 +64,13 @@ public class KaizenResource {
         //Mongo mongoClient = new Mongo();
 	DB db = mongo.getDB("273project");
 	DBCollection coll = db.getCollection("business");
-	//DBObject myDoc = coll.findOne();
+	DBObject myDoc = coll.findOne();
 	BasicDBObject query = new BasicDBObject("city", city);
-	DBCursor myDoc = coll.find(query);
+	DBCursor myCol = coll.find(query);
 	//System.out.println(myDoc);
 	try {
-	   while(myDoc.hasNext()) { return myDoc.next(); }
-	} finally { myDoc.close(); }
+	   while(myCol.hasNext()) { return myCol.next(); }
+	} finally { myCol.close(); }
 	}
-
+       return myDoc;
 }
