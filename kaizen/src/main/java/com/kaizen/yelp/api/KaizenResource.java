@@ -59,8 +59,8 @@ public class KaizenResource {
     @Timed(name = "get-city")
 	public void getCity() {
         //return db.business.find().limit(5);
-        Mongo mongoClient = new Mongo();
-	DB db = mongoClient.getDB("273project");
+        //Mongo mongoClient = new Mongo();
+	DB db = mongo.getDB("273project");
 	DBCollection coll = db.getCollection("business");
 	DBObject myDoc = coll.findOne();
 	//System.out.println(myDoc);
