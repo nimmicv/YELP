@@ -18,6 +18,8 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
+import com.mongodb.MongoClient;
+import com.mongodb.DBObject
 import com.yammer.metrics.annotation.Timed;
 
 
@@ -47,4 +49,19 @@ public class KaizenResource {
         hello.setMessage("Hello" + ( (name.isPresent()) ? " " + name.get() : ""));
        return hello;
     }
+    
+    @GET
+    @Path("/city")
+    @Timed(name = "get-city")
+	public Response getCity() {
+        //return db.business.find().limit(5);
+        MongoClient mongoClient = new MongoClient();
+	DB db = mongoClient.getDB("273project");
+	DBCollection coll = db.getCollection("business");
+	DBObject myDoc = coll.findOne();
+	//System.out.println(myDoc);
+	return myDoc;
+    }
+    
+
 }
