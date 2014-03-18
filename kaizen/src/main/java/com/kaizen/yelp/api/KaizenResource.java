@@ -58,7 +58,7 @@ public class KaizenResource {
     @GET
     @Path("/{city}")
     @Timed(name = "get-city")
-	public DBObject getCity(@PathParam("city") LongParam city) {
+	public DBObject getCity(@PathParam("city") String city) {
         //return db.business.find().limit(5);
         //Mongo mongoClient = new Mongo();
 	DB db = mongo.getDB("273project");
