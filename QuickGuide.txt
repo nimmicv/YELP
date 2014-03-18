@@ -3,4 +3,11 @@ Disable maven project
 go to folder => mvn eclipse:clean
 project configure => configure to maven project
 
-Test add
+
+EC2 Instance Details
+Using username "ubuntu".
+IP: 54.215.178.205
+
+URL : http://54.215.178.205:8080/kaizen
+HealthCheck : http://54.215.178.205:8081
+
