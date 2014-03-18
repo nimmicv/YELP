@@ -9,9 +9,7 @@ http:
   # The port on which the HTTP server listens for administrative requests.
   adminPort: 8081
 
-mongohost: localhost
-mongoport: 27017
-mongodb: mydb
+
 # Logging settings.
 logging:
 
