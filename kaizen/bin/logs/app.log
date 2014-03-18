@@ -1,58 +1,102 @@
-WARN  [2014-03-15 19:00:32,141] com.yammer.dropwizard.config.ServerFactory: 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
-!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
-!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
-!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
-!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-INFO  [2014-03-15 19:00:32,229] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-03-15 19:00:32,232] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-03-15 19:00:32,375] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-03-15 19:00:32,450] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-03-16 09:00:21,151] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-03-16 09:00:21,171] org.eclipse.jetty.server.Server: jetty-8.y.z-SNAPSHOT
+INFO  [2014-03-16 09:00:21,511] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-16 09:00:21,704] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
     GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
 
-INFO  [2014-03-15 19:00:32,451] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-03-16 09:00:21,705] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-INFO  [2014-03-15 19:00:32,799] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
-INFO  [2014-03-15 19:00:32,802] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
-INFO  [2014-03-15 19:00:38,340] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
-INFO  [2014-03-15 19:00:38,340] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
-INFO  [2014-03-15 19:00:38,341] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-03-15 19:00:38,341] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-03-15 19:00:40,395] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-03-15 19:00:40,395] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-WARN  [2014-03-15 19:32:44,718] com.yammer.dropwizard.config.ServerFactory: 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!    THIS SERVICE HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW IF IT    !
-!    DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE LETTING     !
-!     YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH DEPENDENCY OF     !
-!     YOUR SERVICE WHICH FULLY (BUT LIGHTLY) TESTS YOUR SERVICE'S ABILITY TO   !
-!      USE THAT SERVICE. THINK OF IT AS A CONTINUOUS INTEGRATION TEST.         !
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-INFO  [2014-03-15 19:32:44,799] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-03-15 19:32:44,801] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-03-15 19:32:44,908] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-03-15 19:32:44,961] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+WARN  [2014-03-16 09:00:22,398] org.eclipse.jetty.util.component.AbstractLifeCycle: FAILED InstrumentedBlockingChannelConnector@0.0.0.0:8080: java.net.BindException: Address already in use
+! java.net.BindException: Address already in use
+! at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0]
+! at sun.nio.ch.Net.bind(Net.java:414) ~[na:1.8.0]
+! at sun.nio.ch.Net.bind(Net.java:406) ~[na:1.8.0]
+! at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214) ~[na:1.8.0]
+! at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector.open(BlockingChannelConnector.java:127) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector.doStart(BlockingChannelConnector.java:85) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.server.Server.doStart(Server.java:291) [kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ServerCommand.run(ServerCommand.java:48) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:39) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:58) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.Cli.run(Cli.java:53) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.Service.run(Service.java:61) [kaizen-0.0.1-Yelp.jar:na]
+! at com.kaizen.yelp.serviceclass.KaizenService.main(KaizenService.java:17) [kaizen-0.0.1-Yelp.jar:na]
+WARN  [2014-03-16 09:00:22,401] org.eclipse.jetty.util.component.AbstractLifeCycle: FAILED SocketConnector@0.0.0.0:8081: java.net.BindException: Address already in use
+! java.net.BindException: Address already in use
+! at java.net.PlainSocketImpl.socketBind(Native Method) ~[na:1.8.0]
+! at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:382) ~[na:1.8.0]
+! at java.net.ServerSocket.bind(ServerSocket.java:375) ~[na:1.8.0]
+! at java.net.ServerSocket.<init>(ServerSocket.java:237) ~[na:1.8.0]
+! at java.net.ServerSocket.<init>(ServerSocket.java:181) ~[na:1.8.0]
+! at org.eclipse.jetty.server.bio.SocketConnector.newServerSocket(SocketConnector.java:96) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.server.bio.SocketConnector.open(SocketConnector.java:85) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.server.bio.SocketConnector.doStart(SocketConnector.java:156) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.server.Server.doStart(Server.java:291) [kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ServerCommand.run(ServerCommand.java:48) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:39) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:58) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.Cli.run(Cli.java:53) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.Service.run(Service.java:61) [kaizen-0.0.1-Yelp.jar:na]
+! at com.kaizen.yelp.serviceclass.KaizenService.main(KaizenService.java:17) [kaizen-0.0.1-Yelp.jar:na]
+WARN  [2014-03-16 09:00:22,409] org.eclipse.jetty.util.component.AbstractLifeCycle: FAILED org.eclipse.jetty.server.Server@6e6d5d29: MultiException[java.net.BindException: Address already in use, java.net.BindException: Address already in use]
+! org.eclipse.jetty.util.MultiException: Multiple exceptions
+! at org.eclipse.jetty.server.Server.doStart(Server.java:273) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ServerCommand.run(ServerCommand.java:48) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:39) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:58) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.Cli.run(Cli.java:53) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.Service.run(Service.java:61) [kaizen-0.0.1-Yelp.jar:na]
+! at com.kaizen.yelp.serviceclass.KaizenService.main(KaizenService.java:17) [kaizen-0.0.1-Yelp.jar:na]
+ERROR [2014-03-16 09:00:22,410] com.yammer.dropwizard.cli.ServerCommand: Unable to start server, shutting down
+! org.eclipse.jetty.util.MultiException: Multiple exceptions
+! at org.eclipse.jetty.server.Server.doStart(Server.java:273) ~[kaizen-0.0.1-Yelp.jar:na]
+! at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ServerCommand.run(ServerCommand.java:48) ~[kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:39) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:58) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.cli.Cli.run(Cli.java:53) [kaizen-0.0.1-Yelp.jar:na]
+! at com.yammer.dropwizard.Service.run(Service.java:61) [kaizen-0.0.1-Yelp.jar:na]
+! at com.kaizen.yelp.serviceclass.KaizenService.main(KaizenService.java:17) [kaizen-0.0.1-Yelp.jar:na]
+INFO  [2014-03-16 09:00:22,411] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 09:00:22,411] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 09:00:22,413] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:00:22,417] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:00:24,418] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:00:24,420] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:01:59,721] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-03-16 09:01:59,728] org.eclipse.jetty.server.Server: jetty-8.y.z-SNAPSHOT
+INFO  [2014-03-16 09:02:00,040] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-16 09:02:00,200] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
     GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
 
-INFO  [2014-03-15 19:32:44,961] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-03-16 09:02:00,202] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-INFO  [2014-03-15 19:32:45,350] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
-INFO  [2014-03-15 19:32:45,355] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
-INFO  [2014-03-15 19:32:47,375] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
-INFO  [2014-03-15 19:32:47,377] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
-INFO  [2014-03-15 19:32:47,380] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-03-15 19:32:47,380] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-03-15 19:32:49,434] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-03-15 19:32:49,435] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:02:00,875] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 09:02:00,897] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 09:09:24,082] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 09:09:24,084] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 09:09:24,112] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:09:24,117] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-16 09:09:26,219] org.eclipse.jetty.util.thread.QueuedThreadPool: 1 threads could not be stopped
+INFO  [2014-03-16 09:09:26,219] org.eclipse.jetty.util.thread.QueuedThreadPool: Couldn't stop Thread[qtp1222768327-32,5,main]
+INFO  [2014-03-16 09:09:26,223] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:124)
+INFO  [2014-03-16 09:09:26,223] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)
+INFO  [2014-03-16 09:09:26,223] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+INFO  [2014-03-16 09:09:26,223] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+INFO  [2014-03-16 09:09:26,223] org.eclipse.jetty.util.thread.QueuedThreadPool:  at java.lang.Thread.run(Thread.java:744)
+INFO  [2014-03-16 09:09:26,224] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:09:26,226] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}

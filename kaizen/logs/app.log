@@ -1516,3 +1516,107 @@ INFO  [2014-03-15 23:47:38,809] com.yammer.dropwizard.config.Environment: tasks 
 
 INFO  [2014-03-15 23:47:39,161] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
 INFO  [2014-03-15 23:47:39,167] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 07:52:48,921] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-03-16 07:52:48,929] org.eclipse.jetty.server.Server: jetty-8.y.z-SNAPSHOT
+INFO  [2014-03-16 07:52:49,336] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-16 07:52:49,614] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+
+INFO  [2014-03-16 07:52:49,615] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-16 07:52:50,311] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 07:52:50,330] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 07:56:43,692] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 07:56:43,700] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 07:56:43,702] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 07:56:43,703] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 07:56:45,761] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 07:56:45,762] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 08:41:29,962] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-03-16 08:41:29,973] org.eclipse.jetty.server.Server: jetty-8.y.z-SNAPSHOT
+INFO  [2014-03-16 08:41:30,327] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-16 08:41:30,528] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+
+INFO  [2014-03-16 08:41:30,529] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-16 08:41:31,399] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 08:41:31,404] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 08:53:17,982] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 08:53:17,992] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 08:53:17,993] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 08:53:18,002] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 08:53:20,067] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 08:53:20,072] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 08:57:28,476] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-03-16 08:57:28,484] org.eclipse.jetty.server.Server: jetty-8.y.z-SNAPSHOT
+INFO  [2014-03-16 08:57:28,785] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-16 08:57:28,967] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+
+INFO  [2014-03-16 08:57:28,968] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-16 08:57:29,624] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 08:57:29,642] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 09:01:19,230] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 09:01:19,237] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 09:01:19,239] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:01:19,269] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-16 09:01:21,370] org.eclipse.jetty.util.thread.QueuedThreadPool: 1 threads could not be stopped
+INFO  [2014-03-16 09:01:21,370] org.eclipse.jetty.util.thread.QueuedThreadPool: Couldn't stop Thread[qtp1222768327-29,5,main]
+INFO  [2014-03-16 09:01:21,373] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:124)
+INFO  [2014-03-16 09:01:21,373] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:264)
+INFO  [2014-03-16 09:01:21,374] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+INFO  [2014-03-16 09:01:21,374] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+INFO  [2014-03-16 09:01:21,374] org.eclipse.jetty.util.thread.QueuedThreadPool:  at java.lang.Thread.run(Thread.java:744)
+INFO  [2014-03-16 09:01:21,376] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:01:21,378] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-16 09:01:21,479] org.eclipse.jetty.util.thread.QueuedThreadPool: 1 threads could not be stopped
+INFO  [2014-03-16 09:01:21,479] org.eclipse.jetty.util.thread.QueuedThreadPool: Couldn't stop Thread[qtp1551446957-24,5,main]
+INFO  [2014-03-16 09:01:21,483] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:124)
+INFO  [2014-03-16 09:01:21,483] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298)
+INFO  [2014-03-16 09:01:21,483] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+INFO  [2014-03-16 09:01:21,483] org.eclipse.jetty.util.thread.QueuedThreadPool:  at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+INFO  [2014-03-16 09:01:21,483] org.eclipse.jetty.util.thread.QueuedThreadPool:  at java.lang.Thread.run(Thread.java:744)
+INFO  [2014-03-16 09:15:59,917] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-03-16 09:15:59,925] org.eclipse.jetty.server.Server: jetty-8.y.z-SNAPSHOT
+INFO  [2014-03-16 09:16:00,253] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-16 09:16:00,422] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+
+INFO  [2014-03-16 09:16:00,423] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-16 09:16:01,091] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 09:16:01,108] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 09:16:27,636] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-03-16 09:16:27,647] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 09:16:27,656] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:16:27,656] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+WARN  [2014-03-16 09:16:29,757] org.eclipse.jetty.util.thread.QueuedThreadPool: 2 threads could not be stopped
+INFO  [2014-03-16 09:16:29,763] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:16:29,763] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-03-16 09:17:49,208] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-03-16 09:17:49,216] org.eclipse.jetty.server.Server: jetty-8.y.z-SNAPSHOT
+INFO  [2014-03-16 09:17:49,531] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-03-16 09:17:49,691] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+
+INFO  [2014-03-16 09:17:49,692] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-03-16 09:17:50,408] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-03-16 09:17:50,429] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
