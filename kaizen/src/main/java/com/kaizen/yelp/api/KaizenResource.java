@@ -16,7 +16,7 @@ import com.kaizen.yelp.domain.HelloMessage;
 import com.yammer.metrics.annotation.Timed;
 
 import com.mongodb.Mongo;
-import com.mongodb.MongoClient;
+//import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.WriteConcern;
 import com.mongodb.DB;
@@ -53,19 +53,19 @@ public class KaizenResource {
         hello.setMessage("Hello" + ( (name.isPresent()) ? " " + name.get() : ""));
        return hello;
     }
- /*   
+   
     @GET
     @Path("/city")
     @Timed(name = "get-city")
 	public Response getCity() {
         //return db.business.find().limit(5);
-        MongoClient mongoClient = new MongoClient();
+        Mongo mongoClient = new Mongo();
 	DB db = mongoClient.getDB("273project");
 	DBCollection coll = db.getCollection("business");
 	DBObject myDoc = coll.findOne();
 	//System.out.println(myDoc);
 	return myDoc;
     }
-    */
+
 
 }
