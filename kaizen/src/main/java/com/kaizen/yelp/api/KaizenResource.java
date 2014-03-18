@@ -15,7 +15,7 @@ import com.google.common.base.Optional;
 import com.kaizen.yelp.domain.HelloMessage;
 import com.yammer.metrics.annotation.Timed;
 
-import com.mongodb.Mongo;
+//import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.WriteConcern;
