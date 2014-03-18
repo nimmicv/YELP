@@ -57,14 +57,14 @@ public class KaizenResource {
     @GET
     @Path("/city")
     @Timed(name = "get-city")
-	public Response getCity() {
+	public void getCity() {
         //return db.business.find().limit(5);
         Mongo mongoClient = new Mongo();
 	DB db = mongoClient.getDB("273project");
 	DBCollection coll = db.getCollection("business");
 	DBObject myDoc = coll.findOne();
-	//System.out.println(myDoc);
-	return myDoc;
+	System.out.println(myDoc);
+	//return myDoc;
     }
 
 
