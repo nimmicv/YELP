@@ -19,7 +19,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import com.mongodb.MongoClient;
-import com.mongodb.DBObject
+import com.mongodb.DBObject;
 import com.yammer.metrics.annotation.Timed;
 
 
