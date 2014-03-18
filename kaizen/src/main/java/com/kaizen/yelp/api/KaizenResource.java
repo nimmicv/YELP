@@ -71,7 +71,7 @@ public class KaizenResource {
 	try {
 	   while(myCol.hasNext()) { return myCol.next(); }
 	} finally { myCol.close(); }
-	}
+	
        return myDoc;
 }
 }
