@@ -1,31 +1,31 @@
 package com.kaizen.yelp.api;
 
 import java.net.UnknownHostException;
-import java.util.regex.Pattern;
 import java.util.Calendar;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 //import javax.ws.rs.core.Response;
 
 import com.google.common.base.Optional;
+import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.HelloMessage;
-import com.yammer.metrics.annotation.Timed;
-
+import com.kaizen.yelp.dto.BusinessDto;
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 //import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
-import com.mongodb.WriteConcern;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.DBCursor;
-import com.mongodb.ServerAddress;
+import com.yammer.metrics.annotation.Timed;
 
 
 @Path("/kaizen")
@@ -58,54 +58,78 @@ public class KaizenResource {
     @GET
     @Path("/{city}")
     @Timed(name = "get-city")
-    	public DBObject getCity(@PathParam("city") String city) {
+    	public BusinessDto getCity(@PathParam("city") String city) {
     //	public DBCursor getCity(@PathParam("city") String city) {
         //return db.business.find().limit(5);
         //Mongo mongoClient = new Mongo();
 	DB db = mongo.getDB("273project");
 	DBCollection coll = db.getCollection("business");
-	DBObject myDoc = coll.findOne();
 	BasicDBObject query = new BasicDBObject("city", city);
 	DBCursor myCol = coll.find(query);
-	//System.out.println(myDoc);
+	myCol.limit(15);
+	
+	BusinessDto businesses = new BusinessDto();
+
 	try {
-	   while(myCol.hasNext()) { System.out.println(myCol.next()); }
+			while(myCol.hasNext()) { 
+								
+			        BasicDBObject businessObj = (BasicDBObject) myCol.next();
+			        String business_id = businessObj.getString("business_id");
+			        String categories = businessObj.getString("categories");
+			        String full_address = businessObj.getString("full_address");
+			        String hours = businessObj.getString("hours");
+			       
+			        Business business = new Business();
+			        business.setBusinessId(business_id);
+			        business.setCategories(categories);
+			        business.setFullAddress(full_address);
+			        business.setHours(hours);
+			 
+			        businesses.addBusiness(business);
+	
+	   }
 	} finally { myCol.close(); }
 	
-       return myDoc;
+    return businesses;
 }
 
 	
 	@GET
 	@Path("/{city}/{categories}")
 	@Timed(name = "get-categories")
-	public DBObject getCategory(@PathParam("city") String city, @PathParam("categories") String category) {
+	public BusinessDto getCategory(@PathParam("city") String city, @PathParam("categories") String category) {
 
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
-
-
 		BasicDBObject searchQuery = new BasicDBObject("city", city);
 		searchQuery.append("categories", category);
 
-		//BasicDBObject query = new BasicDBObject("categories", "Mexican");
-
-
 		DBCursor myCol = coll.find(searchQuery);
-		System.out.println("Total count"+ myCol.size());
-		DBObject myDoc= coll.findOne();
 		myCol.limit(15);
 
+		BusinessDto businesses = new BusinessDto();
 
 		try {
-			while(myCol.hasNext()) {
-				System.out.println(myCol.next());
-				//return myCol.next();
-			}
+				while(myCol.hasNext()) { 
+									
+				        BasicDBObject businessObj = (BasicDBObject) myCol.next();
+				        String business_id = businessObj.getString("business_id");
+				        String categories = businessObj.getString("categories");
+				        String full_address = businessObj.getString("full_address");
+				        String hours = businessObj.getString("hours");
+				       
+				        Business business = new Business();
+				        business.setBusinessId(business_id);
+				        business.setCategories(categories);
+				        business.setFullAddress(full_address);
+				        business.setHours(hours);
+				 
+				        businesses.addBusiness(business);
+		
+		   }
 		} finally { myCol.close(); }
-
-		return myDoc;
-
+		
+	    return businesses;
 	}
 
 
@@ -113,7 +137,7 @@ public class KaizenResource {
 	@GET
 	@Path("/{city}/{categories}/{hoursDay}/{time1}/{time2}")
 	@Timed(name = "get-timebased")
-	public DBObject getTimeBased(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("hoursDay") String day ,
+	public BusinessDto getTimeBased(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("hoursDay") String day ,
 			@PathParam("time1") String startTime , @PathParam("time2") String endTime  ) {
 
 		DB db = mongo.getDB("273project");
@@ -124,31 +148,40 @@ public class KaizenResource {
 		searchQuery.append("city", city);
 		searchQuery.append("open", true);
 
-		//searchQuery.append("hours.Monday.open", new BasicDBObject("$gt", startTime)).append("hours.Monday.close", new BasicDBObject("$lt", endTime));
-
-		searchQuery.append("hours."+day+".open", new BasicDBObject("$gt", startTime)).append("hours."+day+".close", new BasicDBObject("$lt", endTime));
+		searchQuery.append("hours."+day+".open", new BasicDBObject("$lte", startTime)).append("hours."+day+".close", new BasicDBObject("$gt", endTime));
 		DBCursor myCol = coll.find(searchQuery);
 		myCol.limit(15);
-		System.out.println("Total count"+ myCol.size());
+		
+		BusinessDto businesses = new BusinessDto();
 
-		DBObject myDoc = coll.findOne();
 		try {
-			while(myCol.hasNext()) {
-				System.out.println(myCol.next());
-				//return myCol.next();
-			}
+				while(myCol.hasNext()) { 
+									
+				        BasicDBObject businessObj = (BasicDBObject) myCol.next();
+				        String business_id = businessObj.getString("business_id");
+				        String categories = businessObj.getString("categories");
+				        String full_address = businessObj.getString("full_address");
+				        String hours = businessObj.getString("hours");
+				       
+				        Business business = new Business();
+				        business.setBusinessId(business_id);
+				        business.setCategories(categories);
+				        business.setFullAddress(full_address);
+				        business.setHours(hours);
+				 
+				        businesses.addBusiness(business);
+		
+		   }
 		} finally { myCol.close(); }
-
-		return myDoc;
-
-
+		
+	    return businesses;
 	}
 	
 	
 	@GET
 	@Path("/{city}/{categories}/{when}")
 	@Timed(name = "get-timebased")
-	public DBObject getCurrentTime(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("when") String when  ) {
+	public BusinessDto getCurrentTime(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("when") String when  ) {
 
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
@@ -180,24 +213,32 @@ public class KaizenResource {
 		searchQuery.append("open", true);
 		searchQuery.append("hours."+day+".open", new BasicDBObject("$lt", startTime)).append("hours."+day+".close", new BasicDBObject("$gt", startTime));
 
-
-
 		DBCursor cursor = coll.find(searchQuery);
 		cursor.limit(10);
-		DBObject myDoc = coll.findOne();
+
+		BusinessDto businesses = new BusinessDto();
 
 		try {
-
-			while (cursor.hasNext()) {
-				System.out.println(cursor.next());
-
-			}
-		} finally {
-			cursor.close();
-		}
-		System.out.println("Count"+cursor.count());
-		return myDoc;
+				while(cursor.hasNext()) { 
+									
+				        BasicDBObject businessObj = (BasicDBObject) cursor.next();
+				        String business_id = businessObj.getString("business_id");
+				        String categories = businessObj.getString("categories");
+				        String full_address = businessObj.getString("full_address");
+				        String hours_display = businessObj.getString("hours");
+				       
+				        Business business = new Business();
+				        business.setBusinessId(business_id);
+				        business.setCategories(categories);
+				        business.setFullAddress(full_address);
+				        business.setHours(hours_display);
+				 
+				        businesses.addBusiness(business);
 		
+		   }
+		} finally { cursor.close(); }
+		
+	    return businesses;
 	}
 
 }
