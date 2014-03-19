@@ -75,6 +75,7 @@ public class KaizenResource {
        return myDoc;
 }
 
+	
 	@GET
 	@Path("/{city}/{categories}")
 	@Timed(name = "get-categories")
@@ -88,13 +89,14 @@ public class KaizenResource {
 		searchQuery.append("categories", category);
 
 		//BasicDBObject query = new BasicDBObject("categories", "Mexican");
-		
-		
-		DBCursor myCol = coll.find(searchQuery);
-		DBObject myDoc= coll.findOne(myCol);
-		myCol.limit(5);
 
-				
+
+		DBCursor myCol = coll.find(searchQuery);
+		System.out.println("Total count"+ myCol.size());
+		DBObject myDoc= coll.findOne();
+		myCol.limit(15);
+
+
 		try {
 			while(myCol.hasNext()) {
 				System.out.println(myCol.next());
@@ -107,4 +109,40 @@ public class KaizenResource {
 	}
 
 
+
+	@GET
+	@Path("/{city}/{categories}/{hoursDay}/{time1}/{time2}")
+	@Timed(name = "get-timebased")
+	public DBObject getTimeBased(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("hoursDay") String day ,
+			@PathParam("time1") String startTime , @PathParam("time2") String endTime  ) {
+
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("business");
+
+
+		BasicDBObject searchQuery = new BasicDBObject("categories", category);
+		searchQuery.append("city", city);
+		searchQuery.append("open", true);
+
+		//searchQuery.append("hours.Monday.open", new BasicDBObject("$gt", startTime)).append("hours.Monday.close", new BasicDBObject("$lt", endTime));
+
+		searchQuery.append("hours."+day+".open", new BasicDBObject("$gt", startTime)).append("hours."+day+".close", new BasicDBObject("$lt", endTime));
+		DBCursor myCol = coll.find(searchQuery);
+		myCol.limit(15);
+		System.out.println("Total count"+ myCol.size());
+
+		DBObject myDoc = coll.findOne();
+		try {
+			while(myCol.hasNext()) {
+				System.out.println(myCol.next());
+				//return myCol.next();
+			}
+		} finally { myCol.close(); }
+
+		return myDoc;
+
+
+	}
+
 }
+
