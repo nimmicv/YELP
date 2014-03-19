@@ -2,7 +2,7 @@ package com.kaizen.yelp.api;
 
 import java.net.UnknownHostException;
 import java.util.regex.Pattern;
-
+import java.util.Calendar;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -161,8 +161,8 @@ public class KaizenResource {
 				"Friday", "Saturday" };
 		// Day_OF_WEEK starts from 1 while array index starts from 0
 		String day = strDays[now.get(Calendar.DAY_OF_WEEK) - 1];
-		//int hours = now.getTime().getHours();
-		int hours = 7 ;
+		int hours = now.getTime().getHours();
+		//int hours = 7 ;
 		int minutes = now.getTime().getMinutes();
 		System.out.println("Current day is : " + day + "hours and minutes" + hours + " " +minutes);
 
