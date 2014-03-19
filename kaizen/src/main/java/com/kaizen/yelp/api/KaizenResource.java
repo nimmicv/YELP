@@ -69,7 +69,7 @@ public class KaizenResource {
 	DBCursor myCol = coll.find(query);
 	//System.out.println(myDoc);
 	try {
-	   while(myCol.hasNext()) { return myCol.next(); }
+	   while(myCol.hasNext()) { System.out.println(myCol.next()); }
 	} finally { myCol.close(); }
 	
        return myDoc;
@@ -142,6 +142,62 @@ public class KaizenResource {
 		return myDoc;
 
 
+	}
+	
+	
+	@GET
+	@Path("/{city}/{categories}/{when}")
+	@Timed(name = "get-timebased")
+	public DBObject getCurrentTime(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("when") String when  ) {
+
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("business");
+
+		Calendar now = Calendar.getInstance();
+		System.out.println("Current date : " + (now.get(Calendar.MONTH) + 1) + "-"
+				+ now.get(Calendar.DATE) + "-" + now.get(Calendar.YEAR) + "-"+ now.getTime().getHours() + "-"+ now.getTime().getMinutes());
+
+		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday",
+				"Friday", "Saturday" };
+		// Day_OF_WEEK starts from 1 while array index starts from 0
+		String day = strDays[now.get(Calendar.DAY_OF_WEEK) - 1];
+		//int hours = now.getTime().getHours();
+		int hours = 7 ;
+		int minutes = now.getTime().getMinutes();
+		System.out.println("Current day is : " + day + "hours and minutes" + hours + " " +minutes);
+
+		String startTime;
+
+		if (hours <10 ){
+			startTime = "0"+hours + ":00";
+		}
+		else{
+			startTime = hours + ":00";
+		}
+
+		BasicDBObject searchQuery = new BasicDBObject("categories", category);
+		searchQuery.append("city", city);
+		searchQuery.append("open", true);
+		searchQuery.append("hours."+day+".open", new BasicDBObject("$lt", startTime)).append("hours."+day+".close", new BasicDBObject("$gt", startTime));
+
+
+
+		DBCursor cursor = coll.find(searchQuery);
+		cursor.limit(10);
+		DBObject myDoc = coll.findOne();
+
+		try {
+
+			while (cursor.hasNext()) {
+				System.out.println(cursor.next());
+
+			}
+		} finally {
+			cursor.close();
+		}
+		System.out.println("Count"+cursor.count());
+		return myDoc;
+		
 	}
 
 }
