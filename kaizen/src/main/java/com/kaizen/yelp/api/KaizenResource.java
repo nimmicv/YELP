@@ -46,7 +46,7 @@ public class KaizenResource {
     @Timed(name = "get-requests")
    //Give json class name as parameter eg:Book book 
     //Jersey notations
-	
+/*	
     public HelloMessage get(@QueryParam("name") Optional<String> name) {
 		
 	
@@ -54,7 +54,7 @@ public class KaizenResource {
         hello.setMessage("Hello" + ( (name.isPresent()) ? " " + name.get() : ""));
        return hello;
     }
-   
+ */  
     @GET
     @Path("/{city}")
     @Timed(name = "get-city")
