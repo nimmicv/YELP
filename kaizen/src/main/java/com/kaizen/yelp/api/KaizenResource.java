@@ -43,7 +43,7 @@ public class KaizenResource {
 	}
 	
 	@GET
-    @Timed(name = "get-requests")
+    //@Timed(name = "get-requests")
    //Give json class name as parameter eg:Book book 
     //Jersey notations
 /*	
@@ -57,7 +57,7 @@ public class KaizenResource {
  */  
     @GET
     @Path("/{city}")
-    @Timed(name = "get-city")
+    //@Timed(name = "get-city")
     	public BusinessDto getCity(@PathParam("city") String city) {
     //	public DBCursor getCity(@PathParam("city") String city) {
         //return db.business.find().limit(5);
@@ -96,7 +96,7 @@ public class KaizenResource {
 	
 	@GET
 	@Path("/{city}/{categories}")
-	@Timed(name = "get-categories")
+	//@Timed(name = "get-categories")
 	public BusinessDto getCategory(@PathParam("city") String city, @PathParam("categories") String category) {
 
 		DB db = mongo.getDB("273project");
@@ -136,7 +136,7 @@ public class KaizenResource {
 
 	@GET
 	@Path("/{city}/{categories}/{hoursDay}/{time1}/{time2}")
-	@Timed(name = "get-timebased")
+	//@Timed(name = "get-timebased")
 	public BusinessDto getTimeBased(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("hoursDay") String day ,
 			@PathParam("time1") String startTime , @PathParam("time2") String endTime  ) {
 
@@ -180,7 +180,7 @@ public class KaizenResource {
 	
 	@GET
 	@Path("/{city}/{categories}/{when}")
-	@Timed(name = "get-timebased")
+	//@Timed(name = "get-timebased")
 	public BusinessDto getCurrentTime(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("when") String when  ) {
 
 		DB db = mongo.getDB("273project");
