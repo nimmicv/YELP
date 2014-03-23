@@ -63,15 +63,16 @@ public class KaizenResource {
     @Timed(name = "get-query")
      public String getQuery(@Context UriInfo uriInfo) {
 	MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-	String match = "nothing matched";
+	String match="";
 	String state = queryParams.getFirst("state");
 	String city = queryParams.getFirst("city");
 	String address = queryParams.getFirst("address");
 	String zipcode = queryParams.getFirst("zipcode");
-	if (state != null){match="State is "+state; }
-	if (city != null){match="City is "+city; }
-	if (address != null){match="Address is "+address;}
-	if (zipcode != null){match="Zipcode is "+zipcode; }
+	if (state != null){match="State is "+state+" "+match; }
+	if (city != null){match="City is "+city+" "+match; }
+	if (address != null){match="Address is "+address+" "+match;}
+	if (zipcode != null){match="Zipcode is "+zipcode+" "+match; }
+	if (match == ""){match="nothing matched"; }
 	return match;
     }
  
