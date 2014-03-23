@@ -11,6 +11,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 //import javax.ws.rs.core.Response;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.Context;
 
 import com.google.common.base.Optional;
 import com.kaizen.yelp.domain.Business;
@@ -55,6 +58,21 @@ public class KaizenResource {
        return hello;
     }
  */  
+    @GET
+    @Path("/query")
+    @Timed(name = "get-query")
+     public void getQuery(@Context UriInfo uriInfo) {
+	MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
+	String state = queryParams.getFirst("state");
+	String city = queryParams.getFirst("city");
+	String address = queryParams.getFirst("address");
+	String zipcode = queryParams.getFirst("zipcode");
+	if (state != null){System.out.println("State is "+state); }
+	if (city != null){System.out.println("City is "+city); }
+	if (address != null){System.out.println("Address is "+address);}
+	if (zipcode != null){System.out.println("Zipcode is "+zipcode); }
+    }
+ 
     @GET
     @Path("/{city}")
     @Timed(name = "get-city")
