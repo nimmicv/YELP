@@ -57,7 +57,7 @@ public class KaizenResource {
         hello.setMessage("Hello" + ( (name.isPresent()) ? " " + name.get() : ""));
        return hello;
     }
- */  
+
     @GET
     //@Path("/query")
     @Timed(name = "get-query")
@@ -113,7 +113,57 @@ public class KaizenResource {
 	
     return businesses;
 }
+ */  
+    @GET
+    @Timed(name = "get-business")
+     public BusinessDto getBusiness(@Context UriInfo uriInfo) {
+	MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
+	DB db = mongo.getDB("273project");
+	DBCollection coll = db.getCollection("business");
+	String state = queryParams.getFirst("state");
+	String city = queryParams.getFirst("city");
+	String address = queryParams.getFirst("address");
+	String zipcode = queryParams.getFirst("zipcode");
+	String category = queryParams.getFirst("categories");
+	
+	if (state != null){ BasicDBObject searchQuery = new BasicDBObject("state", state); }
+	else{ BasicDBObject searchQuery = new BasicDBObject("state", "AZ"); }
+	
+	if (city != null){ searchQuery.append("city", city); } 
+	
+	if (city != null){ searchQuery.append("zipcode", zipcode); }
+	
+	if (category != null){ searchQuery.append("categories", category); }
+	
+	if (city != null){ searchQuery.append("address", address); }
 
+	DBCursor myCol = coll.find(searchQuery);
+	myCol.limit(20);
+	
+	BusinessDto businesses = new BusinessDto();
+
+	try {
+			while(myCol.hasNext()) { 
+								
+			        BasicDBObject businessObj = (BasicDBObject) myCol.next();
+			        String business_id = businessObj.getString("business_id");
+			        String categories = businessObj.getString("categories");
+			        String full_address = businessObj.getString("full_address");
+			        String hours = businessObj.getString("hours");
+			       
+			        Business business = new Business();
+			        business.setBusinessId(business_id);
+			        business.setCategories(categories);
+			        business.setFullAddress(full_address);
+			        business.setHours(hours);
+			 
+			        businesses.addBusiness(business);
+	
+	   }
+	} finally { myCol.close(); }
+	
+    return businesses;
+}
 	
 	@GET
 	@Path("/{city}/{categories}")
