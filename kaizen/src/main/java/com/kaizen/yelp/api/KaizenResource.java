@@ -125,10 +125,10 @@ public class KaizenResource {
 	String address = queryParams.getFirst("address");
 	String zipcode = queryParams.getFirst("zipcode");
 	String category = queryParams.getFirst("categories");
+	BasicDBObject searchQuery = new BasicDBObject();
 	
-	if (state != null){ BasicDBObject searchQuery = new BasicDBObject("state", state); }
-	else{ BasicDBObject searchQuery = new BasicDBObject("state", "AZ"); }
-	
+	if (state != null){ searchQuery.append("state", state); }
+
 	if (city != null){ searchQuery.append("city", city); } 
 	
 	if (city != null){ searchQuery.append("zipcode", zipcode); }
