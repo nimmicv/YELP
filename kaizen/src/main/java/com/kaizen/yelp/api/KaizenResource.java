@@ -59,7 +59,7 @@ public class KaizenResource {
     }
  */  
     @GET
-    @Path("/query")
+    //@Path("/query")
     @Timed(name = "get-query")
      public void getQuery(@Context UriInfo uriInfo) {
 	MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
