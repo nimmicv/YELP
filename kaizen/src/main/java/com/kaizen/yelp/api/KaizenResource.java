@@ -131,11 +131,11 @@ public class KaizenResource {
 
 	if (city != null){ searchQuery.append("city", city); } 
 	
-	if (city != null){ searchQuery.append("zipcode", zipcode); }
+	if (zipcode != null){ searchQuery.append("zipcode", zipcode); }
 	
 	if (category != null){ searchQuery.append("categories", category); }
 	
-	if (city != null){ searchQuery.append("address", address); }
+	if (address != null){ searchQuery.append("address", address); }
 
 	DBCursor myCol = coll.find(searchQuery);
 	myCol.limit(20);
