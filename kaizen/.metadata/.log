@@ -1,0 +1,431 @@
+!SESSION 2014-04-14 10:10:02.771 -----------------------------------------------
+eclipse.buildId=3.0.0.201208091018-RELEASE-e42
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/dhanyabalasundaran/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.springsource.sts.ide -keyring /Users/dhanyabalasundaran/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.equinox.weaving.aspectj 4 0 2014-04-14 10:10:03.682
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: The activator org.eclipse.equinox.weaving.aspectj.AspectJWeavingActivator for bundle org.eclipse.equinox.weaving.aspectj is invalid
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:172)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	... 12 more
+Root exception:
+java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.equinox.weaving.caching 4 0 2014-04-14 10:10:03.683
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: The activator org.eclipse.equinox.weaving.internal.caching.Activator for bundle org.eclipse.equinox.weaving.caching is invalid
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:172)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	... 12 more
+Root exception:
+java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.equinox.weaving.caching.j9 4 0 2014-04-14 10:10:03.683
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: The activator org.eclipse.equinox.weaving.internal.caching.j9.CachingServicePlugin for bundle org.eclipse.equinox.weaving.caching.j9 is invalid
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:172)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.lang.IllegalStateException: Expected to find an object at table index: 1302
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	... 12 more
+Root exception:
+java.lang.IllegalStateException: Expected to find an object at table index: 1302
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.core.net 1 0 2014-04-14 10:10:46.694
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.springsource.ide.eclipse.commons.frameworks.core 0 0 2014-04-14 10:10:53.759
+!MESSAGE Result of converting legacy STS 2.x workspace preferences to 3.x
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2014-04-14 10:10:53.759
+!MESSAGE Converted legacy STS plugin preferences
+!SUBENTRY 1 unknown 0 0 2014-04-14 10:10:53.759
+!MESSAGE OK
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2014-04-14 10:10:53.759
+!MESSAGE Converted legacy Roo plugin state locations
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2014-04-14 10:10:53.759
+!MESSAGE Converted legacy STS plugin state locations
+
+!ENTRY org.eclipse.osgi 2 1 2014-04-14 10:12:04.203
+!MESSAGE NLS unused message: LifecycleMappingPropertyPage_this_message in: org.eclipse.m2e.core.ui.internal.messages
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-04-14 10:13:40.264
+!MESSAGE CatalogItem org.eclipse.m2e.discovery.lifecyclemapping.m2e-egit does not contain lifecycle mapping metadata
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-04-14 10:13:40.276
+!MESSAGE CatalogItem org.eclipse.m2e.discovery.lifecyclemapping.m2e-subversive does not contain lifecycle mapping metadata
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-04-14 10:13:40.277
+!MESSAGE CatalogItem org.eclipse.m2e.discovery.lifecyclemapping.m2e-subclipse does not contain lifecycle mapping metadata
+!SESSION 2014-04-14 10:34:26.553 -----------------------------------------------
+eclipse.buildId=3.0.0.201208091018-RELEASE-e42
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/dhanyabalasundaran/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.springsource.sts.ide -keyring /Users/dhanyabalasundaran/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.equinox.weaving.aspectj 4 0 2014-04-14 10:34:27.453
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: The activator org.eclipse.equinox.weaving.aspectj.AspectJWeavingActivator for bundle org.eclipse.equinox.weaving.aspectj is invalid
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:172)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	... 12 more
+Root exception:
+java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.equinox.weaving.caching 4 0 2014-04-14 10:34:27.455
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: The activator org.eclipse.equinox.weaving.internal.caching.Activator for bundle org.eclipse.equinox.weaving.caching is invalid
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:172)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	... 12 more
+Root exception:
+java.lang.IllegalStateException: Expected to find an object at table index: 2324
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.equinox.weaving.caching.j9 4 0 2014-04-14 10:34:27.455
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: The activator org.eclipse.equinox.weaving.internal.caching.j9.CachingServicePlugin for bundle org.eclipse.equinox.weaving.caching.j9 is invalid
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:172)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.lang.IllegalStateException: Expected to find an object at table index: 1302
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	... 12 more
+Root exception:
+java.lang.IllegalStateException: Expected to find an object at table index: 1302
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadBundleActivator(AbstractBundle.java:165)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:679)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1177)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:559)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:544)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:457)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:243)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:438)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.core.net 1 0 2014-04-14 10:34:38.233
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.osgi 2 1 2014-04-14 10:34:52.819
+!MESSAGE NLS unused message: LifecycleMappingPropertyPage_this_message in: org.eclipse.m2e.core.ui.internal.messages
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-04-14 10:34:59.146
+!MESSAGE CatalogItem org.eclipse.m2e.discovery.lifecyclemapping.m2e-egit does not contain lifecycle mapping metadata
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-04-14 10:34:59.148
+!MESSAGE CatalogItem org.eclipse.m2e.discovery.lifecyclemapping.m2e-subversive does not contain lifecycle mapping metadata
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-04-14 10:34:59.149
+!MESSAGE CatalogItem org.eclipse.m2e.discovery.lifecyclemapping.m2e-subclipse does not contain lifecycle mapping metadata

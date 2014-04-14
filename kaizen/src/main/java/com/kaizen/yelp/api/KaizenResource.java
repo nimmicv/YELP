@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -114,6 +115,40 @@ public class KaizenResource {
     return businesses;
 }
  */  
+	@POST
+	@Path("/validate")
+	public String userValidation(@Context UriInfo uriInfo) throws UnknownHostException, MongoException
+	{
+		MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
+		
+		String username=queryParams.getFirst("username"); 
+		String password=queryParams.getFirst("password");
+		int flag =0;
+		String returnStmt=null;
+		Mongo mongo1 = new Mongo("127.0.0.1");
+		DB db = mongo1.getDB("273project");
+		DBCollection users = db.getCollection("userInfo");
+		DBObject userData = new BasicDBObject("username", username).append("password",password);
+		DBCursor cursor = users.find(userData);
+		while (cursor.hasNext())
+		{
+			flag =1;
+		}
+		
+		if(flag == 0)
+			returnStmt = "Please Register";
+		else if (flag ==1)
+			returnStmt = "User Validated";
+
+		
+		
+		return returnStmt;
+		
+	}
+	
+	
+	
+	
     @GET
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {
