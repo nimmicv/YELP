@@ -1,6 +1,7 @@
 package com.kaizen.yelp.serviceclass;
 
 import net.vz.mongodb.jackson.JacksonDBCollection;
+
 import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.api.KaizenResource;
 import com.kaizen.yelp.config.KaizenConfiguration;
@@ -10,6 +11,7 @@ import com.mongodb.Mongo;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
+import com.yammer.dropwizard.views.ViewBundle;
 
 public class KaizenService extends Service<KaizenConfiguration> {
 
@@ -20,6 +22,7 @@ public class KaizenService extends Service<KaizenConfiguration> {
 	@Override
 	public void initialize(Bootstrap<KaizenConfiguration> bootstrap) {
 		bootstrap.setName("kaizen-service");
+		bootstrap.addBundle(new ViewBundle());
 	}
 
 	@Override
