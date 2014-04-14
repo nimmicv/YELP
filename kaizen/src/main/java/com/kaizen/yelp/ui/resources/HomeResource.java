@@ -13,8 +13,8 @@ import com.kaizen.yelp.ui.views.HomeView;
 public class HomeResource {
    
 
-    @GET
-    public HomeView getHome() {
+@GET
+public HomeView getHome() {
 	return new HomeView(new HelloMessage());
-    }
+}
 }

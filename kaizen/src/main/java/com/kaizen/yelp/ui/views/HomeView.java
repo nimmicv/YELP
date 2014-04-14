@@ -8,14 +8,14 @@ import com.yammer.dropwizard.views.View;
 
 
 public class HomeView extends View {
-	private final HelloMessage message;
+	private final HelloMessage Message;
 	
 	
     public HomeView(HelloMessage message) {
               super("login.mustache");
-              this.message = message;
+              this.Message = message;
     }
     public HelloMessage getMessage() {
-              return message;
+              return Message;
     }
 }
