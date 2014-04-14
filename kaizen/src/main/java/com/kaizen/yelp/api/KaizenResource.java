@@ -125,8 +125,7 @@ public class KaizenResource {
 		String password=queryParams.getFirst("password");
 		int flag =0;
 		String returnStmt=null;
-		Mongo mongo1 = new Mongo("127.0.0.1");
-		DB db = mongo1.getDB("273project");
+		DB db = mongo.getDB("273project");
 		DBCollection users = db.getCollection("userInfo");
 		DBObject userData = new BasicDBObject("username", username).append("password",password);
 		DBCursor cursor = users.find(userData);
