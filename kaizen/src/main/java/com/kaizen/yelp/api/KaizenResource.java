@@ -204,7 +204,6 @@ public class KaizenResource {
 			returnVal = false;
 		else if (flag ==1)
 			returnVal = true;
-		
 		return returnVal;
 	}
 
