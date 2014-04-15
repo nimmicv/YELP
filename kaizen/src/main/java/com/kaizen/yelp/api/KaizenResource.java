@@ -187,6 +187,7 @@ public class KaizenResource {
 	public boolean validateUser(UserLogin user) {
 		String username = user.getUsername();
 		String password = user.getPassword();
+		System.out.println(username);
 		boolean returnVal = false;
 		int flag = 0;
 		DB db = mongo.getDB("273project");
