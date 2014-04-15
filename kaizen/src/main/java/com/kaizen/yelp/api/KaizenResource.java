@@ -113,67 +113,56 @@ public class KaizenResource {
 	
     return businesses;
 }
- */  
+ */
+
     @GET
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {
-	MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-	DB db = mongo.getDB("273project");
-	DBCollection bus = db.getCollection("business");
-        DBCollection rev = db.getCollection("review");
-        DBCollection usr = db.getCollection("user");
+        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
+        DB db = mongo.getDB("273project");
+        DBCollection coll = db.getCollection("business");
 
         String businessID = queryParams.getFirst("business_id");
-        String userID = queryParams.getFirst("user_id");
-        String reviewID = queryParams.getFirst("review_id");
+        String state = queryParams.getFirst("state");
+        String city = queryParams.getFirst("city");
+        String address = queryParams.getFirst("address");
+        String zipcode = queryParams.getFirst("zipcode");
+        String category = queryParams.getFirst("categories");
 
-	String state = queryParams.getFirst("state");
-	String city = queryParams.getFirst("city");
-	String address = queryParams.getFirst("address");
-	String zipcode = queryParams.getFirst("zipcode");
-	String category = queryParams.getFirst("categories");
-	BasicDBObject searchQuery = new BasicDBObject();
-
-	if (state != null){ searchQuery.append("state", state); }
-
-	if (city != null){ searchQuery.append("city", city); }
-
-	if (zipcode != null){ searchQuery.append("zipcode", zipcode); }
-
-	if (category != null){ searchQuery.append("categories", category); }
-
-	if (address != null){ searchQuery.append("address", address); }
+        BasicDBObject searchQuery = new BasicDBObject();
 
         if (businessID != null){ searchQuery.append("business_id", businessID); }
+        else {
+		if (state != null){ searchQuery.append("state", state); }
+		if (city != null){ searchQuery.append("city", city); }
+		if (zipcode != null){ searchQuery.append("zipcode", zipcode); }
+		if (category != null){ searchQuery.append("categories", category); }
+		if (address != null){ searchQuery.append("address", address); }
+        }
 
-        if (userID != null){ searchQuery.append("user_id", userID); }
+        DBCursor busColl = coll.find(searchQuery);
+        busColl.limit(20);
 
-        if (reviewID != null){ searchQuery.append("review_id", reviewID); }
+        BusinessDto businesses = new BusinessDto();
 
+        try {
+                        while(busColl.hasNext()) {
+                                BasicDBObject businessObj = (BasicDBObject) busColl.next();
+                                String business_id = businessObj.getString("business_id");
+                                String categories = businessObj.getString("categories");
+                                String full_address = businessObj.getString("full_address");
+                                String hours = businessObj.getString("hours");
 
-	DBCursor busCol = bus.find(searchQuery);
-	busCol.limit(20);
+                                Business business = new Business();
+                                business.setBusinessId(business_id);
+                                business.setCategories(categories);
+                                business.setFullAddress(full_address);
+                                business.setHours(hours);
 
-	BusinessDto businesses = new BusinessDto();
+                                businesses.addBusiness(business);
 
-	try {
-			while(busCol.hasNext()) {
-			        BasicDBObject businessObj = (BasicDBObject) busCol.next();
-			        String business_id = businessObj.getString("business_id");
-			        String categories = businessObj.getString("categories");
-			        String full_address = businessObj.getString("full_address");
-			        String hours = businessObj.getString("hours");
-
-			        Business business = new Business();
-			        business.setBusinessId(business_id);
-			        business.setCategories(categories);
-			        business.setFullAddress(full_address);
-			        business.setHours(hours);
-
-			        businesses.addBusiness(business);
-
-	   }
-	} finally { busCol.close(); }
+           }
+        } finally { busColl.close(); }
 
     return businesses;
 }
