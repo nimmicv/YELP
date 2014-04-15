@@ -11,6 +11,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
 import com.yammer.dropwizard.Service;
+import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 import com.yammer.dropwizard.views.ViewBundle;
@@ -27,6 +28,7 @@ public class KaizenService extends Service<KaizenConfiguration> {
 	public void initialize(Bootstrap<KaizenConfiguration> bootstrap) {
 		bootstrap.setName("kaizen-service");
 		bootstrap.addBundle(new ViewBundle());
+		bootstrap.addBundle(new AssetsBundle());
 	}
 
 	@Override
