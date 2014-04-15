@@ -12,7 +12,10 @@ public class HomeView extends View {
 
 	private UserLogin loginuser;
 	
-    public HomeView(HelloMessage message) {
+    public UserLogin getLoginuser() {
+		return loginuser;
+	}
+	public HomeView(HelloMessage message) {
              super("login.mustache");
 
     	//super("home.mustache");
