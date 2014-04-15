@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	alert("Hello")
 	$("#login").click(function() {
 		var username = $('#username').val();
 
