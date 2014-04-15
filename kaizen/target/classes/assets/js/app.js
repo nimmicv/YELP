@@ -12,11 +12,12 @@
 			data:JSON.stringify(strData),
 			success : function(response) {
 				alert("you are logged in!");
-				location.href = "/com/kaizen/yelp/ui/views/home.mustache";
+				location.href = "http://localhost:8080/home/"+username;
 			},
 			error:function(response)
 			{
 				alert("error");
+				location.href = "http://localhost:8080/home/"+username;
 			}
 		});
 		

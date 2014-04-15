@@ -4,20 +4,25 @@ import java.util.List;
 
 import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.HelloMessage;
+import com.kaizen.yelp.domain.UserLogin;
 import com.yammer.dropwizard.views.View;
 
 
 public class HomeView extends View {
-	private final HelloMessage Message;
-	
+
+	private UserLogin loginuser;
 	
     public HomeView(HelloMessage message) {
              super("login.mustache");
 
     	//super("home.mustache");
-              this.Message = message;
     }
-    public HelloMessage getMessage() {
-              return Message;
-    }
+    public HomeView(UserLogin loggedinuser) {
+        super("home.mustache");
+        loginuser = loggedinuser;
+
+	//super("home.mustache");
+         
+}
+  
 }
