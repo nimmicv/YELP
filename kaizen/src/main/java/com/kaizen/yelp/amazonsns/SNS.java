@@ -31,7 +31,7 @@ public class SNS {
 
 	public void subscribeToTopic(AmazonSNS sns , String topicArn , String protocol , String endpoint){
 		
-		sns.subscribe(topicArn, protocol, endpoint);
+		//sns.subscribe(topicArn, protocol, endpoint);
 		//sns.subscribe(topicArn, "email", "swetha.patnala@gmail.com");
 	}
 
