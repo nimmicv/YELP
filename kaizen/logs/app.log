@@ -1023,3 +1023,51 @@ INFO  [2014-04-15 13:53:43,494] org.eclipse.jetty.server.handler.ContextHandler:
 =======
 >>>>>>> FETCH_HEAD
 >>>>>>> FETCH_HEAD
+INFO  [2014-04-15 14:06:06,506] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-04-15 14:06:06,510] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-04-15 14:06:06,604] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-04-15 14:06:06,672] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/review (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/tip (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/user (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
+    POST    /kaizen/validate (com.kaizen.yelp.api.KaizenResource)
+    GET     / (com.kaizen.yelp.ui.resources.HomeResource)
+
+INFO  [2014-04-15 14:06:06,672] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-04-15 14:06:07,071] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 14:06:07,077] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 14:06:39,046] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 14:06:39,048] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 14:06:39,050] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-04-15 14:06:39,050] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 14:06:41,102] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 14:06:41,103] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-04-15 14:07:29,247] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-04-15 14:07:29,252] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-04-15 14:07:29,374] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-04-15 14:07:29,446] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/review (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/tip (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/user (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
+    POST    /kaizen/validate (com.kaizen.yelp.api.KaizenResource)
+    GET     / (com.kaizen.yelp.ui.resources.HomeResource)
+
+INFO  [2014-04-15 14:07:29,446] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-04-15 14:07:29,907] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 14:07:29,912] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
