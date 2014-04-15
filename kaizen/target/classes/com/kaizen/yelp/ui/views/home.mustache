@@ -1,53 +1,62 @@
 <html>
+<body background="http://www.psdgraphics.com/file/red-grunge-background.jpg">
+<style tyle="text/css">
 
- <link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
+
+</style>
+<link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" class="cssdeck">
 
-<div class="" id="loginModal">
-	<div class="modal-header">
-		<h3>The Kaizen Yelp</h3>
-		<h4 align = "right">Welcome {{loginuser.username}}</h4>
-	</div>
-	</div>
-	<div class="modal-body">
-		<div class="well">
-			<nav>
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#login" data-toggle="tab">Home</a></li>
-				<li><a href="#about" data-toggle="tab">About Me</a></li>
-				<li><a href="#writeReview" data-toggle="tab">Write Review</a></li>
-				<li><a href="#Search" data-toggle="tab">Search</a></li>
+<div class="navbar-wrapper">
+    <div class="container">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+            
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+ 					<span class="icon-bar"></span>
+					 <span class="icon-bar"></span>
 
+                </button> 
 
-			</ul>
-		</nav>
-			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane active in">
-						<fieldset>
-							   
-							<div class="control-group">
-								<label class="control-label"  for="search">Search for..</label>
-								<div class="controls">
-									<input type="text" id="search" name="search" placeholder="" class="input-xlarge">
-								</div>
-							</div>
-							
-							
-							<div class="control-group" id="find">
-								<!-- Button -->
-								<div class="controls" id="find">
-								<input type="button" onclick="home.js" id="find">Find</input>
-								<!--	<button class="btn btn-success" action="home.js">Find</button> -->
-								</div>
-							</div>
-						</fieldset>
-				</div>
-				
+                <div class="nav-collapse collapse">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#" class="" contenteditable="false">Home</a>
+
+                        </li>
+                        <li><a href="#review" class="" contenteditable="false">Reviews</a>
+
+                        </li>
+                        <li><a href="#search" class="" contenteditable="false">Search</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- /.navbar-inner -->
+        </div>
+        <!-- /.navbar -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.navbar-wrapper -->
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="item active">
+        <div style="vertical-align:center" class="container">
+                 <img src="http://loudrumor.com/wp-content/uploads/2013/05/yelp-icon1.png">
+                 <h3 class="" style="color:white" contenteditable="false">Welcome {{loginuser.username}} </h3>
+                 <h3 class="" style="color:white" contenteditable="false">Email {{loginuser.email}} </h3>
 			</div>
-		</div>
-	</div>
+            
+        </div>
+    </div>
+</div>
+
  <script src="//code.jquery.com/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="../assets/js/home.js"></script>
-    </body>
+
+ 
+</body>
 </html>
