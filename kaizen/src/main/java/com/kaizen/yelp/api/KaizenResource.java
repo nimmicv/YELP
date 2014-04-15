@@ -114,10 +114,8 @@ public class KaizenResource {
 	
     return businesses;
 }
-<<<<<<< HEAD
+
  */
-=======
- */  
 	@POST
 	@Path("/validate")
 	public String userValidation(@Context UriInfo uriInfo) throws UnknownHostException, MongoException
@@ -148,9 +146,6 @@ public class KaizenResource {
 
 	}
 
-
-
->>>>>>> 3593e46e9890b27746c29dc36dcc07ebfbc04de0
 
     @GET
     @Timed(name = "get-business")
