@@ -122,6 +122,6 @@ public class HomeResource {
 		}
 		System.out.println(reviewText);
 		userData.setReviewText(reviewText);
-		return new HomeView(user,userData,reviews);
+		return new HomeView(user,userData,reviews.getReviews());
 	}
 }
