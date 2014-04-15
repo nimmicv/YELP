@@ -6,17 +6,9 @@
 <div class="" id="loginModal">
 	<div class="modal-header">
 		<h3>The Kaizen Yelp</h3>
-		<h4 align = "right">Welcome</h4>
-		<div>{{username}}</div>
+		<h4 align = "right">Welcome {{loginuser.username}}</h4>
 	</div>
-		<script type="text/javascript">
-			var url = window.location.href;
-			var username = url.split('/')[4];
-			alert(username);
-		</script>	
-		<h4 align = "right">Welcome
-		<script type="text/javascript">document.write(username);</script>
-	</h4>	</div>
+	</div>
 	<div class="modal-body">
 		<div class="well">
 			<nav>
