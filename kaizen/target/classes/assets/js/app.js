@@ -4,7 +4,8 @@ $(document).ready(function(){
 
        var password = $('#password').val();
        alert(username);
-
+       });	
+});
 //	$.ajax({		
 //	    	type:'GET',
 //	    	url:'http://localhost:8080/kaizen/validate',
@@ -21,5 +22,4 @@ $(document).ready(function(){
 //	    	
 //	    	
 //	    });
-	});	
-	});
+	
