@@ -18,8 +18,14 @@ import javax.ws.rs.core.Context;
 
 import com.google.common.base.Optional;
 import com.kaizen.yelp.domain.Business;
+import com.kaizen.yelp.domain.Review;
+import com.kaizen.yelp.domain.User;
+import com.kaizen.yelp.domain.Tip;
 import com.kaizen.yelp.domain.HelloMessage;
 import com.kaizen.yelp.dto.BusinessDto;
+import com.kaizen.yelp.dto.ReviewDto;
+import com.kaizen.yelp.dto.UserDto;
+import com.kaizen.yelp.dto.TipDto;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -198,6 +204,154 @@ public class KaizenResource {
 
     return businesses;
 }
+
+    @GET
+    @Timed(name = "get-review")
+    @Path("/review")
+     public ReviewDto getReview(@Context UriInfo uriInfo) {
+        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
+        DB db = mongo.getDB("273project");
+        DBCollection coll = db.getCollection("review");
+
+        String reviewID = queryParams.getFirst("review_id");
+        String businessID = queryParams.getFirst("business_id");
+        String userID = queryParams.getFirst("user_id");
+
+        BasicDBObject searchQuery = new BasicDBObject();
+        
+        if (reviewID != null){ searchQuery.append("review_id", reviewID); }
+        else {        
+                if (businessID != null){ searchQuery.append("business_id", businessID); }	
+	        if (userID != null){ searchQuery.append("user_id", userID); }
+        }
+
+        DBCursor revCol = coll.find(searchQuery);
+        revCol.limit(20);
+
+        ReviewDto reviews = new ReviewDto();
+
+        try {
+                        while(revCol.hasNext()) {
+                                BasicDBObject reviewObj = (BasicDBObject) revCol.next();
+
+                                String review_id = reviewObj.getString("review_id");
+                                String business_id = reviewObj.getString("business_id");
+                                String user_id = reviewObj.getString("user_id");
+                                String stars = reviewObj.getString("stars");
+                                String date = reviewObj.getString("date");
+                                String text = reviewObj.getString("text");
+
+                                Review review = new Review();
+                                review.setReviewId(review_id);
+                                review.setBusinessId(business_id);
+                                review.setUserId(user_id);
+                                review.setStars(stars);
+                                review.setDate(date);
+                                review.setText(text);
+
+                                reviews.addReview(review);
+
+           }
+        } finally { revCol.close(); }
+
+    return reviews;
+}
+
+    @GET
+    @Timed(name = "get-user")
+    @Path("/user")
+     public UserDto getUser(@Context UriInfo uriInfo) {
+        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
+        DB db = mongo.getDB("273project");
+        DBCollection coll = db.getCollection("user");
+
+        String businessID = queryParams.getFirst("business_id");
+        String userID = queryParams.getFirst("user_id");
+
+        BasicDBObject searchQuery = new BasicDBObject();
+
+	if (userID != null){ searchQuery.append("user_id", userID); }
+
+        DBCursor userCol = coll.find(searchQuery);
+        userCol.limit(20);
+
+        UserDto users = new UserDto();
+
+        try {
+                        while(userCol.hasNext()) {
+                                BasicDBObject userObj = (BasicDBObject) userCol.next();
+
+                                String user_id = userObj.getString("user_id");
+                                String yelping_since = userObj.getString("yelping_since");
+                                String review_count = userObj.getString("review_count");
+                                String name = userObj.getString("name");
+                                String fans = userObj.getString("fans");
+                                String average_stars = userObj.getString("average_stars");
+
+                                User user = new User();
+                                user.setUserId(user_id);
+                                user.setYelpingSince(yelping_since);
+                                user.setReviewCount(review_count);
+                                user.setName(name);
+                                user.setFans(fans);
+                                user.setAverageStars(average_stars);
+
+                                users.addUser(user);
+
+           }
+        } finally { userCol.close(); }
+
+    return users;
+}
+
+
+    @GET
+    @Timed(name = "get-tip")
+    @Path("/tip")
+     public TipDto getTip(@Context UriInfo uriInfo) {
+        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
+        DB db = mongo.getDB("273project");
+        DBCollection coll = db.getCollection("tip");
+
+        String businessID = queryParams.getFirst("business_id");
+        String userID = queryParams.getFirst("user_id");
+
+        BasicDBObject searchQuery = new BasicDBObject();
+
+	if (userID != null){ searchQuery.append("user_id", userID); }
+	if (businessID != null){ searchQuery.append("business_id", businessID); }
+  
+
+        DBCursor tipCol = coll.find(searchQuery);
+        tipCol.limit(20);
+
+        TipDto tips = new TipDto();
+
+        try {
+                        while(tipCol.hasNext()) {
+                                BasicDBObject userObj = (BasicDBObject) tipCol.next();
+
+                                String user_id = userObj.getString("user_id");
+                                String business_id = userObj.getString("business_id");
+                                String likes = userObj.getString("likes");
+                                String date = userObj.getString("date");
+                                String text = userObj.getString("text");
+
+                                Tip tip = new Tip();
+                                tip.setUserId(user_id);
+                                tip.setBusinessId(business_id);
+                                tip.setLikes(likes);
+                                tip.setDate(date);
+                                tip.setText(text);
+
+                                tips.addTip(tip);
+
+           }
+        } finally { tipCol.close(); }
+
+    return tips;
+}
+
 
 	@GET
 	@Path("/{city}/{categories}")
