@@ -1,4 +1,6 @@
-$( document ).ready(function() {
-    alert( "The DOM is now loaded and can be manipulated." );
-  });
- 
+
+	$("#find").click(function() {
+		alert("hi inside find");
+	});
+});
+
