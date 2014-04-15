@@ -1,9 +1,11 @@
 $(document).ready(function(){
 	$("#login").click(function() {
 		var username = $('#username').val();
-		var password = $('#password').val();
-		$.ajax({
-	    	type:'POST',
+
+	var password = $('#password').val();
+	alert(username);
+	$.ajax({		
+	    	type:'GET',
 	    	url:'http://localhost:8080/kaizen/validate',
 	    	contentType: 'application/json',
 			dataType: 'json',
