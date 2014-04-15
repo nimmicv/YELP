@@ -1,25 +1,26 @@
-$(document).ready(function(){
-       $("#login").click(function() {
-               var username = $('#username').val();
+	$("#login").click(function() {
+		var username = $('#username').val();
+		var password = $('#password').val();
+		alert(username);
+		var strData={"username":username,"password":password};
+		
+		$.ajax({
+			type : 'POST',
+			url : '/kaizen/validate',
+			contentType : 'application/json',
+			dataType : 'json',
+			data:JSON.stringify(strData),
+			success : function(response) {
+				alert("you are logged in!");
+				location.href = "/com/kaizen/yelp/ui/views/home.mustache";
+			},
+			error:function(response)
+			{
+				alert("error");
+			}
+		});
+		
+		
+		
+	});
 
-       var password = $('#password').val();
-       alert(username);
-       });	
-});
-//	$.ajax({		
-//	    	type:'GET',
-//	    	url:'http://localhost:8080/kaizen/validate',
-//	    	contentType: 'application/json',
-//			dataType: 'json',
-//			data:{
-//				"username":username,
-//				"password":password
-//				
-//			},
-//			success:function(response){
-//				alert(response);
-//			}
-//	    	
-//	    	
-//	    });
-	
