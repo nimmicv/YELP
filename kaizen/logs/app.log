@@ -3002,3 +3002,9 @@ INFO  [2014-04-15 19:04:55,228] com.yammer.dropwizard.config.Environment: tasks 
 
 INFO  [2014-04-15 19:04:55,596] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
 INFO  [2014-04-15 19:04:55,598] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 19:10:20,170] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 19:10:20,171] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 19:10:20,172] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-04-15 19:10:20,172] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/dhanyabalasundaran/Development/workspace-273/YelpProject/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 19:10:22,226] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/dhanyabalasundaran/Development/workspace-273/YelpProject/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 19:10:22,226] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
