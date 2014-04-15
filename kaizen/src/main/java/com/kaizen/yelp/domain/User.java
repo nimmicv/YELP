@@ -1,6 +1,6 @@
 package com.kaizen.yelp.domain;
-
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 @JsonPropertyOrder(alphabetic = true)
 public class User {

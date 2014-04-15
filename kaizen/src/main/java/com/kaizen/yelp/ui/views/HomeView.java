@@ -13,6 +13,7 @@ public class HomeView extends View {
 	
     public HomeView(HelloMessage message) {
              super("login.mustache");
+
     	//super("home.mustache");
               this.Message = message;
     }
