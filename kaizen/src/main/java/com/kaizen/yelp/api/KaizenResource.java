@@ -36,17 +36,17 @@ import com.yammer.metrics.annotation.Timed;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class KaizenResource {
-	
+
 	private Mongo mongo;
 	private DBCollection coll;
 	public KaizenResource(Mongo mongo, DBCollection coll) throws UnknownHostException, MongoException
 	{
 		this.mongo = mongo;
 		this.coll = coll;
-		
+
 	}
-	
-	
+
+
     //@Timed(name = "get-requests")
    //Give json class name as parameter eg:Book book 
     //Jersey notations
@@ -120,7 +120,7 @@ public class KaizenResource {
 	public String userValidation(@Context UriInfo uriInfo) throws UnknownHostException, MongoException
 	{
 		MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-		
+
 		String username=queryParams.getFirst("username"); 
 		String password=queryParams.getFirst("password");
 		int flag =0;
@@ -133,21 +133,21 @@ public class KaizenResource {
 		{
 			flag =1;
 		}
-		
+
 		if(flag == 0)
 			returnStmt = "Please Register";
 		else if (flag ==1)
 			returnStmt = "User Validated";
 
-		
-		
+
+
 		return returnStmt;
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
     @GET
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {
@@ -229,24 +229,24 @@ public class KaizenResource {
 
 		try {
 				while(myCol.hasNext()) { 
-									
+
 				        BasicDBObject businessObj = (BasicDBObject) myCol.next();
 				        String business_id = businessObj.getString("business_id");
 				        String categories = businessObj.getString("categories");
 				        String full_address = businessObj.getString("full_address");
 				        String hours = businessObj.getString("hours");
-				       
+
 				        Business business = new Business();
 				        business.setBusinessId(business_id);
 				        business.setCategories(categories);
 				        business.setFullAddress(full_address);
 				        business.setHours(hours);
-				 
+
 				        businesses.addBusiness(business);
-		
+
 		   }
 		} finally { myCol.close(); }
-		
+
 	    return businesses;
 	}
 
@@ -269,33 +269,33 @@ public class KaizenResource {
 		searchQuery.append("hours."+day+".open", new BasicDBObject("$lte", startTime)).append("hours."+day+".close", new BasicDBObject("$gt", endTime));
 		DBCursor myCol = coll.find(searchQuery);
 		myCol.limit(15);
-		
+
 		BusinessDto businesses = new BusinessDto();
 
 		try {
 				while(myCol.hasNext()) { 
-									
+
 				        BasicDBObject businessObj = (BasicDBObject) myCol.next();
 				        String business_id = businessObj.getString("business_id");
 				        String categories = businessObj.getString("categories");
 				        String full_address = businessObj.getString("full_address");
 				        String hours = businessObj.getString("hours");
-				       
+
 				        Business business = new Business();
 				        business.setBusinessId(business_id);
 				        business.setCategories(categories);
 				        business.setFullAddress(full_address);
 				        business.setHours(hours);
-				 
+
 				        businesses.addBusiness(business);
-		
+
 		   }
 		} finally { myCol.close(); }
-		
+
 	    return businesses;
 	}
-	
-	
+
+
 	@GET
 	@Path("/{city}/{categories}/{when}")
 	@Timed(name = "get-timebased")
@@ -338,26 +338,25 @@ public class KaizenResource {
 
 		try {
 				while(cursor.hasNext()) { 
-									
+
 				        BasicDBObject businessObj = (BasicDBObject) cursor.next();
 				        String business_id = businessObj.getString("business_id");
 				        String categories = businessObj.getString("categories");
 				        String full_address = businessObj.getString("full_address");
 				        String hours_display = businessObj.getString("hours");
-				       
+
 				        Business business = new Business();
 				        business.setBusinessId(business_id);
 				        business.setCategories(categories);
 				        business.setFullAddress(full_address);
 				        business.setHours(hours_display);
-				 
+
 				        businesses.addBusiness(business);
-		
+
 		   }
 		} finally { cursor.close(); }
-		
+
 	    return businesses;
 	}
 
 }
-
