@@ -37,7 +37,7 @@ public class HomeView extends View {
         super("home.mustache");
         loginuser=user;
         userInfo=userData;
-        reviews=reviews;
+        this.reviews=reviews;
         
         
 
