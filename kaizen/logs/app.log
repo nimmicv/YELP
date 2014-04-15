@@ -992,11 +992,11 @@ INFO  [2014-04-15 05:46:17,342] org.eclipse.jetty.server.Server: Graceful shutdo
 INFO  [2014-04-15 05:46:19,396] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/dhanyabalasundaran/Development/workspace-273/YelpProject/YELP/kaizen/target/classes/}
 INFO  [2014-04-15 05:46:19,397] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
 >>>>>>> FETCH_HEAD
->>>>>>> FETCH_HEAD
-INFO  [2014-04-15 13:58:47,808] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-04-15 13:58:47,812] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-04-15 13:58:47,915] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-04-15 13:58:47,987] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+<<<<<<< HEAD
+INFO  [2014-04-15 13:52:25,999] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-04-15 13:52:26,035] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-04-15 13:52:26,208] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-04-15 13:52:26,335] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
     GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen/review (com.kaizen.yelp.api.KaizenResource)
@@ -1008,6 +1008,44 @@ INFO  [2014-04-15 13:58:47,987] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/validate (com.kaizen.yelp.api.KaizenResource)
     GET     / (com.kaizen.yelp.ui.resources.HomeResource)
 
+INFO  [2014-04-15 13:52:26,336] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-04-15 13:52:26,984] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 13:52:26,990] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 13:53:41,431] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 13:53:41,433] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 13:53:41,435] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-04-15 13:53:41,435] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 13:53:43,492] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 13:53:43,494] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+=======
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
+<<<<<<< HEAD
+INFO  [2014-04-15 13:58:47,808] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-04-15 13:58:47,812] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-04-15 13:58:47,915] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-04-15 13:58:47,987] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+=======
+INFO  [2014-04-15 14:06:06,506] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-04-15 14:06:06,510] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-04-15 14:06:06,604] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-04-15 14:06:06,672] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+>>>>>>> FETCH_HEAD
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/review (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/tip (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/user (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
+    POST    /kaizen/validate (com.kaizen.yelp.api.KaizenResource)
+    GET     / (com.kaizen.yelp.ui.resources.HomeResource)
+
+<<<<<<< HEAD
 INFO  [2014-04-15 13:58:47,988] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
@@ -1024,6 +1062,24 @@ INFO  [2014-04-15 14:00:13,642] com.yammer.dropwizard.cli.ServerCommand: Startin
 INFO  [2014-04-15 14:00:13,646] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
 INFO  [2014-04-15 14:00:13,761] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
 INFO  [2014-04-15 14:00:13,841] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+=======
+INFO  [2014-04-15 14:06:06,672] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-04-15 14:06:07,071] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 14:06:07,077] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 14:06:39,046] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2014-04-15 14:06:39,048] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 14:06:39,050] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-04-15 14:06:39,050] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 14:06:41,102] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-04-15 14:06:41,103] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-04-15 14:07:29,247] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-04-15 14:07:29,252] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-04-15 14:07:29,374] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-04-15 14:07:29,446] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+>>>>>>> FETCH_HEAD
 
     GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen/review (com.kaizen.yelp.api.KaizenResource)
@@ -1035,6 +1091,7 @@ INFO  [2014-04-15 14:00:13,841] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/validate (com.kaizen.yelp.api.KaizenResource)
     GET     / (com.kaizen.yelp.ui.resources.HomeResource)
 
+<<<<<<< HEAD
 INFO  [2014-04-15 14:00:13,841] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
@@ -1347,3 +1404,32 @@ INFO  [2014-04-15 14:09:30,677] com.yammer.dropwizard.config.Environment: tasks 
 
 INFO  [2014-04-15 14:09:31,021] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
 INFO  [2014-04-15 14:09:31,023] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+=======
+INFO  [2014-04-15 14:07:29,446] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-04-15 14:07:29,907] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 14:07:29,912] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+>>>>>>> FETCH_HEAD
+INFO  [2014-04-15 14:11:42,316] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-04-15 14:11:42,320] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-04-15 14:11:42,424] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-04-15 14:11:42,497] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /kaizen (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/review (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/tip (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/user (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
+    GET     /kaizen/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
+    POST    /kaizen/validate (com.kaizen.yelp.api.KaizenResource)
+    GET     / (com.kaizen.yelp.ui.resources.HomeResource)
+
+INFO  [2014-04-15 14:11:42,498] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-04-15 14:11:42,846] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-04-15 14:11:42,848] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
