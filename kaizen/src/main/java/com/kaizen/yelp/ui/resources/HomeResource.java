@@ -7,7 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.kaizen.yelp.domain.HelloMessage;
+import com.kaizen.yelp.domain.Review;
+import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.domain.UserLogin;
+import com.kaizen.yelp.dto.ReviewDto;
 import com.kaizen.yelp.ui.views.HomeView;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -38,12 +41,25 @@ public class HomeResource {
 		// Get user details viz id , email, pwd fom mongodb and create userLogin
 		// Object
 		UserLogin user = new UserLogin();
+		User userData = new User();
 		String password = null;
 		String email = null;
+		String userId=null;
+		String yelping_since=null;
+		 String review_count=null;
+		 String fans=null;
+		 String average_stars = null;
+		String reviewText=null;
+		
 		DB db = mongo.getDB("273project");
+		
 		DBCollection coll = db.getCollection("userInfo");
+		DBCollection collUser=db.getCollection("user");
+		DBCollection collReview=db.getCollection("review");
+		
 		DBObject userInfo = new BasicDBObject("username", username);
 		DBCursor cursor = coll.find(userInfo);
+		
 		while (cursor.hasNext()) {
 			DBObject o = cursor.next();
 			password = (String) o.get("password");
@@ -55,6 +71,57 @@ public class HomeResource {
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setEmail(email);
-		return new HomeView(user);
+        userData.setName(username);
+       userData.setPassword(password);
+		userData.setEmail(email);
+		BasicDBObject toFindUserId = new BasicDBObject("name",username);
+		DBCursor cursor1 = collUser.find(toFindUserId);
+		while(cursor1.hasNext())
+		{
+			//System.out.println(cursor1.next());
+			BasicDBObject ob = (BasicDBObject) cursor1.next();
+			userId =  ob.getString("user_id");
+			yelping_since= ob.getString("yelping_since");
+			review_count= ob.getString("review_count");
+			fans=(String) ob.getString("fans");
+			average_stars=ob.getString("average_stars");
+			
+			
+		}
+		userData.setUserId(userId);
+		userData.setAverageStars(average_stars);
+		userData.setFans(fans);
+		userData.setYelpingSince(yelping_since);
+		//userData.setReviewCount(review_count);
+		System.out.println(userId);
+		
+		BasicDBObject toFindReviews = new BasicDBObject("user_id",userId);
+		DBCursor cursor2 = collReview.find(toFindReviews);
+        ReviewDto reviews = new ReviewDto();
+
+		while(cursor2.hasNext())
+		{
+			System.out.println(cursor2.next());
+			BasicDBObject reviewObj = (BasicDBObject) cursor2.next();
+			String review_id = reviewObj.getString("review_id");
+            String business_id = reviewObj.getString("business_id");
+            String user_id = reviewObj.getString("user_id");
+            String stars = reviewObj.getString("stars");
+            String date = reviewObj.getString("date");
+            String text = reviewObj.getString("text");
+
+            Review review = new Review();
+            review.setReviewId(review_id);
+            review.setBusinessId(business_id);
+            review.setUserId(user_id);
+            review.setStars(stars);
+            review.setDate(date);
+            review.setText(text);
+
+            reviews.addReview(review);
+		}
+		System.out.println(reviewText);
+		userData.setReviewText(reviewText);
+		return new HomeView(user,userData,reviews);
 	}
 }

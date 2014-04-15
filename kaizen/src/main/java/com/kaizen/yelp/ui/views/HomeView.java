@@ -4,18 +4,22 @@ import java.util.List;
 
 import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.HelloMessage;
+import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.domain.UserLogin;
+import com.kaizen.yelp.dto.ReviewDto;
 import com.yammer.dropwizard.views.View;
 
 
 public class HomeView extends View {
 
 	private UserLogin loginuser;
+	private User userInfo;
+	private ReviewDto review;
 	
-    public UserLogin getLoginuser() {
+	public UserLogin getLoginuser() {
 		return loginuser;
 	}
-	public HomeView(HelloMessage message) {
+    public HomeView(HelloMessage message) {
              super("login.mustache");
 
     	//super("home.mustache");
@@ -27,5 +31,15 @@ public class HomeView extends View {
 	//super("home.mustache");
          
 }
+	public HomeView(UserLogin user, User userData, ReviewDto reviews) {
+		// TODO Auto-generated constructor stub
+        super("home.mustache");
+        loginuser=user;
+        userInfo=userData;
+        review=reviews;
+        
+        
+
+	}
   
 }
