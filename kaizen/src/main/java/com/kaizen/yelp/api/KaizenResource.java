@@ -220,6 +220,7 @@ public class KaizenResource {
 	}
 
     @GET
+    @Path("/business")
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {
         MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
@@ -232,7 +233,7 @@ public class KaizenResource {
         String address = queryParams.getFirst("address");
         String zipcode = queryParams.getFirst("zipcode");
         String category = queryParams.getFirst("categories");
-        System.out.println(category);
+        System.out.println(name);
 
         BasicDBObject searchQuery = new BasicDBObject();
 
