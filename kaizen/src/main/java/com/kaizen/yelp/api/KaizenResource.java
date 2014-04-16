@@ -219,7 +219,7 @@ public class KaizenResource {
 	
 	}
 
-    @GET
+    @POST
     @Path("/business")
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {
@@ -234,6 +234,7 @@ public class KaizenResource {
         String zipcode = queryParams.getFirst("zipcode");
         String category = queryParams.getFirst("categories");
         System.out.println(name);
+
         BasicDBObject searchQuery = new BasicDBObject();
 
         if (businessID != null){ searchQuery.append("business_id", businessID); }
@@ -253,24 +254,21 @@ public class KaizenResource {
 
         try {
                         while(busColl.hasNext()) {
-                        	System.out.println("Count " + busColl.count());
                                 BasicDBObject businessObj = (BasicDBObject) busColl.next();
                                 String business_id = businessObj.getString("business_id");
-                                String names = businessObj.getString("name");
+				               String names = businessObj.getString("name");
                                 String categories = businessObj.getString("categories");
                                 String full_address = businessObj.getString("full_address");
                                 String hours = businessObj.getString("hours");
 
                                 Business business = new Business();
                                 business.setBusinessId(business_id);
-                                business.setName(names);
-				
+				business.setName(name);
                                 business.setCategories(categories);
                                 business.setFullAddress(full_address);
                                 business.setHours(hours);
 
                                 businesses.addBusiness(business);
-                                System.out.println(business.getHours());
 
            }
         } finally { busColl.close(); }
