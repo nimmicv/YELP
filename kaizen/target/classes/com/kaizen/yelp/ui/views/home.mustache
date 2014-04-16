@@ -1,54 +1,89 @@
 <html>
+<body background="http://www.psdgraphics.com/file/red-grunge-background.jpg">
+<style tyle="text/css">
 
-        <link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
+
+</style>
+<link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" class="cssdeck">
 
-<div class="" id="loginModal">
-	<div class="modal-header">
-		<h3>The Kaizen Yelp</h3>
-		<h4 align = "right">Welcome</h4>
+<div class="" id="homeModal">
+	<div  class="modal-header">
+		<h3 style="color:whitesmoke">The Kaizen Yelp</h3>
 	</div>
 	<div class="modal-body">
 		<div class="well">
 			<nav>
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="#login" data-toggle="tab">Home</a></li>
-				<li><a href="#about" data-toggle="tab">About Me</a></li>
-				<li><a href="#writeReview" data-toggle="tab">Write Review</a></li>
-				<li><a href="#Search" data-toggle="tab">Search</a></li>
-
-
+				<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+				<li><a href="#review" data-toggle="tab">Reviews</a></li>
+				<li><a href="#search" data-toggle="tab">Search</a></li>
+				
 			</ul>
 		</nav>
 			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane active in">
-					<form class="form-horizontal" action='' method="POST">
-						<fieldset>
-							   
-							<div class="control-group">
-								<label class="control-label"  for="username">Search for..</label>
-								<div class="controls">
-									<input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-								</div>
-							</div>
-							
-							
-							<div class="control-group" id="login">
-								<!-- Button -->
-								<div class="controls" id="login">
-									<button class="btn btn-success">Find</button>
-								</div>
-							</div>
-						</fieldset>
-					</form>                
+				<div class="tab-pane active in" id="home">
+					<div style="vertical-align:center" class="container">
+                 		<img src="http://loudrumor.com/wp-content/uploads/2013/05/yelp-icon1.png">
+                 		<div style="font-family:fantasy;display:inline-block">
+                 		<h3 class=""  contenteditable="false">Welcome {{loginuser.username}} !</h3>
+                 		<h3 class=""  contenteditable="false">Email {{loginuser.email}} </h3>
+                 		<h3 class=""  contenteditable="false">Yelping Since {{userInfo.yelping_since}} </h3>
+                 		
+                 		</div>
+					</div>         
 				</div>
-				
+				<div class="tab-pane fade" id="review">
+					<div class="container" >
+                <div class="jumbotron">
+<<<<<<< HEAD
+                    <!-- calls getReview() from HomeResource -->
+=======
+                    <!-- calls getReviewDto() from HomeResource -->
+>>>>>>> FETCH_HEAD
+                    <table  class="table table-hover">
+                    <tr>
+                           
+							<th>ID</th>
+							<th>Date</th>
+							<th>Business ID</th>
+							<th>Stars</th>
+							<th>Review</th>
+							
+                        </tr>
+                    {{#reviews}}
+                        <tr>
+                           
+							<td>{{review_id}}</td>
+							<td>{{date}}</td>
+							<td>{{business_id}}</td>
+							<td>{{stars}}</td>
+							<td>{{text}}</td>
+							
+                        </tr>
+               {{/reviews}}
+                    </table>
+                </div>
+            </div> <!-- end of container --> 
+				</div>
+				<div class="tab-pane fade" id="search">
+					<div class="container">
+					<div class="control-group">
+							<label class="control-label"  for="search">Search for Business..</label>
+							<div class="controls">
+								<input type="text" id="search" name="search" placeholder="" class="input-xlarge">
+								<button class="btn btn-primary" onclick="home.js" id="find">Search</button>
+							</div>
+						</div>
+				</div> <!-- end of container --> 
+				</div>
 			</div>
 		</div>
 	</div>
-<script src="../assets/js/app.js"></script>
-<script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-<script src="../assets/js/app.js"></script>
-    </body>
+ <script src="//code.jquery.com/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="../assets/js/home.js"></script>
+
+ 
+</body>
 </html>

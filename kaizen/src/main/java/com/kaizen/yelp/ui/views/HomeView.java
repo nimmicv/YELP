@@ -4,19 +4,56 @@ import java.util.List;
 
 import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.HelloMessage;
+import com.kaizen.yelp.domain.Review;
+import com.kaizen.yelp.domain.User;
+import com.kaizen.yelp.domain.UserLogin;
+import com.kaizen.yelp.dto.ReviewDto;
 import com.yammer.dropwizard.views.View;
 
 
 public class HomeView extends View {
-	private final HelloMessage Message;
+
+	private UserLogin loginuser;
+	private User userInfo;
+	private List<Review> reviews;
 	
-	
+	public User getUserInfo() {
+		return userInfo;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public UserLogin getLoginuser() {
+		return loginuser;
+	}
     public HomeView(HelloMessage message) {
              super("login.mustache");
+
     	//super("home.mustache");
-              this.Message = message;
     }
-    public HelloMessage getMessage() {
-              return Message;
-    }
+    public HomeView() {
+        super("index.mustache");
+        
+
+	//super("home.mustache");
+         
+}
+    public HomeView(UserLogin loggedinuser) {
+        super("home.mustache");
+        loginuser = loggedinuser;
+
+	//super("home.mustache");
+         
+}
+	public HomeView(UserLogin user, User userData, List<Review> reviews) {
+		// TODO Auto-generated constructor stub
+        super("home.mustache");
+        loginuser=user;
+        userInfo=userData;
+        this.reviews=reviews;
+        
+        
+
+	}
+  
 }
