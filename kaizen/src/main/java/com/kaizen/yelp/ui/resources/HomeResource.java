@@ -78,8 +78,8 @@ public class HomeResource {
 			email = (String) o.get("email");
 
 		}
-		System.out.println("password" + password);
-		System.out.println("email" + email);
+//		System.out.println("password" + password);
+//		System.out.println("email" + email);
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setEmail(email);
@@ -104,16 +104,15 @@ public class HomeResource {
 		userData.setAverageStars(average_stars);
 		userData.setFans(fans);
 		userData.setYelpingSince(yelping_since);
-		//userData.setReviewCount(review_count);
-		System.out.println(userId);
+		userData.setReviewCount(review_count);
 		
 		BasicDBObject toFindReviews = new BasicDBObject("user_id",userId);
 		DBCursor cursor2 = collReview.find(toFindReviews);
         ReviewDto reviews = new ReviewDto();
-
+System.out.println("COUNT ; "+cursor2.count());
 		while(cursor2.hasNext())
 		{
-			System.out.println(cursor2.next());
+			
 			BasicDBObject reviewObj = (BasicDBObject) cursor2.next();
 			String review_id = reviewObj.getString("review_id");
             String business_id = reviewObj.getString("business_id");
@@ -129,11 +128,8 @@ public class HomeResource {
             review.setStars(stars);
             review.setDate(date);
             review.setText(text);
-
             reviews.addReview(review);
 		}
-		System.out.println(reviewText);
-		userData.setReviewText(reviewText);
-		return new HomeView(user,userData,reviews.getReviews());
+				return new HomeView(user,userData,reviews.getReviews());
 	}
 }
