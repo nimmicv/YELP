@@ -40,6 +40,12 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import com.yammer.metrics.annotation.Timed;
 
+import com.kaizen.yelp.amazonsns.SNS;
+
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+
 @Path("/kaizen")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -217,6 +223,20 @@ public class KaizenResource {
 		reviewColl.insert(revObj);
 		return true;
 	
+	}
+	
+	
+	
+	@GET
+	 @Path("/subscribe")
+    	@Timed(name = "subscribe")
+	
+	public Response userSubscribe( String businesName , String email){
+		
+		SNS sns = new SNS();
+		sns.userSubscribeToTopic(businesName, email);
+		
+		return Response.status(201).build();
 	}
 
     @GET
