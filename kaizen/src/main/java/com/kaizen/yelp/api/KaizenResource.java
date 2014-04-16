@@ -207,6 +207,17 @@ public class KaizenResource {
 		return returnVal;
 	}
 
+	@POST
+	@Path("/insertReview")
+	public boolean validateUser(Review review) {
+		
+		DB db = mongo.getDB("273project");
+		DBCollection reviewColl = db.getCollection("review");
+		BasicDBObject revObj = new BasicDBObject("review",review);
+		reviewColl.insert(revObj);
+		return true;
+	
+	}
 
     @GET
     @Timed(name = "get-business")
