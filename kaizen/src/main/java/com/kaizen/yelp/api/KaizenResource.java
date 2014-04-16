@@ -219,7 +219,7 @@ public class KaizenResource {
 	
 	}
 
-    @GET
+    @POST
     @Path("/business")
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {
@@ -227,7 +227,7 @@ public class KaizenResource {
         DB db = mongo.getDB("273project");
         DBCollection coll = db.getCollection("business");
         String businessID = queryParams.getFirst("business_id");
-	String name = queryParams.getFirst("name");
+        String name = queryParams.getFirst("name");
         String state = queryParams.getFirst("state");
         String city = queryParams.getFirst("city");
         String address = queryParams.getFirst("address");
