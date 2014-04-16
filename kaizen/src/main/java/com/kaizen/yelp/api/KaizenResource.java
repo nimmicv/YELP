@@ -219,7 +219,7 @@ public class KaizenResource {
 	
 	}
 
-    @POST
+    @GET
     @Path("/business")
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {

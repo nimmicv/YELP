@@ -1,129 +1,111 @@
 <html>
-<body background="http://www.psdgraphics.com/file/red-grunge-background.jpg">
-<style tyle="text/css">
-
-
-</style>
-<link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" class="cssdeck">
-
-<div class="" id="homeModal">
-	<div  class="modal-header">
-		<h3 style="color:whitesmoke">The Kaizen Yelp</h3>
-	</div>
-	<div class="modal-body">
-		<div class="well">
-			<nav>
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-				<li><a href="#review" data-toggle="tab">Reviews</a></li>
-				<li><a href="#search" data-toggle="tab">Search</a></li>
-				
-			</ul>
-		</nav>
-			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane active in" id="home">
-					<div style="vertical-align:center" class="container">
-                 		<img src="http://loudrumor.com/wp-content/uploads/2013/05/yelp-icon1.png">
-                 		<div style="font-family:fantasy;display:inline-block">
-                 		<h3 class=""  contenteditable="false">Welcome {{loginuser.username}} !</h3>
-                 		<h3 class=""  contenteditable="false">Email {{loginuser.email}} </h3>
-                 		<h3 class=""  contenteditable="false">Yelping Since {{userInfo.yelping_since}} </h3>
-                 		
-                 		</div>
-					</div>         
-				</div>
-				<div class="tab-pane fade" id="review">
-					<div class="container" >
-               		 <div class="jumbotron">
-                    <!-- calls getReview() from HomeResource -->
-                    <!-- calls getReviewDto() from HomeResource -->
-
-                    <table  class="table table-hover">
-                    <tr>
-                           
-							<th>ID</th>
-							<th>Date</th>
-							<th>Business ID</th>
-							<th>Stars</th>
-							<th>Review</th>
-							
-                        </tr>
-                    {{#reviews}}
-                        <tr>
-                           
-							<td>{{review_id}}</td>
-							<td>{{date}}</td>
-							<td>{{business_id}}</td>
-							<td>{{stars}}</td>
-							<td>{{text}}</td>
-							
-                        </tr>
-               {{/reviews}}
-                    </table>
-                </div>
-            </div> <!-- end of container --> 
-				</div>
-				<div class="tab-pane fade" id="search">
-					<!-- <form class="form-horizontal" action='/kaizen/business' method="GET"> -->
-						<fieldset>
-							   
-							
-							
-							<div class="control-group">
-								<!-- Password-->
-								<label class="control-label" for="name">Search for Business..</label>
-								<div class="controls">
-									<input type="name" id="name" name="name" placeholder="" class="input-xlarge">
-								</div>
-							</div>
-							
-							
-							<div class="control-group" id="searchB">
-								<!-- Button -->
-								<div class="controls" id="searchB">
-									<button class="btn btn-success">Search</button>
-								</div>
-							</div>
-						</fieldset>
-					<!-- </form> -->                
-						</div>
-						<div class="jumbotron" style="display:none" id="businessTable">
-                    <table  class="table table-hover">
-                    <tr>
-                           
-							<th>Business ID</th>
-							<th>Business Name</th>
-							<th>Category</th>
-							<th>Address</th>
-							<th>Hours</th>
-							<thLoad Business</th>
-                        </tr>
-                    {{#business}}
-                        <tr>
-                           
-							<td>{{business_id}}</td>
-							<td>{{name}}</td>
-							<td>{{categories}}</td>
-							<td>{{full_address}}</td>
-							<td>{{hours}}</td>
-							<td><button id="{{name}}" type="button" class="btn btn-primary">Go</button></td>
-							
-                        </tr>
-               {{/business}}
-                    </table>
-                </div>
-				</div> <!-- end of container --> 
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-</div>
- <script src="//code.jquery.com/jquery.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="../assets/js/home.js"></script>
-
- 
-</body>
+   <body background="http://www.psdgraphics.com/file/red-grunge-background.jpg">
+      <style tyle="text/css">
+      </style>
+      <link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" class="cssdeck">
+      <div class="" id="homeModal">
+      <div  class="modal-header">
+         <h3 style="color:whitesmoke">The Kaizen Yelp</h3>
+      </div>
+      <div class="modal-body">
+         <div class="well">
+            <nav>
+               <ul class="nav nav-tabs">
+                  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+                  <li><a href="#review" data-toggle="tab">Reviews</a></li>
+                  <li><a href="#search" data-toggle="tab">Search</a></li>
+               </ul>
+            </nav>
+            <div id="myTabContent" class="tab-content">
+               <div class="tab-pane active in" id="home">
+                  <div style="vertical-align:center" class="container">
+                     <img src="http://loudrumor.com/wp-content/uploads/2013/05/yelp-icon1.png">
+                     <div style="font-family:fantasy;display:inline-block">
+                        <h3 class=""  contenteditable="false">Welcome {{loginuser.username}} !</h3>
+                        <h3 class=""  contenteditable="false">Email {{loginuser.email}} </h3>
+                        <h3 class=""  contenteditable="false">Yelping Since {{userInfo.yelping_since}} </h3>
+                     </div>
+                  </div>
+               </div>
+                  <div class="tab-pane fade" id="review">
+                     <div class="container" >
+                        <div class="jumbotron">
+                           <table  class="table table-hover">
+                              <tr>
+                                 <th>ID</th>
+                                 <th>Date</th>
+                                 <th>Business ID</th>
+                                 <th>Stars</th>
+                                 <th>Review</th>
+                              </tr>
+                              {{#reviews}}
+                              <tr>
+                                 <td>{{review_id}}</td>
+                                 <td>{{date}}</td>
+                                 <td>{{business_id}}</td>
+                                 <td>{{stars}}</td>
+                                 <td>{{text}}</td>
+                              </tr>
+                              {{/reviews}}
+                           </table>
+                        </div>
+                     </div>
+                     <!-- end of container -->
+                  </div>
+                  <div class="tab-pane fade" id="search">
+                     <!-- <form class="form-horizontal" action='/kaizen/business' method="GET"> -->
+                     <div class="container" >
+                        <div class="control-group">
+                           <!-- Password-->
+                           <label class="control-label" for="name">Search for Business..</label>
+                           <div class="controls">
+                              <input type="name" id="name" name="name" placeholder="" class="input-xlarge">
+                           </div>
+                        </div>
+                        <div class="control-group" id="searchB">
+                           <!-- Button -->
+                           <div class="controls" id="searchB">
+                              <button class="btn btn-success">Search</button>
+                           </div>
+                        </div>
+                        <div class="jumbotron" style="display:none" id="businessTable">
+                           <table  class="table table-hover">
+                              <tr>
+                                 <th>Business ID</th>
+                                 <th>Business Name</th>
+                                 <th>Category</th>
+                                 <th>Address</th>
+                                 <th>Hours</th>
+                                 <th>Load Business</th>
+                              </tr>
+                              {{#business}}
+                              <tr>
+                                 <td>{{business_id}}</td>
+                                 <td>{{name}}</td>
+                                 <td>{{categories}}</td>
+                                 <td>{{full_address}}</td>
+                                 <td>{{hours}}</td>
+                                 <td><button id="{{name}}" type="button" class="btn btn-primary">Go</button></td>
+                              </tr>
+                              {{/business}}
+                           </table>
+                        </div>
+                        <!-- END OF TABLE jumbotron -->
+                     </div>
+                     <!-- end of container --> 
+                  </div>
+                  <!-- end of SEARCH --> 
+               </div>
+               <!--END OF TABCONTENT -->
+            </div>
+            <!--END OF WELL -->
+         </div>
+         <!--END OF MODEL-BODY -->
+      </div>
+      <!--END OF HOME -->
+      <script src="//code.jquery.com/jquery.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      <script src="../assets/js/home.js"></script>
+   </body>
 </html>
