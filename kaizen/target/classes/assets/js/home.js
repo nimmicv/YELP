@@ -1,10 +1,10 @@
 
-	$("#search").click(function() {
+	$("#searchB").click(function() {
 		var name = $('#name').val();
-		
+		alert("name = "+name);
 		$.ajax({
-			type : 'GET',
-			url : '/kaizen?name=name',
+			type : 'POST',
+			url : '/kaizen/business?name=Turf Paradise Race Course',
 			contentType : 'application/json',
 			dataType : 'json',
 			data:{"name":name},
