@@ -2,7 +2,6 @@
 	$("#searchB").click(function() {
 		$( "#businessTable" ).css('display', 'block');
 		var name = $('#name').val();
-		alert("name = "+name);
 		$.ajax({
 			
 			type : 'GET',
@@ -10,8 +9,8 @@
 			contentType : 'application/json',
 			dataType : 'json',
 			data:{"name":name},
-			success : function(response) {
-				 alert("Response: " + response);
+			success : function(data,jqXHR,status) {
+				 alert("Response: " + jqXHR+ " "+status+" "+data);
 				 //parent.document.getElementById("mustFrame").src="http://localhost:8080/business?name="+name;
 				    //$("#mustFrame",parent.document).load("http://localhost:8080/home/"+username);
 			
