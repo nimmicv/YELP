@@ -19,8 +19,7 @@ public class BusinessView extends View{
 
 	public BusinessView(Business business, User user) {
 		super("business.mustache");
-		this.business=business;
-		this.user = user;
+		
 		
 		// TODO Auto-generated constructor stub
 	}

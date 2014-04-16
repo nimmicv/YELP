@@ -8,7 +8,6 @@ $(document).ready(function () {
 $("#searchB").click(function() {
 		$( "#businessTable" ).css('display', 'block');
 		var name = $('#name').val();
-		alert("name = "+name);
 		$.ajax({
 			
 			type : 'GET',
@@ -16,6 +15,7 @@ $("#searchB").click(function() {
 			contentType : 'application/json',
 			dataType : 'json',
 			data:{"name":name},
+<<<<<<< HEAD
 			success : function(response) {
 				 //alert("Response: " + response);
 
@@ -29,6 +29,10 @@ $("#searchB").click(function() {
 					 arr[j] = arr[j] + '<td><button id="tableBut" type="button" class="btn btn-primary" onclick="redirect()">Go</button></td></tr>';
 					 }
 				 $('#businessTableData').html(arr.join('')); 
+=======
+			success : function(data,jqXHR,status) {
+				 alert("Response: " + jqXHR+ " "+status+" "+data);
+>>>>>>> FETCH_HEAD
 				 //parent.document.getElementById("mustFrame").src="http://localhost:8080/business?name="+name;
 				    //$("#mustFrame",parent.document).load("http://localhost:8080/home/"+username);
 			
