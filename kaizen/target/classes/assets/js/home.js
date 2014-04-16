@@ -1,6 +1,5 @@
 
 	$("#searchB").click(function() {
-	$("#search").click(function() {
 		$( "#businessTable" ).css('display', 'block');
 		var name = $('#name').val();
 		alert("name = "+name);
