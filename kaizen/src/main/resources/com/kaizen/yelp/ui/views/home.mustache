@@ -1,9 +1,8 @@
 <html>
    <body background="http://www.psdgraphics.com/file/red-grunge-background.jpg">
-      <style tyle="text/css">
-      </style>
-      <link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
+   <link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" class="cssdeck">
+      
       <div class="" id="homeModal">
       <div  class="modal-header">
          <h3 style="color:whitesmoke">The Kaizen Yelp</h3>
@@ -70,25 +69,8 @@
                            </div>
                         </div>
                         <div class="jumbotron" style="display:none" id="businessTable">
-                           <table  class="table table-hover">
-                              <tr>
-                                 <th>Business ID</th>
-                                 <th>Business Name</th>
-                                 <th>Category</th>
-                                 <th>Address</th>
-                                 <th>Hours</th>
-                                 <th>Load Business</th>
-                              </tr>
-                              {{#business}}
-                              <tr>
-                                 <td>{{business_id}}</td>
-                                 <td>{{name}}</td>
-                                 <td>{{categories}}</td>
-                                 <td>{{full_address}}</td>
-                                 <td>{{hours}}</td>
-                                 <td><button id="{{name}}" type="button" class="btn btn-primary">Go</button></td>
-                              </tr>
-                              {{/business}}
+                           <table  class="table table-hover" id="businessTableData">
+                              
                            </table>
                         </div>
                         <!-- END OF TABLE jumbotron -->
@@ -104,7 +86,8 @@
          <!--END OF MODEL-BODY -->
       </div>
       <!--END OF HOME -->
-      <script src="//code.jquery.com/jquery.js"></script>
+     
+     <script src="//code.jquery.com/jquery.js"></script>
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
       <script src="../assets/js/home.js"></script>
    </body>
