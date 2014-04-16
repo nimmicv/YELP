@@ -31,6 +31,13 @@ public class HomeView extends View {
 
     	//super("home.mustache");
     }
+    public HomeView() {
+        super("index.mustache");
+        
+
+	//super("home.mustache");
+         
+}
     public HomeView(UserLogin loggedinuser) {
         super("home.mustache");
         loginuser = loggedinuser;
@@ -43,7 +50,7 @@ public class HomeView extends View {
         super("home.mustache");
         loginuser=user;
         userInfo=userData;
-        reviews=reviews;
+        this.reviews=reviews;
         
         
 

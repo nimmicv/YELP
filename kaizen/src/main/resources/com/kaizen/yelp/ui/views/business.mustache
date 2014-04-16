@@ -15,7 +15,7 @@
 		<div class="well">
 			<nav>
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+				<li class="active"><a href="#home" data-toggle="tab">Reviews</a></li>
 				<li><a href="#write" data-toggle="tab">Write Review </a></li>
 				<li><a href="#subscribe" data-toggle="tab">Subscribe</a></li>
 				
@@ -23,15 +23,6 @@
 		</nav>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane active in" id="home">
-					<div style="vertical-align:center" class="container">
-                 		<img src="http://loudrumor.com/wp-content/uploads/2013/05/yelp-icon1.png">
-                 		<div style="font-family:fantasy;display:inline-block">
-                 		<h4 class=""  contenteditable="false">Welcome {{loginuser.username}} </h3>
-                 		<h4 class=""  contenteditable="false">Email {{loginuser.email}} </h3>
-                 		</div>
-					</div>         
-				</div>
-				<div class="tab-pane fade" id="review">
 					<div class="container">
                 		<div class="jumbotron">
                    		 <!-- calls getReviewDto() from HomeResource -->
@@ -51,14 +42,23 @@
                     		</table>
                	 		</div>
             		</div> <!-- end of container --> 
+					</div>         
 				</div>
-				<div class="tab-pane fade" id="search">
+				<div class="tab-pane fade" id="write">
+					<div class="container">
+                		<label>Review</label>
+						<textarea value="review" rows="3" class="input-xlarge">
+						</textarea>
+						<button class="btn btn-primary" onclick="business.js" id="find">Submit</button>
+            		</div> <!-- end of container --> 
+				</div>
+				<div class="tab-pane fade" id="subscribe">
 					<div class="container">
 					<div class="control-group">
 							<label class="control-label"  for="search">Search for Business..</label>
 							<div class="controls">
-								<input type="text" id="search" name="search" placeholder="" class="input-xlarge">
-								<button class="btn btn-primary" onclick="home.js" id="find">Search</button>
+								<h4 class=""  contenteditable="false">Subscribe to Receive latest Reviews </h4>
+								<button class="btn btn-primary" onclick="business.js" id="subscriber">Subscribe</button>
 							</div>
 						</div>
 				</div> <!-- end of container --> 
@@ -68,7 +68,7 @@
 	</div>
  <script src="//code.jquery.com/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="../assets/js/home.js"></script>
+<script src="../assets/js/business.js"></script>
 
  
 </body>
