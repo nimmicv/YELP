@@ -70,6 +70,24 @@ public class SNS {
 	
 	}
 	
+	public boolean isSubscribed(AmazonSNS snsConnect ,String topicArn , String endpoint){
+		
+		
+		ListSubscriptionsByTopicRequest listSubscriptionsRequest = new ListSubscriptionsByTopicRequest();
+		ListSubscriptionsByTopicResult listofsubs = snsConnect.listSubscriptionsByTopic(topicArn);
+		List<Subscription> list = listofsubs.getSubscriptions();
+		
+		
+		for (Subscription sub :list){
+			String existingEndPoint = sub.getEndpoint();
+			System.out.println("endpoint : " + existingEndPoint);
+			if( endpoint.equalsIgnoreCase(existingEndPoint)){
+				return true;
+			}
+		}
+		
+		return false;
+	}
 	
 	public static String createTopic(AmazonSNS sns , String topicName){
 
