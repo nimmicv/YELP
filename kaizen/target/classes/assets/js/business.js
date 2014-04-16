@@ -1,3 +1,3 @@
 $("#subscriber").click(function() {
-		alert("hi inside find");
+		alert("inside business home");
 	});

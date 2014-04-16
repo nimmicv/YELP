@@ -109,7 +109,6 @@ public class HomeResource {
 		BasicDBObject toFindReviews = new BasicDBObject("user_id",userId);
 		DBCursor cursor2 = collReview.find(toFindReviews);
         ReviewDto reviews = new ReviewDto();
-System.out.println("COUNT ; "+cursor2.count());
 		while(cursor2.hasNext())
 		{
 			
