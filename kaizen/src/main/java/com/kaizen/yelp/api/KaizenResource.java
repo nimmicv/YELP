@@ -1,5 +1,10 @@
 package com.kaizen.yelp.api;
 
+import com.kaizen.yelp.amazonsns.SNS;
+
+import javax.ws.rs.core.Response;
+
+import javax.ws.rs.core.Response.Status;
 import java.net.UnknownHostException;
 import java.util.Calendar;
 
@@ -119,75 +124,105 @@ public class KaizenResource {
 	 * return businesses; }
 	 */
 
-    //@Timed(name = "get-requests")
-   //Give json class name as parameter eg:Book book 
-    //Jersey notations
-/*	
-    public HelloMessage get(@QueryParam("name") Optional<String> name) {
-		
-	
-		HelloMessage hello = new HelloMessage();
-        hello.setMessage("Hello" + ( (name.isPresent()) ? " " + name.get() : ""));
-       return hello;
-    }
+	// @Timed(name = "get-requests")
+	// Give json class name as parameter eg:Book book
+	// Jersey notations
+	/*
+	 * public HelloMessage get(@QueryParam("name") Optional<String> name) {
+	 * 
+	 * 
+	 * HelloMessage hello = new HelloMessage(); hello.setMessage("Hello" + (
+	 * (name.isPresent()) ? " " + name.get() : "")); return hello; }
+	 * 
+	 * @GET //@Path("/query")
+	 * 
+	 * @Timed(name = "get-query") public String getQuery(@Context UriInfo
+	 * uriInfo) { MultivaluedMap<String, String> queryParams =
+	 * uriInfo.getQueryParameters(); String match=""; String state =
+	 * queryParams.getFirst("state"); String city =
+	 * queryParams.getFirst("city"); String address =
+	 * queryParams.getFirst("address"); String zipcode =
+	 * queryParams.getFirst("zipcode"); if (state !=
+	 * null){match="State is "+state+" "+match; } if (city !=
+	 * null){match="City is "+city+" "+match; } if (address !=
+	 * null){match="Address is "+address+" "+match;} if (zipcode !=
+	 * null){match="Zipcode is "+zipcode+" "+match; } if (match ==
+	 * ""){match="nothing matched"; } return match; }
+	 * 
+	 * @GET
+	 * 
+	 * @Path("/{city}")
+	 * 
+	 * @Timed(name = "get-city") public BusinessDto getCity(@PathParam("city")
+	 * String city) { // public DBCursor getCity(@PathParam("city") String city)
+	 * { //return db.business.find().limit(5); //Mongo mongoClient = new
+	 * Mongo(); DB db = mongo.getDB("273project"); DBCollection coll =
+	 * db.getCollection("business"); BasicDBObject query = new
+	 * BasicDBObject("city", city); DBCursor myCol = coll.find(query);
+	 * myCol.limit(15);
+	 * 
+	 * BusinessDto businesses = new BusinessDto();
+	 * 
+	 * try { while(myCol.hasNext()) {
+	 * 
+	 * BasicDBObject businessObj = (BasicDBObject) myCol.next(); String
+	 * business_id = businessObj.getString("business_id"); String categories =
+	 * businessObj.getString("categories"); String full_address =
+	 * businessObj.getString("full_address"); String hours =
+	 * businessObj.getString("hours");
+	 * 
+	 * Business business = new Business(); business.setBusinessId(business_id);
+	 * business.setCategories(categories);
+	 * business.setFullAddress(full_address); business.setHours(hours);
+	 * 
+	 * businesses.addBusiness(business);
+	 * 
+	 * } } finally { myCol.close(); }
+	 * 
+	 * return businesses; }
+	 */
+	@POST
+	@Path("/subscribe")
+	@Timed(name = "subscribe")
+	public Response userSubscribe(@Context UriInfo uriInfo) {
 
-    @GET
-    //@Path("/query")
-    @Timed(name = "get-query")
-     public String getQuery(@Context UriInfo uriInfo) {
-	MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-	String match="";
-	String state = queryParams.getFirst("state");
-	String city = queryParams.getFirst("city");
-	String address = queryParams.getFirst("address");
-	String zipcode = queryParams.getFirst("zipcode");
-	if (state != null){match="State is "+state+" "+match; }
-	if (city != null){match="City is "+city+" "+match; }
-	if (address != null){match="Address is "+address+" "+match;}
-	if (zipcode != null){match="Zipcode is "+zipcode+" "+match; }
-	if (match == ""){match="nothing matched"; }
-	return match;
-    }
- 
-    @GET
-    @Path("/{city}")
-    @Timed(name = "get-city")
-    	public BusinessDto getCity(@PathParam("city") String city) {
-    //	public DBCursor getCity(@PathParam("city") String city) {
-        //return db.business.find().limit(5);
-        //Mongo mongoClient = new Mongo();
-	DB db = mongo.getDB("273project");
-	DBCollection coll = db.getCollection("business");
-	BasicDBObject query = new BasicDBObject("city", city);
-	DBCursor myCol = coll.find(query);
-	myCol.limit(15);
-	
-	BusinessDto businesses = new BusinessDto();
+		MultivaluedMap<String, String> queryParams = uriInfo
+				.getQueryParameters();
+		System.out.println(queryParams.getFirst("name"));
+		String businessName = queryParams.getFirst("name");
+		String userid = queryParams.getFirst("userid");
+		String username = null;
+		String email = null;
+		System.out.println("business name " + businessName);
+		System.out.println("userid " + userid);
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("user");
 
-	try {
-			while(myCol.hasNext()) { 
-								
-			        BasicDBObject businessObj = (BasicDBObject) myCol.next();
-			        String business_id = businessObj.getString("business_id");
-			        String categories = businessObj.getString("categories");
-			        String full_address = businessObj.getString("full_address");
-			        String hours = businessObj.getString("hours");
-			       
-			        Business business = new Business();
-			        business.setBusinessId(business_id);
-			        business.setCategories(categories);
-			        business.setFullAddress(full_address);
-			        business.setHours(hours);
-			 
-			        businesses.addBusiness(business);
-	
-	   }
-	} finally { myCol.close(); }
-	
-    return businesses;
-}
+		BasicDBObject searchQuery = new BasicDBObject("user_id", userid);
+		DBCursor userCol = coll.find(searchQuery);
+		while (userCol.hasNext()) {
+			BasicDBObject userObj = (BasicDBObject) userCol.next();
+			username = userObj.getString("name");
+			System.out.println("username " + username);
 
- */
+		}
+		DBCollection userInfoColl = db.getCollection("userInfo");
+
+		BasicDBObject query = new BasicDBObject("username", username);
+		DBCursor userCursor = userInfoColl.find(query);
+		while (userCursor.hasNext()) {
+			BasicDBObject userObj1 = (BasicDBObject) userCursor.next();
+			email = userObj1.getString("email");
+		}
+		System.out.println("email " + email);
+
+		System.out.println("hiii");
+		SNS sns = new SNS();
+		sns.userSubscribeToTopic(businessName, email);
+		return Response.status(201).build();
+
+	}
+
 	@POST
 	@Path("/validate")
 	public boolean validateUser(UserLogin user) {
@@ -203,12 +238,12 @@ public class KaizenResource {
 		while (cursor.hasNext()) {
 			flag = 1;
 			break;
-		
+
 		}
 
-		if(flag == 0)
+		if (flag == 0)
 			returnVal = false;
-		else if (flag ==1)
+		else if (flag == 1)
 			returnVal = true;
 		return returnVal;
 	}
@@ -216,12 +251,14 @@ public class KaizenResource {
 	@POST
 	@Path("/insertReview")
 	public boolean validateUser(Review review) {
-		
+
 		DB db = mongo.getDB("273project");
 		DBCollection reviewColl = db.getCollection("review");
-		BasicDBObject revObj = new BasicDBObject("review",review);
+		BasicDBObject revObj = new BasicDBObject("review", review);
 		reviewColl.insert(revObj);
 		return true;
+<<<<<<< HEAD
+=======
 	
 	}
 	
@@ -257,216 +294,253 @@ public class KaizenResource {
 	
 	
 	
+>>>>>>> FETCH_HEAD
 
-    @GET
-    @Path("/business")
-    @Timed(name = "get-business")
-     public BusinessDto getBusiness(@Context UriInfo uriInfo) {
-        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-        DB db = mongo.getDB("273project");
-        DBCollection coll = db.getCollection("business");
-        String businessID = queryParams.getFirst("business_id");
-        String name = queryParams.getFirst("name");
-        String state = queryParams.getFirst("state");
-        String city = queryParams.getFirst("city");
-        String address = queryParams.getFirst("address");
-        String zipcode = queryParams.getFirst("zipcode");
-        String category = queryParams.getFirst("categories");
-        System.out.println(name);
+	}
 
-        BasicDBObject searchQuery = new BasicDBObject();
+	@GET
+	@Path("/business")
+	@Timed(name = "get-business")
+	public BusinessDto getBusiness(@Context UriInfo uriInfo) {
+		MultivaluedMap<String, String> queryParams = uriInfo
+				.getQueryParameters();
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("business");
+		String businessID = queryParams.getFirst("business_id");
+		String name = queryParams.getFirst("name");
+		String state = queryParams.getFirst("state");
+		String city = queryParams.getFirst("city");
+		String address = queryParams.getFirst("address");
+		String zipcode = queryParams.getFirst("zipcode");
+		String category = queryParams.getFirst("categories");
+		System.out.println(name);
 
-        if (businessID != null){ searchQuery.append("business_id", businessID); }
-        else {
-		if (name != null){ searchQuery.append("name", name); }
-		if (state != null){ searchQuery.append("state", state); }
-		if (city != null){ searchQuery.append("city", city); }
-		if (zipcode != null){ searchQuery.append("zipcode", zipcode); }
-		if (category != null){ searchQuery.append("categories", category); }
-		if (address != null){ searchQuery.append("address", address); }
-        }
+		BasicDBObject searchQuery = new BasicDBObject();
 
-        DBCursor busColl = coll.find(searchQuery);
-        busColl.limit(20);
+		if (businessID != null) {
+			searchQuery.append("business_id", businessID);
+		} else {
+			if (name != null) {
+				searchQuery.append("name", name);
+			}
+			if (state != null) {
+				searchQuery.append("state", state);
+			}
+			if (city != null) {
+				searchQuery.append("city", city);
+			}
+			if (zipcode != null) {
+				searchQuery.append("zipcode", zipcode);
+			}
+			if (category != null) {
+				searchQuery.append("categories", category);
+			}
+			if (address != null) {
+				searchQuery.append("address", address);
+			}
+		}
 
-        BusinessDto businesses = new BusinessDto();
+		DBCursor busColl = coll.find(searchQuery);
+		busColl.limit(20);
 
-        try {
-                        while(busColl.hasNext()) {
-                                BasicDBObject businessObj = (BasicDBObject) busColl.next();
-                                String business_id = businessObj.getString("business_id");
-				               String names = businessObj.getString("name");
-                                String categories = businessObj.getString("categories");
-                                String full_address = businessObj.getString("full_address");
-                                String hours = businessObj.getString("hours");
+		BusinessDto businesses = new BusinessDto();
 
-                                Business business = new Business();
-                                business.setBusinessId(business_id);
+		try {
+			while (busColl.hasNext()) {
+				BasicDBObject businessObj = (BasicDBObject) busColl.next();
+				String business_id = businessObj.getString("business_id");
+				String names = businessObj.getString("name");
+				String categories = businessObj.getString("categories");
+				String full_address = businessObj.getString("full_address");
+				String hours = businessObj.getString("hours");
+
+				Business business = new Business();
+				business.setBusinessId(business_id);
 				business.setName(name);
-                                business.setCategories(categories);
-                                business.setFullAddress(full_address);
-                                business.setHours(hours);
+				business.setCategories(categories);
+				business.setFullAddress(full_address);
+				business.setHours(hours);
 
-                                businesses.addBusiness(business);
+				businesses.addBusiness(business);
 
-           }
-        } finally { busColl.close(); }
+			}
+		} finally {
+			busColl.close();
+		}
 
-    return businesses;
-}
+		return businesses;
+	}
 
-    @GET
-    @Timed(name = "get-review")
-    @Path("/review")
-     public ReviewDto getReview(@Context UriInfo uriInfo) {
-        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-        DB db = mongo.getDB("273project");
-        DBCollection coll = db.getCollection("review");
+	@GET
+	@Timed(name = "get-review")
+	@Path("/review")
+	public ReviewDto getReview(@Context UriInfo uriInfo) {
+		MultivaluedMap<String, String> queryParams = uriInfo
+				.getQueryParameters();
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("review");
 
-        String reviewID = queryParams.getFirst("review_id");
-        String businessID = queryParams.getFirst("business_id");
-        String userID = queryParams.getFirst("user_id");
+		String reviewID = queryParams.getFirst("review_id");
+		String businessID = queryParams.getFirst("business_id");
+		String userID = queryParams.getFirst("user_id");
 
-        BasicDBObject searchQuery = new BasicDBObject();
-        
-        if (reviewID != null){ searchQuery.append("review_id", reviewID); }
-        else {        
-                if (businessID != null){ searchQuery.append("business_id", businessID); }	
-	        if (userID != null){ searchQuery.append("user_id", userID); }
-        }
+		BasicDBObject searchQuery = new BasicDBObject();
 
-        DBCursor revCol = coll.find(searchQuery);
-        revCol.limit(20);
+		if (reviewID != null) {
+			searchQuery.append("review_id", reviewID);
+		} else {
+			if (businessID != null) {
+				searchQuery.append("business_id", businessID);
+			}
+			if (userID != null) {
+				searchQuery.append("user_id", userID);
+			}
+		}
 
-        ReviewDto reviews = new ReviewDto();
+		DBCursor revCol = coll.find(searchQuery);
+		revCol.limit(20);
 
-        try {
-                        while(revCol.hasNext()) {
-                                BasicDBObject reviewObj = (BasicDBObject) revCol.next();
+		ReviewDto reviews = new ReviewDto();
 
-                                String review_id = reviewObj.getString("review_id");
-                                String business_id = reviewObj.getString("business_id");
-                                String user_id = reviewObj.getString("user_id");
-                                String stars = reviewObj.getString("stars");
-                                String date = reviewObj.getString("date");
-                                String text = reviewObj.getString("text");
+		try {
+			while (revCol.hasNext()) {
+				BasicDBObject reviewObj = (BasicDBObject) revCol.next();
 
-                                Review review = new Review();
-                                review.setReviewId(review_id);
-                                review.setBusinessId(business_id);
-                                review.setUserId(user_id);
-                                review.setStars(stars);
-                                review.setDate(date);
-                                review.setText(text);
+				String review_id = reviewObj.getString("review_id");
+				String business_id = reviewObj.getString("business_id");
+				String user_id = reviewObj.getString("user_id");
+				String stars = reviewObj.getString("stars");
+				String date = reviewObj.getString("date");
+				String text = reviewObj.getString("text");
 
-                                reviews.addReview(review);
+				Review review = new Review();
+				review.setReviewId(review_id);
+				review.setBusinessId(business_id);
+				review.setUserId(user_id);
+				review.setStars(stars);
+				review.setDate(date);
+				review.setText(text);
 
-           }
-        } finally { revCol.close(); }
+				reviews.addReview(review);
 
-    return reviews;
-}
+			}
+		} finally {
+			revCol.close();
+		}
 
-    @GET
-    @Timed(name = "get-user")
-    @Path("/user")
-     public UserDto getUser(@Context UriInfo uriInfo) {
-        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-        DB db = mongo.getDB("273project");
-        DBCollection coll = db.getCollection("user");
+		return reviews;
+	}
 
-        String businessID = queryParams.getFirst("business_id");
-        String userID = queryParams.getFirst("user_id");
+	@GET
+	@Timed(name = "get-user")
+	@Path("/user")
+	public UserDto getUser(@Context UriInfo uriInfo) {
+		MultivaluedMap<String, String> queryParams = uriInfo
+				.getQueryParameters();
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("user");
 
-        BasicDBObject searchQuery = new BasicDBObject();
+		String businessID = queryParams.getFirst("business_id");
+		String userID = queryParams.getFirst("user_id");
 
-	if (userID != null){ searchQuery.append("user_id", userID); }
+		BasicDBObject searchQuery = new BasicDBObject();
 
-        DBCursor userCol = coll.find(searchQuery);
-        userCol.limit(20);
+		if (userID != null) {
+			searchQuery.append("user_id", userID);
+		}
 
-        UserDto users = new UserDto();
+		DBCursor userCol = coll.find(searchQuery);
+		userCol.limit(20);
 
-        try {
-                        while(userCol.hasNext()) {
-                                BasicDBObject userObj = (BasicDBObject) userCol.next();
+		UserDto users = new UserDto();
 
-                                String user_id = userObj.getString("user_id");
-                                String yelping_since = userObj.getString("yelping_since");
-                                String review_count = userObj.getString("review_count");
-                                String name = userObj.getString("name");
-                                String fans = userObj.getString("fans");
-                                String average_stars = userObj.getString("average_stars");
+		try {
+			while (userCol.hasNext()) {
+				BasicDBObject userObj = (BasicDBObject) userCol.next();
 
-                                User user = new User();
-                                user.setUserId(user_id);
-                                user.setYelpingSince(yelping_since);
-                                user.setReviewCount(review_count);
-                                user.setName(name);
-                                user.setFans(fans);
-                                user.setAverageStars(average_stars);
+				String user_id = userObj.getString("user_id");
+				String yelping_since = userObj.getString("yelping_since");
+				String review_count = userObj.getString("review_count");
+				String name = userObj.getString("name");
+				String fans = userObj.getString("fans");
+				String average_stars = userObj.getString("average_stars");
 
-                                users.addUser(user);
+				User user = new User();
+				user.setUserId(user_id);
+				user.setYelpingSince(yelping_since);
+				user.setReviewCount(review_count);
+				user.setName(name);
+				user.setFans(fans);
+				user.setAverageStars(average_stars);
 
-           }
-        } finally { userCol.close(); }
+				users.addUser(user);
 
-    return users;
-}
+			}
+		} finally {
+			userCol.close();
+		}
 
+		return users;
+	}
 
-    @GET
-    @Timed(name = "get-tip")
-    @Path("/tip")
-     public TipDto getTip(@Context UriInfo uriInfo) {
-        MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
-        DB db = mongo.getDB("273project");
-        DBCollection coll = db.getCollection("tip");
+	@GET
+	@Timed(name = "get-tip")
+	@Path("/tip")
+	public TipDto getTip(@Context UriInfo uriInfo) {
+		MultivaluedMap<String, String> queryParams = uriInfo
+				.getQueryParameters();
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("tip");
 
-        String businessID = queryParams.getFirst("business_id");
-        String userID = queryParams.getFirst("user_id");
+		String businessID = queryParams.getFirst("business_id");
+		String userID = queryParams.getFirst("user_id");
 
-        BasicDBObject searchQuery = new BasicDBObject();
+		BasicDBObject searchQuery = new BasicDBObject();
 
-	if (userID != null){ searchQuery.append("user_id", userID); }
-	if (businessID != null){ searchQuery.append("business_id", businessID); }
-  
+		if (userID != null) {
+			searchQuery.append("user_id", userID);
+		}
+		if (businessID != null) {
+			searchQuery.append("business_id", businessID);
+		}
 
-        DBCursor tipCol = coll.find(searchQuery);
-        tipCol.limit(20);
+		DBCursor tipCol = coll.find(searchQuery);
+		tipCol.limit(20);
 
-        TipDto tips = new TipDto();
+		TipDto tips = new TipDto();
 
-        try {
-                        while(tipCol.hasNext()) {
-                                BasicDBObject userObj = (BasicDBObject) tipCol.next();
+		try {
+			while (tipCol.hasNext()) {
+				BasicDBObject userObj = (BasicDBObject) tipCol.next();
 
-                                String user_id = userObj.getString("user_id");
-                                String business_id = userObj.getString("business_id");
-                                String likes = userObj.getString("likes");
-                                String date = userObj.getString("date");
-                                String text = userObj.getString("text");
+				String user_id = userObj.getString("user_id");
+				String business_id = userObj.getString("business_id");
+				String likes = userObj.getString("likes");
+				String date = userObj.getString("date");
+				String text = userObj.getString("text");
 
-                                Tip tip = new Tip();
-                                tip.setUserId(user_id);
-                                tip.setBusinessId(business_id);
-                                tip.setLikes(likes);
-                                tip.setDate(date);
-                                tip.setText(text);
+				Tip tip = new Tip();
+				tip.setUserId(user_id);
+				tip.setBusinessId(business_id);
+				tip.setLikes(likes);
+				tip.setDate(date);
+				tip.setText(text);
 
-                                tips.addTip(tip);
+				tips.addTip(tip);
 
-           }
-        } finally { tipCol.close(); }
+			}
+		} finally {
+			tipCol.close();
+		}
 
-    return tips;
-}
-
+		return tips;
+	}
 
 	@GET
 	@Path("/{city}/{categories}")
 	@Timed(name = "get-categories")
-	public BusinessDto getCategory(@PathParam("city") String city, @PathParam("categories") String category) {
+	public BusinessDto getCategory(@PathParam("city") String city,
+			@PathParam("categories") String category) {
 
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
@@ -479,108 +553,119 @@ public class KaizenResource {
 		BusinessDto businesses = new BusinessDto();
 
 		try {
-				while(myCol.hasNext()) { 
+			while (myCol.hasNext()) {
 
-				        BasicDBObject businessObj = (BasicDBObject) myCol.next();
-				        String business_id = businessObj.getString("business_id");
-				        String categories = businessObj.getString("categories");
-				        String full_address = businessObj.getString("full_address");
-				        String hours = businessObj.getString("hours");
+				BasicDBObject businessObj = (BasicDBObject) myCol.next();
+				String business_id = businessObj.getString("business_id");
+				String categories = businessObj.getString("categories");
+				String full_address = businessObj.getString("full_address");
+				String hours = businessObj.getString("hours");
 
-				        Business business = new Business();
-				        business.setBusinessId(business_id);
-				        business.setCategories(categories);
-				        business.setFullAddress(full_address);
-				        business.setHours(hours);
+				Business business = new Business();
+				business.setBusinessId(business_id);
+				business.setCategories(categories);
+				business.setFullAddress(full_address);
+				business.setHours(hours);
 
-				        businesses.addBusiness(business);
+				businesses.addBusiness(business);
 
-		   }
-		} finally { myCol.close(); }
+			}
+		} finally {
+			myCol.close();
+		}
 
-	    return businesses;
+		return businesses;
 	}
-
-
 
 	@GET
 	@Path("/{city}/{categories}/{hoursDay}/{time1}/{time2}")
 	@Timed(name = "get-timebased")
-	public BusinessDto getTimeBased(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("hoursDay") String day ,
-			@PathParam("time1") String startTime , @PathParam("time2") String endTime  ) {
+	public BusinessDto getTimeBased(@PathParam("city") String city,
+			@PathParam("categories") String category,
+			@PathParam("hoursDay") String day,
+			@PathParam("time1") String startTime,
+			@PathParam("time2") String endTime) {
 
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
-
 
 		BasicDBObject searchQuery = new BasicDBObject("categories", category);
 		searchQuery.append("city", city);
 		searchQuery.append("open", true);
 
-		searchQuery.append("hours."+day+".open", new BasicDBObject("$lte", startTime)).append("hours."+day+".close", new BasicDBObject("$gt", endTime));
+		searchQuery.append("hours." + day + ".open",
+				new BasicDBObject("$lte", startTime)).append(
+				"hours." + day + ".close", new BasicDBObject("$gt", endTime));
 		DBCursor myCol = coll.find(searchQuery);
 		myCol.limit(15);
 
 		BusinessDto businesses = new BusinessDto();
 
 		try {
-				while(myCol.hasNext()) { 
+			while (myCol.hasNext()) {
 
-				        BasicDBObject businessObj = (BasicDBObject) myCol.next();
-				        String business_id = businessObj.getString("business_id");
-				        String categories = businessObj.getString("categories");
-				        String full_address = businessObj.getString("full_address");
-				        String hours = businessObj.getString("hours");
+				BasicDBObject businessObj = (BasicDBObject) myCol.next();
+				String business_id = businessObj.getString("business_id");
+				String categories = businessObj.getString("categories");
+				String full_address = businessObj.getString("full_address");
+				String hours = businessObj.getString("hours");
 
-				        Business business = new Business();
-				        business.setBusinessId(business_id);
-				        business.setCategories(categories);
-				        business.setFullAddress(full_address);
-				        business.setHours(hours);
+				Business business = new Business();
+				business.setBusinessId(business_id);
+				business.setCategories(categories);
+				business.setFullAddress(full_address);
+				business.setHours(hours);
 
-				        businesses.addBusiness(business);
+				businesses.addBusiness(business);
 
-		   }
-		} finally { myCol.close(); }
+			}
+		} finally {
+			myCol.close();
+		}
 
-	    return businesses;
+		return businesses;
 	}
-
 
 	@GET
 	@Path("/{city}/{categories}/{when}")
 	@Timed(name = "get-timebased")
-	public BusinessDto getCurrentTime(@PathParam("city") String city,@PathParam("categories") String category , @PathParam("when") String when  ) {
+	public BusinessDto getCurrentTime(@PathParam("city") String city,
+			@PathParam("categories") String category,
+			@PathParam("when") String when) {
 
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
 
 		Calendar now = Calendar.getInstance();
-		System.out.println("Current date : " + (now.get(Calendar.MONTH) + 1) + "-"
-				+ now.get(Calendar.DATE) + "-" + now.get(Calendar.YEAR) + "-"+ now.getTime().getHours() + "-"+ now.getTime().getMinutes());
+		System.out.println("Current date : " + (now.get(Calendar.MONTH) + 1)
+				+ "-" + now.get(Calendar.DATE) + "-" + now.get(Calendar.YEAR)
+				+ "-" + now.getTime().getHours() + "-"
+				+ now.getTime().getMinutes());
 
-		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday",
-				"Friday", "Saturday" };
+		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday",
+				"Wednesday", "Thusday", "Friday", "Saturday" };
 		// Day_OF_WEEK starts from 1 while array index starts from 0
 		String day = strDays[now.get(Calendar.DAY_OF_WEEK) - 1];
 		int hours = now.getTime().getHours();
-		//int hours = 7 ;
+		// int hours = 7 ;
 		int minutes = now.getTime().getMinutes();
-		System.out.println("Current day is : " + day + "hours and minutes" + hours + " " +minutes);
+		System.out.println("Current day is : " + day + "hours and minutes"
+				+ hours + " " + minutes);
 
 		String startTime;
 
-		if (hours <10 ){
-			startTime = "0"+hours + ":00";
-		}
-		else{
+		if (hours < 10) {
+			startTime = "0" + hours + ":00";
+		} else {
 			startTime = hours + ":00";
 		}
 
 		BasicDBObject searchQuery = new BasicDBObject("categories", category);
 		searchQuery.append("city", city);
 		searchQuery.append("open", true);
-		searchQuery.append("hours."+day+".open", new BasicDBObject("$lt", startTime)).append("hours."+day+".close", new BasicDBObject("$gt", startTime));
+		searchQuery.append("hours." + day + ".open",
+				new BasicDBObject("$lt", startTime)).append(
+				"hours." + day + ".close", new BasicDBObject("$gt", startTime));
 
 		DBCursor cursor = coll.find(searchQuery);
 		cursor.limit(10);
@@ -588,26 +673,28 @@ public class KaizenResource {
 		BusinessDto businesses = new BusinessDto();
 
 		try {
-				while(cursor.hasNext()) { 
+			while (cursor.hasNext()) {
 
-				        BasicDBObject businessObj = (BasicDBObject) cursor.next();
-				        String business_id = businessObj.getString("business_id");
-				        String categories = businessObj.getString("categories");
-				        String full_address = businessObj.getString("full_address");
-				        String hours_display = businessObj.getString("hours");
+				BasicDBObject businessObj = (BasicDBObject) cursor.next();
+				String business_id = businessObj.getString("business_id");
+				String categories = businessObj.getString("categories");
+				String full_address = businessObj.getString("full_address");
+				String hours_display = businessObj.getString("hours");
 
-				        Business business = new Business();
-				        business.setBusinessId(business_id);
-				        business.setCategories(categories);
-				        business.setFullAddress(full_address);
-				        business.setHours(hours_display);
+				Business business = new Business();
+				business.setBusinessId(business_id);
+				business.setCategories(categories);
+				business.setFullAddress(full_address);
+				business.setHours(hours_display);
 
-				        businesses.addBusiness(business);
+				businesses.addBusiness(business);
 
-		   }
-		} finally { cursor.close(); }
+			}
+		} finally {
+			cursor.close();
+		}
 
-	    return businesses;
+		return businesses;
 	}
 	// @GET
 	// @Timed(name = "get-business")

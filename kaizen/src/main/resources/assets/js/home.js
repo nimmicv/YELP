@@ -15,7 +15,7 @@ $("#searchB").click(function() {
 		var name = $('#name').val();
 		$.ajax({
 			
-			type : 'GET',
+			type : 'POST',
 			url : '/kaizen/business',
 			contentType : 'application/json',
 			dataType : 'json',

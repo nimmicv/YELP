@@ -36,8 +36,8 @@ public static void main(String[] args){
 
 
 	private AmazonSNS connectToSNS (){
-		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
-	
+		//final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
+		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("AKIAJ7K2MAJXLWYXUBUA",  "cXazKIn16Jao2vEv0TkisjrTDV6l327BkWbPdlUj"));
 		snsConnection.setEndpoint("sns.us-west-1.amazonaws.com");
 		return snsConnection;
 
@@ -45,14 +45,30 @@ public static void main(String[] args){
 
 
 	public void userSubscribeToTopic (  String category , String email ){
+
 		SNS sns = new SNS();
+
 		AmazonSNS snsconnect = sns.connectToSNS();
+<<<<<<< HEAD
+
+
+		String categoryName = category.replaceAll("\\s+","");
+
+		System.out.println(" category name " + categoryName);
+
+
+		String topicArn = sns.createTopic(snsconnect, categoryName);
+
+=======
 		
 		String categoryName = category.replaceAll("\\s+","");
 		System.out.println(" category name " + categoryName);
 		
 		String topicArn = sns.createTopic(snsconnect, categoryName);
+>>>>>>> FETCH_HEAD
 		System.out.println(" New topic arn" + topicArn);
+
+
 
 		/*String[] split = topicArn.split(":");
 		String categoryName = split[split.length-1];
