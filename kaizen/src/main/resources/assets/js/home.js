@@ -1,16 +1,16 @@
 
 	$("#search").click(function() {
-		var strData={"name":search};
-alert(search);
+		var name = $('#name').val();
+		
 		$.ajax({
-			type : 'POST',
-			url : '/kaizen/business',
+			type : 'GET',
+			url : '/kaizen?name=name',
 			contentType : 'application/json',
 			dataType : 'json',
-			data:JSON.stringify(strData),
+			data:{"name":name},
 			success : function(response) {
 				 alert("Response: " + response);
-				 parent.document.getElementById("mustFrame").src="http://localhost:8080/business/"+username;
+				 parent.document.getElementById("mustFrame").src="http://localhost:8080/business/"+name;
 				    //$("#mustFrame",parent.document).load("http://localhost:8080/home/"+username);
 			
 				//alert("you are logged in!");
@@ -18,12 +18,7 @@ alert(search);
 			},
 			error:function(response)
 			{
-				$.get("http://localhost:8080/home/"+username,function(data,status){
-				    alert("Data: " + data + "\nStatus: " + status);
-				    $(body).html(response);
-				  });
-				
-				}
+			}
 		});
 	});
 
