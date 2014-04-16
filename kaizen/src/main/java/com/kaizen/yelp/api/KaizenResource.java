@@ -161,6 +161,7 @@ public class KaizenResource {
         DBCollection coll = db.getCollection("business");
 
         String businessID = queryParams.getFirst("business_id");
+	String name = queryParams.getFirst("name");
         String state = queryParams.getFirst("state");
         String city = queryParams.getFirst("city");
         String address = queryParams.getFirst("address");
@@ -171,6 +172,7 @@ public class KaizenResource {
 
         if (businessID != null){ searchQuery.append("business_id", businessID); }
         else {
+		if (name != null){ searchQuery.append("name", name); }
 		if (state != null){ searchQuery.append("state", state); }
 		if (city != null){ searchQuery.append("city", city); }
 		if (zipcode != null){ searchQuery.append("zipcode", zipcode); }
@@ -187,12 +189,14 @@ public class KaizenResource {
                         while(busColl.hasNext()) {
                                 BasicDBObject businessObj = (BasicDBObject) busColl.next();
                                 String business_id = businessObj.getString("business_id");
+				String names = businessObj.getString("name");
                                 String categories = businessObj.getString("categories");
                                 String full_address = businessObj.getString("full_address");
                                 String hours = businessObj.getString("hours");
 
                                 Business business = new Business();
                                 business.setBusinessId(business_id);
+				business.setName(name);
                                 business.setCategories(categories);
                                 business.setFullAddress(full_address);
                                 business.setHours(hours);

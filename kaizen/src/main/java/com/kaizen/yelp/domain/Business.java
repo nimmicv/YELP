@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder(alphabetic = true)
 public class Business {
+private String name;
 private String categories;
 private String business_id;
 private String full_address;
@@ -21,6 +22,20 @@ public String getBusinessId() {
 public void setBusinessId(String business_id) {
 	this.business_id = business_id;
 }
+
+/**
+ * @return the name
+ */
+public String getName() {
+        return name;
+}
+/**
+ * @param name to set
+ */
+public void setName(String name) {
+        this.name = name;
+}
+
 /**
  * @return the categories
  */
