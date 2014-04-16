@@ -26,7 +26,7 @@
 					<div style="vertical-align:center" class="container">
                  		<img src="http://loudrumor.com/wp-content/uploads/2013/05/yelp-icon1.png">
                  		<div style="font-family:fantasy;display:inline-block">
-                 		<h4 class=""  contenteditable="false">Welcome {{loginuser.username}} </h3>
+                 		<h4 class=""  contenteditable="false">Welcome {{loginuser.username}} !</h3>
                  		<h4 class=""  contenteditable="false">Email {{loginuser.email}} </h3>
                  		</div>
 					</div>         
@@ -35,8 +35,16 @@
 					<div class="container">
                 <div class="jumbotron">
                     <!-- calls getReview() from HomeResource -->
-                    <p>abcd</p>
                     <table  class="table table-hover">
+                    <tr>
+                           
+							<th>ID</th>
+							<th>Date</th>
+							<th>Business ID</th>
+							<th>Stars</th>
+							<th>Review</th>
+							
+                        </tr>
                     {{#reviews}}
                         <tr>
                            
