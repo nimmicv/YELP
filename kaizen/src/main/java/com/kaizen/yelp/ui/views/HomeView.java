@@ -17,6 +17,12 @@ public class HomeView extends View {
 	private User userInfo;
 	private List<Review> reviews;
 	
+	public User getUserInfo() {
+		return userInfo;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
 	public UserLogin getLoginuser() {
 		return loginuser;
 	}
