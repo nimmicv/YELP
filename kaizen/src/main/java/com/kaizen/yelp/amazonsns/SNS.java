@@ -47,7 +47,11 @@ public static void main(String[] args){
 	public void userSubscribeToTopic (  String category , String email ){
 		SNS sns = new SNS();
 		AmazonSNS snsconnect = sns.connectToSNS();
-		String topicArn = sns.createTopic(snsconnect, category);
+		
+		String categoryName = category.replaceAll("\\s+","");
+		System.out.println(" category name " + categoryName);
+		
+		String topicArn = sns.createTopic(snsconnect, categoryName);
 		System.out.println(" New topic arn" + topicArn);
 
 		/*String[] split = topicArn.split(":");
@@ -80,11 +84,11 @@ public static void main(String[] args){
 		boolean subscribeStatus = sns.isSubscribed(snsconnect, topicArn, email);
 
 		if(subscribeStatus == true){
-			System.out.println(" User already subscribed to topic "+ category);
+			System.out.println(" User already subscribed to topic "+ categoryName);
 		}
 		else{
 
-			System.out.println(" Sending email to user to  subscribe to topic "+ category);
+			System.out.println(" Sending email to user to  subscribe to topic "+ categoryName);
 			sns.subscribeToTopic(snsconnect, topicArn, "email", email);
 		}
 
