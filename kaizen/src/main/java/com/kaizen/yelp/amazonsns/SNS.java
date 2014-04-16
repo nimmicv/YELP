@@ -49,7 +49,6 @@ public static void main(String[] args){
 		SNS sns = new SNS();
 
 		AmazonSNS snsconnect = sns.connectToSNS();
-<<<<<<< HEAD
 
 
 		String categoryName = category.replaceAll("\\s+","");
@@ -59,13 +58,7 @@ public static void main(String[] args){
 
 		String topicArn = sns.createTopic(snsconnect, categoryName);
 
-=======
-		
-		String categoryName = category.replaceAll("\\s+","");
-		System.out.println(" category name " + categoryName);
-		
-		String topicArn = sns.createTopic(snsconnect, categoryName);
->>>>>>> FETCH_HEAD
+
 		System.out.println(" New topic arn" + topicArn);
 
 

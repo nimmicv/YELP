@@ -257,8 +257,7 @@ public class KaizenResource {
 		BasicDBObject revObj = new BasicDBObject("review", review);
 		reviewColl.insert(revObj);
 		return true;
-<<<<<<< HEAD
-=======
+
 	
 	}
 	
@@ -293,10 +292,6 @@ public class KaizenResource {
 	
 	
 	
-	
->>>>>>> FETCH_HEAD
-
-	}
 
 	@GET
 	@Path("/business")

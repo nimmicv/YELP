@@ -6,7 +6,7 @@ $(document).ready(function () {
         var businessName = id.text();
         var username = document.getElementById("user").textContent;
         username = username.split(" ")[1];
-       parent.document.getElementById("mustFrame").src="http://localhost:8080/business/"+username+"/"+businessName;
+       parent.document.getElementById("mustFrame").src="http://localhost:8080/business/"+businessName+"/"+username;
       
     });
 });
