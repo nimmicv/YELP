@@ -238,6 +238,25 @@ public class KaizenResource {
 		
 		return Response.status(201).build();
 	}
+	
+	
+	
+	
+	@GET
+    	@Path("/publish")
+    	@Timed(name = "publish")
+	
+	public Response userPublish( String businesName , String email){
+		
+		SNS sns = new SNS();
+		sns.userPublishingToTopic(businesName, email);
+		
+		return Response.status(201).build();
+	}
+	
+	
+	
+	
 
     @GET
     @Path("/business")
