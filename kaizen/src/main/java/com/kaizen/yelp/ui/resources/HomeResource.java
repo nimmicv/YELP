@@ -29,11 +29,23 @@ public class HomeResource {
 		// TODO Auto-generated constructor stub
 		this.mongo = mongo;
 	}
+	@GET
+	public HomeView getIndex() {
+		return new HomeView();
+	}
 
 	@GET
+	@Path("/login")
 	public HomeView getLogin() {
 		return new HomeView(new HelloMessage());
 	}
+	
+	//@GET
+	//@Path("/business/{businessId}")
+//	public BusinessView getBusiness(@PathParam("businessId") String id) {
+//		
+//
+//	}
 
 	@GET
 	@Path("/home/{username}")
