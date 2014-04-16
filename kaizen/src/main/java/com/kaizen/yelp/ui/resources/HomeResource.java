@@ -6,11 +6,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.HelloMessage;
 import com.kaizen.yelp.domain.Review;
 import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.domain.UserLogin;
 import com.kaizen.yelp.dto.ReviewDto;
+import com.kaizen.yelp.ui.views.BusinessView;
 import com.kaizen.yelp.ui.views.HomeView;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -40,12 +42,13 @@ public class HomeResource {
 		return new HomeView(new HelloMessage());
 	}
 	
-	//@GET
-	//@Path("/business/{businessId}")
-//	public BusinessView getBusiness(@PathParam("businessId") String id) {
-//		
-//
-//	}
+	@GET
+	@Path("/business/{business}/{user}")
+	public BusinessView getBusiness(@PathParam("business") String business,@PathParam("user") String user) {
+		User userData = new User();
+		Business bus = new Business();
+		return new BusinessView(bus,userData);
+	}
 
 	@GET
 	@Path("/home/{username}")
