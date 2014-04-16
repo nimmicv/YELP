@@ -77,6 +77,7 @@
 									<input type="name" id="name" name="name" placeholder="" class="input-xlarge">
 								</div>
 							</div>
+<<<<<<< HEAD
 							
 							
 							<div class="control-group" id="searchB">
@@ -87,6 +88,37 @@
 							</div>
 						</fieldset>
 					<!-- </form> -->                
+=======
+						</div>
+						<div class="jumbotron" style="display:none" id="businessTable">
+                    <table  class="table table-hover">
+                    <tr>
+                           
+							<th>Business ID</th>
+							<th>Business Name</th>
+							<th>Category</th>
+							<th>Address</th>
+							<th>Hours</th>
+							<thLoad Business</th>
+                        </tr>
+                    {{#business}}
+                        <tr>
+                           
+							<td>{{business_id}}</td>
+							<td>{{name}}</td>
+							<td>{{categories}}</td>
+							<td>{{full_address}}</td>
+							<td>{{hours}}</td>
+							<td><button id="{{name}}" type="button" class="btn btn-primary">Go</button></td>
+							
+                        </tr>
+               {{/business}}
+                    </table>
+                </div>
+				</div> <!-- end of container --> 
+				</div>
+			</div>
+>>>>>>> FETCH_HEAD
 		</div>
 	</div>
 	</div>
