@@ -1,8 +1,3 @@
- $(":button").click( function(){
-	  alert("hello");
-	  alert(this.rowIndex);
-	  
-  });
 
 $("#login").click(function() {
 		

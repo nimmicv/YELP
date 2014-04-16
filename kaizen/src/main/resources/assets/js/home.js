@@ -1,8 +1,13 @@
 $(document).ready(function () {
     $(document).on('click', ".table .btn", function (e) {
         e.preventDefault();
-        id = $(this).attr('id')
-        alert(id);
+        var tr = $(this).closest('tr');
+        var id = tr.find('#busName');
+        var businessName = id.text();
+        var username = document.getElementById("user").textContent;
+        username = username.split(" ")[1];
+       parent.document.getElementById("mustFrame").src="http://localhost:8080/business/"+username+"/"+businessName;
+      
     });
 });
 $("#searchB").click(function() {
@@ -25,7 +30,7 @@ $("#searchB").click(function() {
 					 {
 					// alert(response.businesses[i].name);
 					 ++j;
-					 arr[j] ='<tr><td>'+response.businesses[i].businessId+'</td><td>'+response.businesses[i].name+'</td><td>'+response.businesses[i].fullAddress+'</td>';
+					 arr[j] ='<tr><td>'+response.businesses[i].businessId+'</td><td id="busName">'+response.businesses[i].name+'</td><td>'+response.businesses[i].fullAddress+'</td>';
 					 arr[j] = arr[j] + '<td><button id="tableBut" type="button" class="btn btn-primary" onclick="redirect()">Go</button></td></tr>';
 					 }
 				 $('#businessTableData').html(arr.join('')); 
