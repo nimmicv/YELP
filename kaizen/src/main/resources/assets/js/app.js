@@ -1,7 +1,6 @@
 	$("#login").click(function() {
 		
 		var username = $('#username').val();
-		$("#mustFrame").load("http://localhost:8080/home/"+username);
 		var password = $('#password').val();
 		alert(username);
 		var strData={"username":username,"password":password};

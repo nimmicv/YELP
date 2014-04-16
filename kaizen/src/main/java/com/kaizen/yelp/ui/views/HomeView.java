@@ -14,11 +14,11 @@ import com.yammer.dropwizard.views.View;
 public class HomeView extends View {
 
 	private UserLogin loginuser;
-	private User userInfo;
+	private User userinfo;
 	private List<Review> reviews;
 	
 	public User getUserInfo() {
-		return userInfo;
+		return userinfo;
 	}
 	public List<Review> getReviews() {
 		return reviews;
@@ -48,8 +48,8 @@ public class HomeView extends View {
 	public HomeView(UserLogin user, User userData, List<Review> reviews) {
 		// TODO Auto-generated constructor stub
         super("home.mustache");
-        loginuser=user;
-        userInfo=userData;
+        this.loginuser=user;
+        this.userinfo=userData;
         this.reviews=reviews;
         
         
