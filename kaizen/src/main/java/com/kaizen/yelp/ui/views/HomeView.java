@@ -48,6 +48,9 @@ public class HomeView extends View {
 	public HomeView(UserLogin user, User userData, List<Review> reviews) {
 		// TODO Auto-generated constructor stub
         super("home.mustache");
+        loginuser=user;
+        userinfo=userData;
+        System.out.println(userinfo.getYelpingSince());
         this.loginuser=user;
         this.userinfo=userData;
         this.reviews=reviews;

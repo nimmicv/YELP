@@ -108,7 +108,6 @@ public class HomeResource {
 		userData.setFans(fans);
 		userData.setYelpingSince(yelping_since);
 		userData.setReviewCount(review_count);
-		
 		BasicDBObject toFindReviews = new BasicDBObject("user_id",userId);
 		DBCursor cursor2 = collReview.find(toFindReviews);
         ReviewDto reviews = new ReviewDto();
