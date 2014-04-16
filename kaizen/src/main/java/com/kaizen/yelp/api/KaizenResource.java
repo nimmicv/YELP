@@ -225,7 +225,6 @@ public class KaizenResource {
         MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
         DB db = mongo.getDB("273project");
         DBCollection coll = db.getCollection("business");
-
         String businessID = queryParams.getFirst("business_id");
 	String name = queryParams.getFirst("name");
         String state = queryParams.getFirst("state");
@@ -233,6 +232,7 @@ public class KaizenResource {
         String address = queryParams.getFirst("address");
         String zipcode = queryParams.getFirst("zipcode");
         String category = queryParams.getFirst("categories");
+        System.out.println(category);
 
         BasicDBObject searchQuery = new BasicDBObject();
 
