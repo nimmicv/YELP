@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: dhanyabalasundaran
 Build-Jdk: 1.6.0_65
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: nimmicv
+Build-Jdk: 1.7.0_25
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> FETCH_HEAD
