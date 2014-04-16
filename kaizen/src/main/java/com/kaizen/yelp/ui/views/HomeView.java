@@ -50,6 +50,7 @@ public class HomeView extends View {
         super("home.mustache");
         loginuser=user;
         userInfo=userData;
+        System.out.println(userInfo.getYelpingSince());
         this.reviews=reviews;
         
         
