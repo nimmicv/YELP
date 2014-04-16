@@ -4,8 +4,7 @@
 		var name = $('#name').val();
 		alert("name = "+name);
 		$.ajax({
-			type : 'POST',
-			url : '/kaizen/business?name=Turf Paradise Race Course',
+			
 			type : 'GET',
 			url : '/kaizen/business',
 			contentType : 'application/json',
