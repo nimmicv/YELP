@@ -262,7 +262,7 @@ public class KaizenResource {
 
                                 Business business = new Business();
                                 business.setBusinessId(business_id);
-				business.setName(name);
+				business.setName(names);
                                 business.setCategories(categories);
                                 business.setFullAddress(full_address);
                                 business.setHours(hours);
