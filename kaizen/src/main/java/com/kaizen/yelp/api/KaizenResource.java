@@ -1,54 +1,40 @@
 package com.kaizen.yelp.api;
 
-import com.kaizen.yelp.amazonsns.SNS;
-
-import javax.ws.rs.core.Response;
-
-import javax.ws.rs.core.Response.Status;
 import java.net.UnknownHostException;
 import java.util.Calendar;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-//import javax.ws.rs.core.Response;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
-import com.google.common.base.Optional;
+import com.kaizen.yelp.amazonsns.SNS;
 import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.Review;
-import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.domain.Tip;
-import com.kaizen.yelp.domain.HelloMessage;
 import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.domain.UserLogin;
 import com.kaizen.yelp.dto.BusinessDto;
 import com.kaizen.yelp.dto.ReviewDto;
-import com.kaizen.yelp.dto.UserDto;
 import com.kaizen.yelp.dto.TipDto;
-import com.mongodb.BasicDBList;
+import com.kaizen.yelp.dto.UserDto;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.Mongo;
-//import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.yammer.metrics.annotation.Timed;
-
-import com.kaizen.yelp.amazonsns.SNS;
-
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+//import javax.ws.rs.core.Response;
+//import com.mongodb.MongoClient;
 
 @Path("/kaizen")
 @Produces(MediaType.APPLICATION_JSON)
