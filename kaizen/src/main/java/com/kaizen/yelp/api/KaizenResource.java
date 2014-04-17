@@ -291,9 +291,6 @@ public class KaizenResource {
 	}
 	
 	
-	
-
-<<<<<<< HEAD
     @GET
     @Timed(name = "get-business")
      public BusinessDto getBusiness(@Context UriInfo uriInfo) {
@@ -346,7 +343,7 @@ public class KaizenResource {
 
            }
         } finally { busColl.close(); }
-=======
+
 	@GET
 	@Path("/business")
 	@Timed(name = "get-business")
@@ -388,7 +385,6 @@ public class KaizenResource {
 				searchQuery.append("address", address);
 			}
 		}
->>>>>>> 046ca708dfba5b7751cf5ea147ed5b6efd5dcbd1
 
 		DBCursor busColl = coll.find(searchQuery);
 		busColl.limit(20);
