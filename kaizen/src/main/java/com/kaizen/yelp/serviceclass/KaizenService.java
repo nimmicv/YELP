@@ -34,6 +34,7 @@ public class KaizenService extends Service<KaizenConfiguration> {
 	@Override
 	public void run(KaizenConfiguration configuration, Environment environment)
 			throws Exception {
+		//Testing Git Pulls
 		Mongo mongo = new Mongo(configuration.mongohost, configuration.mongoport);
 		DB db = mongo.getDB(configuration.mongodb);
 		DBCollection coll = db.getCollection("docs");
