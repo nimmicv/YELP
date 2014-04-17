@@ -347,7 +347,7 @@ public class KaizenResource {
 
 	@GET
 	@Timed(name = "get-business-main")
-	public BusinessDto getBusiness(@Context UriInfo uriInfo) {
+	public BusinessDto getBusinesMain(@Context UriInfo uriInfo) {
 		MultivaluedMap<String, String> queryParams = uriInfo
 				.getQueryParameters();
 		DB db = mongo.getDB("273project");
