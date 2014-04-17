@@ -23,32 +23,45 @@ import com.amazonaws.services.sns.model.Topic;
 public class SNS {
 
 
-	public static void main(String[] args){
+public static void main(String[] args){
 
 
 		//if user comes and clicks on subscribe button  
 
 		SNS sns = new SNS();
-		//sns.userSubscribeToTopic("category10", "category 1 message 5", "karthikswetha3@gmail.com");
+		//sns.userSubscribeToTopic("category10", "karthikswetha3@gmail.com");
 		sns.userPublishingToTopic("category1", "message 2for category1");
 		
 	}
 
 
 	private AmazonSNS connectToSNS (){
-		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
-		
+		//final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
+		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("AKIAJ7K2MAJXLWYXUBUA",  "cXazKIn16Jao2vEv0TkisjrTDV6l327BkWbPdlUj"));
 		snsConnection.setEndpoint("sns.us-west-1.amazonaws.com");
 		return snsConnection;
 
 	}
 
 
-	public void userSubscribeToTopic (  String category , String message , String email ){
+	public void userSubscribeToTopic (  String category , String email ){
+
 		SNS sns = new SNS();
+
 		AmazonSNS snsconnect = sns.connectToSNS();
-		String topicArn = sns.createTopic(snsconnect, category);
+
+
+		String categoryName = category.replaceAll("\\s+","");
+
+		System.out.println(" category name " + categoryName);
+
+
+		String topicArn = sns.createTopic(snsconnect, categoryName);
+
+
 		System.out.println(" New topic arn" + topicArn);
+
+
 
 		/*String[] split = topicArn.split(":");
 		String categoryName = split[split.length-1];
@@ -80,16 +93,16 @@ public class SNS {
 		boolean subscribeStatus = sns.isSubscribed(snsconnect, topicArn, email);
 
 		if(subscribeStatus == true){
-			System.out.println(" User already subscribed to topic "+ category);
+			System.out.println(" User already subscribed to topic "+ categoryName);
 		}
 		else{
 
-			System.out.println(" Sending email to user to  subscribe to topic "+ category);
+			System.out.println(" Sending email to user to  subscribe to topic "+ categoryName);
 			sns.subscribeToTopic(snsconnect, topicArn, "email", email);
 		}
 
 
-		sns.publishToTopic(snsconnect, topicArn, message, "publishing new review");
+		//sns.publishToTopic(snsconnect, topicArn, message, "publishing new review");
 
 	}
 
@@ -149,7 +162,9 @@ public class SNS {
 		CreateTopicRequest createTopicRequest = new CreateTopicRequest(category);
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
 		String topicArn = created.getTopicArn();
-		sns.publishToTopic(snsconnect, topicArn, category, "publishing message");
+		
+		String subject =  "publishing message from "+ category;
+		sns.publishToTopic(snsconnect, topicArn, message, subject);
 
 	}
 

@@ -1,74 +1,62 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
 <html>
-<body background="http://www.psdgraphics.com/file/red-grunge-background.jpg">
-<style tyle="text/css">
-
-
-</style>
+<body background="http://grungetextures.com/sample/987/bright-red-grunge-background.jpg">
 <link class="cssdeck" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" class="cssdeck">
 
-<div class="" id="homeModal">
+<div class="" id="businessModal">
 	<div  class="modal-header">
 		<h3 style="color:whitesmoke">The Kaizen Yelp</h3>
 	</div>
 	<div class="modal-body">
 		<div class="well">
 			<nav>
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#home" data-toggle="tab">Reviews</a></li>
-				<li><a href="#write" data-toggle="tab">Write Review </a></li>
-				<li><a href="#subscribe" data-toggle="tab">Subscribe</a></li>
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+					<li><a href="#write" data-toggle="tab">Write Review </a></li>
+					<li><a href="#subscribe" data-toggle="tab">Subscribe</a></li>
 				
-			</ul>
-		</nav>
+				</ul>
+			</nav>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane active in" id="home">
 					<div class="container">
-                		<div class="jumbotron">
-                   		 <!-- calls getReviewDto() from HomeResource -->
-                   		 <p>abcd</p>
-                    		<table  class="table table-hover">
-                    		{{#reviews}}
-                        		<tr>
-                           
-									<td>{{review_id}}</td>
-									<td>{{date}}</td>
-									<td>{{business_id}}</td>
-									<td>{{stars}}</td>
-									<td>{{text}}</td>
-							
-                        		</tr>
-               				{{/reviews}}
-                    		</table>
-               	 		</div>
             		</div> <!-- end of container --> 
-					</div>         
-				</div>
+				</div>         
+		
 				<div class="tab-pane fade" id="write">
 					<div class="container">
-                		<label>Review</label>
-						<textarea value="review" rows="3" class="input-xlarge">
-						</textarea>
-						<button class="btn btn-primary" onclick="business.js" id="find">Submit</button>
+						<div class="control-group">
+                			<label>Review</label>
+							<textarea value="review" rows="3" class="input-xlarge">
+							</textarea>
+							<button class="btn btn-primary" onclick="review.js" id="find">Submit</button>
+            			</div>
             		</div> <!-- end of container --> 
 				</div>
 				<div class="tab-pane fade" id="subscribe">
 					<div class="container">
-					<div class="control-group">
+						<div class="control-group">
 							<label class="control-label"  for="search">Search for Business..</label>
-							<div class="controls">
-								<h4 class=""  contenteditable="false">Subscribe to Receive latest Reviews </h4>
-								<button class="btn btn-primary" onclick="business.js" id="subscriber">Subscribe</button>
-							</div>
+								<div class="controls">
+									<h4 class=""  contenteditable="false">Subscribe to Receive latest Reviews </h4>
+									<button class="btn btn-primary" onclick="business.js" id="subscriber">Subscribe</button>
+								</div>
 						</div>
-				</div> <!-- end of container --> 
+					</div> <!-- end of container --> 
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
  <script src="//code.jquery.com/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="../assets/js/business.js"></script>
+<script src="../assets/js/review.js"></script>
+
 
  
 </body>
