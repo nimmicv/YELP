@@ -159,11 +159,15 @@ public static void main(String[] args){
 	public void userPublishingToTopic(String category , String message){
 		SNS sns = new SNS();
 		AmazonSNS snsconnect = sns.connectToSNS();
-		CreateTopicRequest createTopicRequest = new CreateTopicRequest(category);
+		
+		String categoryName = category.replaceAll("\\s+","");
+		System.out.println(" category name " + categoryName);
+		
+		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
 		String topicArn = created.getTopicArn();
 		
-		String subject =  "publishing message from "+ category;
+		String subject =  "publishing message from "+ categoryName;
 		sns.publishToTopic(snsconnect, topicArn, message, subject);
 
 	}
