@@ -289,7 +289,7 @@ public class KaizenResource {
 		
 		return Response.status(201).build();
 	}
-	
+/*	
 	
     @GET
     @Timed(name = "get-business")
@@ -343,7 +343,7 @@ public class KaizenResource {
 
            }
         } finally { busColl.close(); }
-
+*/
 	@GET
 	@Path("/business")
 	@Timed(name = "get-business")
