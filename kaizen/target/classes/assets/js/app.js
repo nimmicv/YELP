@@ -3,7 +3,6 @@ $("#login").click(function() {
 		
 		var username = $('#username').val();
 		var password = $('#password').val();
-		alert(username);
 		var strData={"username":username,"password":password};
 		
 		$.ajax({

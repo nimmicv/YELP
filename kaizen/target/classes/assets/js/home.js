@@ -6,7 +6,7 @@ $(document).ready(function () {
         var businessName = id.text();
         var username = document.getElementById("user").textContent;
         username = username.split(" ")[1];
-       parent.document.getElementById("mustFrame").src="http://localhost:8080/business/"+username+"/"+businessName;
+       parent.document.getElementById("mustFrame").src="http://localhost:8080/"+username+"/"+businessName;
       
     });
 });
@@ -15,7 +15,7 @@ $("#searchB").click(function() {
 		var name = $('#name').val();
 		$.ajax({
 			
-			type : 'POST',
+			type : 'GET',
 			url : '/kaizen/business',
 			contentType : 'application/json',
 			dataType : 'json',

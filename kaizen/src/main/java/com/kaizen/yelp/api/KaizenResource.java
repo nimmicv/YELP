@@ -50,7 +50,6 @@ import com.kaizen.yelp.amazonsns.SNS;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-
 @Path("/kaizen")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -181,6 +180,7 @@ public class KaizenResource {
 	 * 
 	 * return businesses; }
 	 */
+
 	@POST
 	@Path("/subscribe")
 	@Timed(name = "subscribe")
@@ -188,24 +188,16 @@ public class KaizenResource {
 
 		MultivaluedMap<String, String> queryParams = uriInfo
 				.getQueryParameters();
-		System.out.println(queryParams.getFirst("name"));
+		// System.out.println(queryParams.getFirst("name"));
 		String businessName = queryParams.getFirst("name");
-		String userid = queryParams.getFirst("userid");
-		String username = null;
+		// String username = queryParams.getFirst("username");
+		String username = "Jan";
 		String email = null;
 		System.out.println("business name " + businessName);
-		System.out.println("userid " + userid);
+		System.out.println("user name " + username);
+
 		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("user");
 
-		BasicDBObject searchQuery = new BasicDBObject("user_id", userid);
-		DBCursor userCol = coll.find(searchQuery);
-		while (userCol.hasNext()) {
-			BasicDBObject userObj = (BasicDBObject) userCol.next();
-			username = userObj.getString("name");
-			System.out.println("username " + username);
-
-		}
 		DBCollection userInfoColl = db.getCollection("userInfo");
 
 		BasicDBObject query = new BasicDBObject("username", username);
@@ -257,45 +249,24 @@ public class KaizenResource {
 		BasicDBObject revObj = new BasicDBObject("review", review);
 		reviewColl.insert(revObj);
 		return true;
-<<<<<<< HEAD
-=======
-	
-	}
-	
-	
-	
-	@GET
-	 @Path("/subscribe")
-    	@Timed(name = "subscribe")
-	
-	public Response userSubscribe( String businesName , String email){
-		
-		SNS sns = new SNS();
-		sns.userSubscribeToTopic(businesName, email);
-		
-		return Response.status(201).build();
-	}
-	
-	
-	
-	
-	@GET
-    	@Path("/publish")
-    	@Timed(name = "publish")
-	
-	public Response userPublish( String businesName , String email){
-		
-		SNS sns = new SNS();
-		sns.userPublishingToTopic(businesName, email);
-		
-		return Response.status(201).build();
-	}
-	
-	
-	
-	
->>>>>>> FETCH_HEAD
 
+	}
+
+	@POST
+	@Path("/publish")
+	@Timed(name = "publish")
+	public Response userPublish(@Context UriInfo uriInfo) {
+		MultivaluedMap<String, String> queryParams = uriInfo
+				.getQueryParameters();
+		// System.out.println(queryParams.getFirst("name"));
+		String businessName = queryParams.getFirst("name");
+		System.out.println(businessName);
+		String message = queryParams.getFirst("text");
+
+		SNS sns = new SNS();
+		sns.userPublishingToTopic(businessName, message);
+
+		return Response.status(201).build();
 	}
 
 	@GET
@@ -356,7 +327,7 @@ public class KaizenResource {
 
 				Business business = new Business();
 				business.setBusinessId(business_id);
-				business.setName(name);
+				business.setName(names);
 				business.setCategories(categories);
 				business.setFullAddress(full_address);
 				business.setHours(hours);

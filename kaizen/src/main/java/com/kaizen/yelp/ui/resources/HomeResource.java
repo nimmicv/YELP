@@ -43,7 +43,7 @@ public class HomeResource {
 	}
 	
 	@GET
-	@Path("/{business}/{user}")
+	@Path("/{username}/{businsessName}")
 	public BusinessView getBusiness(@PathParam("business") String business,@PathParam("user") String user) {
 		User userData = new User();
 		Business bus = new Business();
