@@ -1,27 +1,20 @@
 package com.kaizen.yelp.ui.views;
 
 import com.kaizen.yelp.domain.Business;
-import com.kaizen.yelp.domain.User;
+import com.kaizen.yelp.domain.UserLogin;
 import com.yammer.dropwizard.views.View;
 
-public class BusinessView extends View{
+public class BusinessView extends View {
 	
-	private Business business;
-	private User user;
-
-	public User getUser() {
-		return user;
-	}
-
-	public Business getBusiness() {
-		return business;
-	}
-
-	public BusinessView(Business business, User user) {
+	UserLogin user = new UserLogin();
+	Business business;
+	
+	String username = user.get_id();
+	public BusinessView(String user, Business business) {
 		super("business.mustache");
+		this.username = user;
+		this.business = business;
 		
-		
-		// TODO Auto-generated constructor stub
 	}
 
 }
