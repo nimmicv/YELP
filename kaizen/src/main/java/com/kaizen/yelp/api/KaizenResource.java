@@ -250,65 +250,65 @@ public class KaizenResource {
 //		return businesses;
 //	}
 
-	@GET
-	@Timed(name = "get-review")
-	@Path("/review")
-	public ReviewDto getReview(@Context UriInfo uriInfo) {
-		MultivaluedMap<String, String> queryParams = uriInfo
-				.getQueryParameters();
-		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("review");
-
-		String reviewID = queryParams.getFirst("review_id");
-		String businessID = queryParams.getFirst("business_id");
-		String userID = queryParams.getFirst("user_id");
-
-		BasicDBObject searchQuery = new BasicDBObject();
-
-		if (reviewID != null) {
-			searchQuery.append("review_id", reviewID);
-		} else {
-			if (businessID != null) {
-				searchQuery.append("business_id", businessID);
-			}
-			if (userID != null) {
-				searchQuery.append("user_id", userID);
-			}
-		}
-
-		DBCursor revCol = coll.find(searchQuery);
-		revCol.limit(20);
-
-		ReviewDto reviews = new ReviewDto();
-
-		try {
-			while (revCol.hasNext()) {
-				BasicDBObject reviewObj = (BasicDBObject) revCol.next();
-
-				String review_id = reviewObj.getString("review_id");
-				String business_id = reviewObj.getString("business_id");
-				String user_id = reviewObj.getString("user_id");
-				String stars = reviewObj.getString("stars");
-				String date = reviewObj.getString("date");
-				String text = reviewObj.getString("text");
-
-				Review review = new Review();
-				review.setReviewId(review_id);
-				review.setBusinessId(business_id);
-				review.setUserId(user_id);
-				review.setStars(stars);
-				review.setDate(date);
-				review.setText(text);
-
-				reviews.addReview(review);
-
-			}
-		} finally {
-			revCol.close();
-		}
-
-		return reviews;
-	}
+//	@GET
+//	@Timed(name = "get-review")
+//	@Path("/review")
+//	public ReviewDto getReview(@Context UriInfo uriInfo) {
+//		MultivaluedMap<String, String> queryParams = uriInfo
+//				.getQueryParameters();
+//		DB db = mongo.getDB("273project");
+//		DBCollection coll = db.getCollection("review");
+//
+//		String reviewID = queryParams.getFirst("review_id");
+//		String businessID = queryParams.getFirst("business_id");
+//		String userID = queryParams.getFirst("user_id");
+//
+//		BasicDBObject searchQuery = new BasicDBObject();
+//
+//		if (reviewID != null) {
+//			searchQuery.append("review_id", reviewID);
+//		} else {
+//			if (businessID != null) {
+//				searchQuery.append("business_id", businessID);
+//			}
+//			if (userID != null) {
+//				searchQuery.append("user_id", userID);
+//			}
+//		}
+//
+//		DBCursor revCol = coll.find(searchQuery);
+//		revCol.limit(20);
+//
+//		ReviewDto reviews = new ReviewDto();
+//
+//		try {
+//			while (revCol.hasNext()) {
+//				BasicDBObject reviewObj = (BasicDBObject) revCol.next();
+//
+//				String review_id = reviewObj.getString("review_id");
+//				String business_id = reviewObj.getString("business_id");
+//				String user_id = reviewObj.getString("user_id");
+//				String stars = reviewObj.getString("stars");
+//				String date = reviewObj.getString("date");
+//				String text = reviewObj.getString("text");
+//
+//				Review review = new Review();
+//				review.setReviewId(review_id);
+//				review.setBusinessId(business_id);
+//				review.setUserId(user_id);
+//				review.setStars(stars);
+//				review.setDate(date);
+//				review.setText(text);
+//
+//				reviews.addReview(review);
+//
+//			}
+//		} finally {
+//			revCol.close();
+//		}
+//
+//		return reviews;
+//	}
 
 	@GET
 	@Timed(name = "get-user")

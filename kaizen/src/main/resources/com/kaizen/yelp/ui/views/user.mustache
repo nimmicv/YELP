@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+ 
 
     <!-- Custom styles for this template -->
     
@@ -27,7 +28,6 @@
   </head>
 
   <body>
-	Hi {{username}}
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -55,7 +55,7 @@
 </br>
 	
       <div class="container">	
-    	<form method="POST" class="searchBiz" onsubmit="setTimeout(function () { window.location.reload(); }, 10)">
+    	<form method="POST" id="searchBiz" >
     	
     	<div class="registration" style="display:inline">
      	<input type="text" name="search_business" id="search_business" placeholder="Search Business" />
@@ -132,12 +132,50 @@
       
       <br/>
       <br/>
-     <table id="bizResults" class="table table-hover" style="font-family:calibri;padding: 3px 15px;">
+      <div id="arrow1">
+      <div style="display:block; margin-left:30px; font-weight:bold;padding-top:5px;">
+      Recommendations
+      </div>
+      </div>
+       <br/>
+      <div id="recommendations">
+      <table class="table table-hover" style="font-family:calibri;padding: 3px 15px;">
       <thead>
       <tr style="background-color:#c41200;color:#fff;">
       <td> Business ID </td>
       <td> Bussiness </td>
       <td> Average Rating </td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td> Business ID </td>
+      <td> Bussiness </td>
+      <td> Average Rating </td>
+      </tr>
+      </tbody>
+      
+      </table>
+      </div>
+      <br/>
+      <br/>
+      <div id="arrow2">
+      <div style="display:block; margin-left:30px; font-weight:bold;padding-top:5px;min-width:200px;">
+      Search Results
+      </div>
+      </div>
+       <br/>
+       
+     <div id="normalResults"> 
+     <table id="bizResults" class="table table-hover" style="font-family:calibri;padding: 3px 15px;">
+     
+      <thead>
+      <tr style="background-color:#c41200;color:#fff">
+      <td> Business ID </td>
+      <td> Bussiness </td>
+      <td> Average Rating </td>
+      <td> Business Details </td>
+      <td> Write Review </td>
       </tr>
       </thead>
       <tbody>
@@ -148,9 +186,12 @@
 	 <td>{{business_id}} </td>
 	 <td><span>{{name}} </span><br/> {{full_address}} </td>
 	 <td> {{stars}} </td>
+	 <td> <button class="btn btn-success" name="details">Business Details</button> </td>
+	 <td> <button class="btn btn-success" name="review">Write Review</button> </td>
 	 </tr>
 	 {{/searchList}}
 	 </table>
+	 </div>
 	 </div>
     </div>
 
@@ -173,20 +214,57 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	 <script src="//code.jquery.com/jquery.js"></script>
+	 <script src="../../assets/js/app.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-	$(".item").click(function(){
+	
+	/*$(".item").click(function(){
 	
 		var pathArray=window.location.pathname.split('/');
 		var user=pathArray[2];
 		var business_id = $(this).children(":first-child").text();
 		window.location = '/kaizen/'+user+'/'+business_id;
 		
-		});
+		});*/
 		
+	$(":button").click(function(){
+		var button_pressed=$(this).attr("name");
+		
+		
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		var business_id = $(this).parent().parent().children(":first-child").text();
+		if(button_pressed == "details"){
+		window.location = '/kaizen/'+user+'/'+business_id;
+		}
+		else if(button_pressed == "review"){
+		window.location = '/kaizen/'+user+'/review/'+business_id;
+		}
+		});
+	
+	
+	$("#arrow1").click(function(){
+	
+	$("#recommendations").slideToggle(1000);
+		
+		
+		});
+		$("#arrow2").click(function(){
+	
+	
+	
+	$("#normalResults").slideToggle(1000);
+		
+		
+		});
+	
+	
 	function signOut(){
+		$("#bizResults").html("");
 	 	window.location = '/kaizen';
 	}
+	
+	
 	</script>
   </body>
 </html>

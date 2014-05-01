@@ -44,7 +44,6 @@ public class LoginResource {
 		user.set_id(userName.toLowerCase());
 		user.setEmail(email);
 		
-		System.out.println("User info"+user);
 		if(!(userName.isEmpty()||password.isEmpty()))
 			userRepository.saveUser(user);
 	}

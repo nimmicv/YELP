@@ -10,13 +10,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.amazonaws.util.json.JSONArray;
-import com.amazonaws.util.json.JSONException;
-import com.amazonaws.util.json.JSONObject;
-import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.Search;
 import com.kaizen.yelp.repository.UserRepository;
-import com.kaizen.yelp.ui.views.BusinessView;
 import com.kaizen.yelp.ui.views.UserView;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -47,12 +42,14 @@ public class UserResource {
 		return new UserView(username, searchList);
 	}
 	
+	
 	@POST
-	public void searchBiz(@FormParam("search_business") String search_business, @FormParam("search_city") String search_city, @FormParam("search_day") String search_day, @FormParam("search_startTime") String search_startTime, @FormParam("search_endTime") String search_endTime){
+	@Path("/")
+	public void searchBiz(@PathParam("username") String username, @FormParam("search_business") String search_business, @FormParam("search_city") String search_city, @FormParam("search_day") String search_day, @FormParam("search_startTime") String search_startTime, @FormParam("search_endTime") String search_endTime){
 		
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
-		System.out.println("****"+search_business+search_city+search_day+search_startTime+search_endTime);
+		//System.out.println("****"+search_business+search_city+search_day+search_startTime+search_endTime);
 		BasicDBObject searchQuery = new BasicDBObject("city", search_city);
 		searchQuery.append("open", true);
 
@@ -63,37 +60,46 @@ public class UserResource {
 		searchQuery.append("categories", search_business);
 		
 		DBCursor myCol = coll.find(searchQuery);
-		myCol.limit(15);
+		myCol.limit(20);
 		
 		ArrayList<Search> searchList = new ArrayList<Search>();
 		
 		try { while(myCol.hasNext()) {
-			 
+			
+		
 			BasicDBObject obj= (BasicDBObject) myCol.next();
-//			JSONObject json=new JSONObject(obj.toString());
-//			JSONArray arr=json.getJSONArray("categories");
-//			for (int i = 0; i < arr.length(); i++) {
-//				
-//				//System.out.println(arr.getString(i));
-//				if(arr.getString(i).equals(search_business))
-//				{
-//					break;
-//				}
 									
 			String business_id = obj.getString("business_id");
 			String name = obj.getString("name");
 			String full_address = obj.getString("full_address");
 			float stars = Float.parseFloat(obj.getString("stars"));
 			
-			Search search = new Search();
-			search.setBusiness_id(business_id);
-			search.setName(name);
-			search.setFull_address(full_address);
-			search.setStars(stars);
+			DBCollection collReview = db.getCollection("review");
+			BasicDBObject searchBlockQuery = new BasicDBObject("business_id", business_id);
+			searchBlockQuery.append("user_id", username);
+			searchBlockQuery.append("block", "on");
+			DBCursor myBlock = collReview.find(searchBlockQuery);
+			String blockedBusiness_id = "";
 			
-			searchList.add(search);
-			userRepository.saveSearch(searchList);
-		
+			try { while(myBlock.hasNext()) {
+			BasicDBObject objBlock= (BasicDBObject) myBlock.next();
+			blockedBusiness_id = objBlock.getString("business_id");
+			}
+			}finally {
+				myBlock.close();
+			}
+			if(!blockedBusiness_id.equals(business_id))
+			{
+				Search search = new Search();
+				search.setBusiness_id(business_id);
+				search.setName(name);
+				search.setFull_address(full_address);
+				search.setStars(stars);
+			
+				searchList.add(search);
+				userRepository.saveSearch(searchList);
+			}
+			
 	}
 }	finally {
 				myCol.close();

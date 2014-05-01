@@ -5,6 +5,7 @@ import com.kaizen.yelp.config.KaizenConfiguration;
 import com.kaizen.yelp.repository.UserRepository;
 import com.kaizen.yelp.ui.resources.BusinessResource;
 import com.kaizen.yelp.ui.resources.LoginResource;
+import com.kaizen.yelp.ui.resources.ReviewResource;
 import com.kaizen.yelp.ui.resources.UserResource;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -48,6 +49,7 @@ public class KaizenService extends Service<KaizenConfiguration> {
 		environment.addResource(new LoginResource(userRepository));
 		environment.addResource(new UserResource(mongo, userRepository));
 		environment.addResource(new BusinessResource(mongo, userRepository));
+		environment.addResource(new ReviewResource(mongo, userRepository));
 	}
 
 }
