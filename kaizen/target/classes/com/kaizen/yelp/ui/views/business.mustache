@@ -55,7 +55,7 @@
 </br>
 	
       <div class="container" >	
-    
+    <a href="/kaizen/{{username}}/home/" style="color:maroon"> &#x25c0; &nbsp; Back to Results </a>
       
       <br/>
       <br/>
@@ -63,8 +63,8 @@
       <thead>
       <tr style="background-color:#c41200;color:#fff;">
       <td> Business Details</td><td></td>
-      <td>&nbsp;&nbsp; Review </td>
-      </tr>
+      <td>&nbsp;&nbsp; Subscribe </td>
+      </tr>	
       </thead>
       <tbody>
       
@@ -85,7 +85,7 @@
 	 {{stars}}	 
 	 </td>
 	
-	 <td> <br/><br/><input type="submit" value="Review" name="review" id="review" /> </td>
+	 <td> <br/><br/><input type="submit" value="Subscribe" name="subscribe" id="subscribe" /> </td>
 	 </tr>
 	 {{/business}}
 	 </table>
@@ -114,7 +114,27 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script type = "text/javascript">
 	function signOut(){
-		 window.location = '/kaizen';
+		
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		var bid=pathArray[3];
+		
+		$.ajax({
+		  type: 'POST',
+		  
+		  url: '/kaizen/'+user+'/'+bid+'/signout',
+		  success: function() {
+			  	window.location = '/kaizen/';
+			  },
+			error:function(xhr, statusText){
+							if (xhr.status == 200)
+							{
+								window.location = '/kaizen/';
+							}
+			}  
+		});
+		
+	 	
 	}
 	</script>
 	</body>

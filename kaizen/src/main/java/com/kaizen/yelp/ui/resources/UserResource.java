@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.kaizen.yelp.domain.Recommendation;
 import com.kaizen.yelp.domain.Search;
 import com.kaizen.yelp.repository.UserRepository;
 import com.kaizen.yelp.ui.views.UserView;
@@ -30,8 +31,18 @@ public class UserResource {
 		this.userRepository = userRepository;
 	}
 
-	@GET
-	public UserView getUser(@PathParam("username") String username) {
+@POST
+@Path("/signout")
+public void signout() {
+	
+	ArrayList<Search> searchRef;
+	searchRef = userRepository.getSearch();
+	searchRef.clear();
+	userRepository.saveSearch(searchRef);
+}
+	
+@GET
+public UserView getUser(@PathParam("username") String username) {
 		ArrayList<Search> searchList = new ArrayList<Search>();
 		
 		searchList = userRepository.getSearch();
@@ -39,12 +50,73 @@ public class UserResource {
 			System.out.println(searchList.get(i).getName());
 		}
 		
-		return new UserView(username, searchList);
+		DB db = mongo.getDB("273project");
+		DBCollection collHistory = db.getCollection("userHistory");
+		
+		BasicDBObject searchReco = new BasicDBObject("username", username);
+		DBCursor myReco = collHistory.find(searchReco);
+		myReco.limit(5);
+		
+		ArrayList<Recommendation> recoList = new ArrayList<Recommendation>();
+		
+		try { while(myReco.hasNext()) {
+			
+		
+			BasicDBObject obj= (BasicDBObject) myReco.next();
+									
+			String business_id_reco = obj.getString("business_id");
+			
+			DBCollection collBusiness = db.getCollection("business");
+			BasicDBObject searchRecoData = new BasicDBObject("business_id", business_id_reco);
+			DBCursor myData = collBusiness.find(searchRecoData);
+			
+			DBCollection collReview = db.getCollection("review");
+			BasicDBObject searchBlockQuery = new BasicDBObject("business_id", business_id_reco);
+			searchBlockQuery.append("user_id", username);
+			searchBlockQuery.append("block", "on");
+			DBCursor myBlock = collReview.find(searchBlockQuery);
+			String blockedBusiness_id = "";
+			
+			try { while(myBlock.hasNext()) {
+			BasicDBObject objBlock= (BasicDBObject) myBlock.next();
+			blockedBusiness_id = objBlock.getString("business_id");
+			}
+			}finally {
+				myBlock.close();
+			}
+			if(!blockedBusiness_id.equals(business_id_reco))
+			{try { while(myData.hasNext()) {
+				BasicDBObject objReco= (BasicDBObject) myData.next();
+				String name = objReco.getString("name");
+				String full_address = objReco.getString("full_address");
+				float stars = Float.parseFloat(objReco.getString("stars"));
+				
+				Recommendation reco = new Recommendation();
+				reco.setBusiness_id(business_id_reco);
+				reco.setName(name);
+				reco.setFull_address(full_address);
+				reco.setStars(stars);
+			
+				recoList.add(reco);
+				userRepository.saveReco(recoList);
+				
+				}
+				}finally {
+					myData.close();
+				}
+			
+			}
+			}
+			
+		} finally {
+				myReco.close();
+		 	}		
+		
+		return new UserView(username, searchList, recoList);
 	}
 	
-	
-	@POST
-	@Path("/")
+@POST
+@Path("/search/")
 	public void searchBiz(@PathParam("username") String username, @FormParam("search_business") String search_business, @FormParam("search_city") String search_city, @FormParam("search_day") String search_day, @FormParam("search_startTime") String search_startTime, @FormParam("search_endTime") String search_endTime){
 		
 		DB db = mongo.getDB("273project");
@@ -73,6 +145,7 @@ public class UserResource {
 			String name = obj.getString("name");
 			String full_address = obj.getString("full_address");
 			float stars = Float.parseFloat(obj.getString("stars"));
+			//double stars = (obj.getDouble("stars"));
 			
 			DBCollection collReview = db.getCollection("review");
 			BasicDBObject searchBlockQuery = new BasicDBObject("business_id", business_id);

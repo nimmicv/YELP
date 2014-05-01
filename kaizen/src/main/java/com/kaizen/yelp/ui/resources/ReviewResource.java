@@ -39,6 +39,16 @@ public class ReviewResource {
 	}
 	
 	@POST
+	@Path("/signout")
+	public void signout() {
+		
+		ArrayList<Search> searchRef;
+		searchRef = userRepository.getSearch();
+		searchRef.clear();
+		userRepository.saveSearch(searchRef);
+	}
+	
+	@POST
 	@Path("/")
 	public void postReview(@PathParam("username") String username, @PathParam("business_id") String business_id, @FormParam("rating") String rating, @FormParam("review_content") String review_content, @FormParam("block") String block) {
 		

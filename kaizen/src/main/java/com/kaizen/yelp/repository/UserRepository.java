@@ -5,6 +5,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.ArrayList;
 
 import com.kaizen.yelp.domain.Business;
+import com.kaizen.yelp.domain.Recommendation;
 import com.kaizen.yelp.domain.Review;
 import com.kaizen.yelp.domain.Search;
 import com.kaizen.yelp.domain.UserLogin;
@@ -24,6 +25,7 @@ public class UserRepository {
 	DB db;
 	ArrayList<Search> arrSList = new ArrayList<Search>();
 	ArrayList<Business> arrBList = new ArrayList<Business>();
+	ArrayList<Recommendation> arrRList = new ArrayList<Recommendation>();
 	
 	public UserRepository() {
 			mongo = new Mongo_Pojo();
@@ -64,11 +66,20 @@ public class UserRepository {
 	
 		arrSList = searchList;
 	}
-	
 	public ArrayList<Search> getSearch(){
 		
 		return arrSList;
 	}
+	
+	public void saveReco(ArrayList<Recommendation> recoList) {
+		
+		arrRList = recoList;
+	}
+	public ArrayList<Recommendation> getReco(){
+		
+		return arrRList;
+	}
+	
 	public void saveBusiness(ArrayList<Business> businessList) {
 		
 		arrBList = businessList;

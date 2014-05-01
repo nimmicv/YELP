@@ -116,6 +116,7 @@
       <br/><br/>
       
       <input type="submit" class="btn btn-success value="Submit" name="review" id="review" /> 
+      <button name="review" class="btn btn-success" onClick="return cancelReview()">Cancel</button>
       
       </form>
       <br/>
@@ -146,7 +147,33 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script type = "text/javascript">
 	function signOut(){
-		 window.location = '/kaizen';
+		
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		var bid=pathArray[4];
+		
+		$.ajax({
+		  type: 'POST',
+		  
+		  url: '/kaizen/'+user+'/review/'+bid+'/signout',
+		  success: function() {
+			  	window.location = '/kaizen/';
+			  },
+			error:function(xhr, statusText){
+							if (xhr.status == 200)
+							{
+								window.location = '/kaizen/';
+							}
+			}  
+		});
+		
+	 	
+	}
+	
+	function cancelReview(){
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		 window.location = '/kaizen/'+user+'/home';
 	}
 	
 	$("input[type='radio']").click(function(){

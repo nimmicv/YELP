@@ -83,7 +83,7 @@ $("#searchBiz").submit(function(event){
 	$.ajax({
 		  type: 'POST',
 		  data:formdata,
-		  url: '/kaizen/'+user+'/home/',
+		  url: '/kaizen/'+user+'/home/search',
 		  success: function() {
 			  	window.location = '/kaizen/'+user+'/home';
 			  },
@@ -110,11 +110,11 @@ $("#saveReview").submit(function(event){
 			  	window.location = '/kaizen/'+user+'/home';
 			  },
 			error:function() {
-				alert("Failed to submit.");
+				/*alert("Failed to submit.");*/
 			}
 	});
 });
-
+		
 /*function resetFields(){
 	$("#login").find( "input[name='username']" ).val()= '';
 	document.getElementById('password').value = '';

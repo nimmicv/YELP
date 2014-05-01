@@ -1,18 +1,23 @@
 package com.kaizen.yelp.ui.resources;
 
+import java.util.ArrayList;
+
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.kaizen.yelp.domain.Business;
+import com.kaizen.yelp.domain.Search;
 import com.kaizen.yelp.repository.UserRepository;
 import com.kaizen.yelp.ui.views.BusinessView;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 
 @Path("/kaizen/{username}/{business_id}")
@@ -25,12 +30,25 @@ public class BusinessResource {
 		this.mongo = mongo;
 		this.userRepository = userRepository;
 	}
+	
+	@POST
+	@Path("/signout")
+	public void signout() {
+		
+		ArrayList<Search> searchRef;
+		searchRef = userRepository.getSearch();
+		searchRef.clear();
+		userRepository.saveSearch(searchRef);
+	}
 
 	@GET
 	public BusinessView getBusiness(@PathParam("username") String username, @PathParam("business_id") String business_id) {
 		
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
+		DBCollection userHistory;
+		userHistory = db.getCollection("userHistory");
+		String foundBusiness_id = "";
 		
 		BasicDBObject searchQuery = new BasicDBObject();
 
@@ -52,8 +70,24 @@ public class BusinessResource {
 		  float review_count = Float.parseFloat(businessObj.getString("review_count"));
 		  float stars = Float.parseFloat(businessObj.getString("stars"));
 		  
+		  DBObject tempDbObject = new BasicDBObject();
+		  BasicDBObject searchRecord = new BasicDBObject("username", username);
+		  searchRecord.append("business_id", b_id);
+		  DBCursor myData = userHistory.find(searchRecord);
 		  
-		  
+		  try { while(myData.hasNext()) {
+				BasicDBObject obj= (BasicDBObject) myData.next();
+				foundBusiness_id = obj.getString("business_id");
+				}
+				}finally {
+					myData.close();
+				}
+				if(!foundBusiness_id.equals(b_id))
+				{
+		  tempDbObject.put("username", username);
+		  tempDbObject.put("business_id", b_id);
+		  userHistory.insert(tempDbObject);
+				}
 		  business.setBusiness_id(b_id);
 		  business.setName(name);
 		  business.setFull_address(full_address);

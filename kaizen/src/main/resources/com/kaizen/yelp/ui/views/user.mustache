@@ -11,7 +11,7 @@
     <title>Jumbotron Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../assets/css/bootstrap.css" rel="stylesheet">
  
 
     <!-- Custom styles for this template -->
@@ -141,18 +141,24 @@
       <div id="recommendations">
       <table class="table table-hover" style="font-family:calibri;padding: 3px 15px;">
       <thead>
-      <tr style="background-color:#c41200;color:#fff;">
+      <tr style="background-color:#c41200;color:#fff">
       <td> Business ID </td>
       <td> Bussiness </td>
       <td> Average Rating </td>
+      <td> Business Details </td>
+      <td> Write Review </td>
       </tr>
       </thead>
       <tbody>
-      <tr>
-      <td> Business ID </td>
-      <td> Bussiness </td>
-      <td> Average Rating </td>
-      </tr>
+      {{#recoList}}
+	 <tr class="item">
+	 <td>{{business_id}} </td>
+	 <td><span>{{name}} </span><br/> {{full_address}} </td>
+	 <td> {{stars}} </td>
+	 <td> <button name="details">Business Details</button> </td>
+	 <td> <button name="review">Write Review</button> </td>
+	 </tr>
+	 {{/recoList}}
       </tbody>
       
       </table>
@@ -186,8 +192,8 @@
 	 <td>{{business_id}} </td>
 	 <td><span>{{name}} </span><br/> {{full_address}} </td>
 	 <td> {{stars}} </td>
-	 <td> <button class="btn btn-success" name="details">Business Details</button> </td>
-	 <td> <button class="btn btn-success" name="review">Write Review</button> </td>
+	 <td> <button name="details">Business Details</button> </td>
+	 <td> <button name="review">Write Review</button> </td>
 	 </tr>
 	 {{/searchList}}
 	 </table>
@@ -260,8 +266,26 @@
 	
 	
 	function signOut(){
-		$("#bizResults").html("");
-	 	window.location = '/kaizen';
+		
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		
+		$.ajax({
+		  type: 'POST',
+		  
+		  url: '/kaizen/'+user+'/home/signout',
+		  success: function() {
+			  	window.location = '/kaizen/';
+			  },
+			error:function(xhr, statusText){
+							if (xhr.status == 200)
+							{
+								window.location = '/kaizen/';
+							}
+			}  
+		});
+		
+	 	
 	}
 	
 	
