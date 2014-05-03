@@ -302,7 +302,7 @@ public class KaizenResource {
 				String hours = businessObj.getString("hours");
 				String hours = businessObj.getString("hours");
 				String longitude = businessObj.getString("longitude");
-				String latitude = businessObj.getString("latitude");"
+				String latitude = businessObj.getString("latitude");
 
 				Business business = new Business();
 				business.setBusiness_id(business_id);
