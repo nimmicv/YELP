@@ -322,7 +322,7 @@ public class KaizenResource {
 	}
 
 
-<<<<<<< HEAD
+
 
 //	@GET
 //	@Path("/business")
@@ -389,8 +389,7 @@ public class KaizenResource {
 //
 //				businesses.addBusiness(business);
 
-=======
->>>>>>> FETCH_HEAD
+
 	@POST
 	@Path("/publish")
 	@Timed(name = "publish")
