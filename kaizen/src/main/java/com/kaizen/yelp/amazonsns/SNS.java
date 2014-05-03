@@ -58,8 +58,9 @@ public static void main(String[] args){
 
 		String topicArn = sns.createTopic(snsconnect, categoryName);
 
-		
-		
+
+		System.out.println(" New topic arn" + topicArn);
+
 
 
 		/*String[] split = topicArn.split(":");
@@ -161,6 +162,12 @@ public static void main(String[] args){
 
 		AmazonSNS snsconnect = sns.connectToSNS();
 
+		
+		String categoryName = category.replaceAll("\\s+","");
+		System.out.println(" category name " + categoryName);
+		
+		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
+
 
 		String categoryName = category.replaceAll("\\s+","");
 
@@ -169,12 +176,17 @@ public static void main(String[] args){
 
 		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 
+
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
 
 		String topicArn = created.getTopicArn();
 
+		
+		String subject =  "publishing message from "+ categoryName;
+
 
 		String subject =  "publishing message from "+ categoryName;
+
 
 		sns.publishToTopic(snsconnect, topicArn, message, subject);
 
