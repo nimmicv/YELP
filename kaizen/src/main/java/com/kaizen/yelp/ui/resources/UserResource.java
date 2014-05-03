@@ -123,13 +123,15 @@ public UserView getUser(@PathParam("username") String username) {
 		DBCollection coll = db.getCollection("business");
 		//System.out.println("****"+search_business+search_city+search_day+search_startTime+search_endTime);
 		BasicDBObject searchQuery = new BasicDBObject("city", search_city);
-		searchQuery.append("open", true);
-
-		searchQuery.append("hours." + search_day + ".open",
-				new BasicDBObject("$lte", search_startTime)).append(
-				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
+//		searchQuery.append("open", true);
+//
+//		searchQuery.append("hours." + search_day + ".open",
+//				new BasicDBObject("$lte", search_startTime)).append(
+//				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
 		
-		searchQuery.append("categories", search_business);
+		ArrayList<String> category = new ArrayList<String>();
+		category.add(search_business);
+		searchQuery.append("categories", category);
 		
 		DBCursor myCol = coll.find(searchQuery);
 		myCol.limit(20);
