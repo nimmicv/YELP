@@ -67,6 +67,7 @@ public class BusinessResource {
 		  String name = businessObj.getString("name");
 		  String full_address = businessObj.getString("full_address");
 		  String categories = businessObj.getString("categories");
+		  float review_count = Float.parseFloat(businessObj.getString("review_count"));
 		  float stars = Float.parseFloat(businessObj.getString("stars"));
 		  
 		  DBObject tempDbObject = new BasicDBObject();
@@ -91,6 +92,7 @@ public class BusinessResource {
 		  business.setName(name);
 		  business.setFull_address(full_address);
 		  business.setCategories(categories);
+		  business.setReview_count(review_count);
 		  business.setStars(stars);
 		   
 		  } } finally { myCol.close(); }

@@ -117,42 +117,37 @@ public UserView getUser(@PathParam("username") String username) {
 	
 @POST
 @Path("/search/")
-	public void searchBiz(@PathParam("username") String username, @FormParam("search_business") String search_business, 
-			@FormParam("search_city") String search_city, @FormParam("search_day") String search_day, 
-			@FormParam("search_startTime") String search_startTime, @FormParam("search_endTime") String search_endTime, 
-			@FormParam("parking") String parking, @FormParam("creditcards") String creditcards, 
-			@FormParam("takeout") String takeout, @FormParam("wifi") String wifi,   
-			@FormParam("kids") String kids, @FormParam("groups") String groups){
+	public void searchBiz(@PathParam("username") String username, @FormParam("search_business") String search_business, @FormParam("search_city") String search_city, @FormParam("search_day") String search_day, @FormParam("search_startTime") String search_startTime, @FormParam("search_endTime") String search_endTime,@FormParam("search_kids") String search_kids,@FormParam("search_wifi") String search_wifi){
 		
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
+		//System.out.println("****"+search_business+search_city+search_day+search_startTime+search_endTime);
 		BasicDBObject searchQuery = new BasicDBObject("city", search_city);
-		searchQuery.append("open", true);
-
-		searchQuery.append("hours." + search_day + ".open",
-				new BasicDBObject("$lte", search_startTime)).append(
-				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
 		
-		searchQuery.append("categories", search_business);
+//		searchQuery.append("open", true);
+//
+//		searchQuery.append("hours." + search_day + ".open",
+//				new BasicDBObject("$lte", search_startTime)).append(
+//				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
 		
-		if (parking != null) {
-				searchQuery.append("attributes.Parking", new BasicDBObject("$exists", true));
-			}
-		if (creditcards != null) {
-				searchQuery.append("attributes.Accepts Credit Cards", true);
-			}
-		if (takeout != null) {
-			searchQuery.append("attributes.Take-out", true);
+		/* Search for restaurants in array of categories*/
+		ArrayList<String> category = new ArrayList<String>();
+		category.add(search_business);
+		searchQuery.append("categories", new BasicDBObject("$in", category));
+		/* Search if WiFi {Free, no,paid}*/
+		if(!search_wifi.equals(""))
+		{
+			
+			searchQuery.append("attributes.Wi-Fi", search_wifi);
 		}
-		if (wifi != null) {
-				searchQuery.append("attributes.Wi-Fi", true);
-			}
-		if (kids != null) {
-				searchQuery.append("attributes.Good for Kids", true);
-			}
-		if (groups != null) {
-				searchQuery.append("attributes.Good For Groups", true);
-			}
+		/* Search if good for kids*/
+		if(!search_kids.equals(""))
+		{
+			if(search_kids.equals("true"))
+				searchQuery.append("attributes.Good For Kids",true);
+			else
+				searchQuery.append("attributes.Good For Kids",false);
+		}
 		
 		DBCursor myCol = coll.find(searchQuery);
 		myCol.limit(20);
@@ -167,7 +162,19 @@ public UserView getUser(@PathParam("username") String username) {
 			String business_id = obj.getString("business_id");
 			String name = obj.getString("name");
 			String full_address = obj.getString("full_address");
+			
 			float stars = Float.parseFloat(obj.getString("stars"));
+			String lat = obj.getString("latitude");
+			String longit = obj.getString("longitude");
+			double latitude=0;
+			double longitude=0;
+			if(lat!=null && longit !=null)
+			{
+				latitude = Double.parseDouble(obj.getString("latitude"));
+				longitude = Double.parseDouble(obj.getString("longitude"));
+				
+			}
+			
 			//double stars = (obj.getDouble("stars"));
 			
 			DBCollection collReview = db.getCollection("review");
@@ -202,5 +209,6 @@ public UserView getUser(@PathParam("username") String username) {
 		 	}		
 	
 	}
+	
 
 }

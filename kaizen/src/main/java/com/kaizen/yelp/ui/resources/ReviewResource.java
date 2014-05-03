@@ -12,13 +12,10 @@ import javax.ws.rs.core.MediaType;
 
 import com.kaizen.yelp.domain.Review;
 import com.kaizen.yelp.domain.Search;
-import com.kaizen.yelp.domain.UserLogin;
 import com.kaizen.yelp.repository.UserRepository;
 import com.kaizen.yelp.ui.views.ReviewView;
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 
 @Path("/kaizen/{username}/review/{business_id}")
@@ -33,17 +30,9 @@ public class ReviewResource {
 	}
 
 	@GET
-	public ReviewView getReview(@PathParam("username") String username, @PathParam("business_id") String business_id) {
+	public ReviewView getReview(@PathParam("username") String username) {
 		
-		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("business");
-		BasicDBObject searchQuery = new BasicDBObject("business_id", business_id);
-		DBCursor myCol = coll.find(searchQuery);
-		
-		BasicDBObject obj= (BasicDBObject) myCol.next();
-		String name = obj.getString("name");
-		
-		return new ReviewView(username, name);
+		return new ReviewView(username);
 	}
 	
 	@POST
@@ -64,8 +53,7 @@ public class ReviewResource {
 		DBCollection coll = db.getCollection("review");
 		
 		 Review review = new Review();
-		 ArrayList<Search> tempSearchList;
-		 
+		
 		review.setBusiness_id(business_id);
 		review.setUser_id(username);
 		review.setRating(Float.parseFloat(rating));
@@ -75,18 +63,6 @@ public class ReviewResource {
 		if(!(rating.isEmpty()&&review_content.isEmpty()&&block.isEmpty()))
 		{
 			userRepository.saveReview(review);
-		}
-		if(!(block == null))
-		{
-			tempSearchList = userRepository.getSearch();
-			for (int i=0;i<tempSearchList.size();i++) {
-			      Search searchObj = tempSearchList.get(i);
-			      if(searchObj.getBusiness_id().equals(business_id))
-			      {
-			    	  tempSearchList.remove(i);
-			      }
-			  }
-			userRepository.saveSearch(tempSearchList);			
 		}
 		
 	}
