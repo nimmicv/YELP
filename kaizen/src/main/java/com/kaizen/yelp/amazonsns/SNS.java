@@ -169,22 +169,11 @@ public static void main(String[] args){
 		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 
 
-		String categoryName = category.replaceAll("\\s+","");
-
-		System.out.println(" category name " + categoryName);
-
-
-		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
-
-
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
 
 		String topicArn = created.getTopicArn();
 
 		
-		String subject =  "publishing message from "+ categoryName;
-
-
 		String subject =  "publishing message from "+ categoryName;
 
 
