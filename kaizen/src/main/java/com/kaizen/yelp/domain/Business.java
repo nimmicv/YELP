@@ -11,9 +11,49 @@ private String hours;
 private String categories;
 private float review_count;
 private float stars;
-private String longitude;
-private String latitude;
+private String parking;
+private String creditcards;
+private String takeout;
+private String wifi;
+private String kids;
+private String groups;
 
+public String getParking() {
+	return parking;
+}
+public void setParking(String parking) {
+	this.parking = parking;
+}
+public String getCreditcards() {
+	return creditcards;
+}
+public void setCreditcards(String creditcards) {
+	this.creditcards = creditcards;
+}
+public String getTakeout() {
+	return takeout;
+}
+public void setTakeout(String takeout) {
+	this.takeout = takeout;
+}
+public String getWifi() {
+	return wifi;
+}
+public void setWifi(String wifi) {
+	this.wifi = wifi;
+}
+public String getKids() {
+	return kids;
+}
+public void setKids(String kids) {
+	this.kids = kids;
+}
+public String getGroups() {
+	return groups;
+}
+public void setGroups(String groups) {
+	this.groups = groups;
+}
 public String getName() {
         return name;
 }
@@ -57,20 +97,6 @@ public float getStars() {
 }
 public void setStars(float stars) {
 	this.stars = stars;
-}
-
-public String getLongitude() {
-	return longitude;
-}
-public void setLongitude(String longitude) {
-	this.longitude = longitude;
-}
-
-public String getLatitude() {
-	return latitude;
-}
-public void setLatitude(String latitude) {
-	this.latitude = latitude;
 }
 
 }

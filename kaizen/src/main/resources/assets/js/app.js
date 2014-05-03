@@ -86,9 +86,13 @@ $("#searchBiz").submit(function(event){
 		  url: '/kaizen/'+user+'/home/search',
 		  success: function() {
 			  	window.location = '/kaizen/'+user+'/home';
+			  	if (xhr.status == 204)
+				{
+				alert("No search results!");
+				}
 			  },
 			error:function() {
-				alert("Search failed");
+				alert("Invalid search");
 			}
 	});
 });
