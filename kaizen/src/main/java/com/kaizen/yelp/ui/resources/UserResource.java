@@ -147,6 +147,16 @@ public UserView getUser(@PathParam("username") String username) {
 			String name = obj.getString("name");
 			String full_address = obj.getString("full_address");
 			float stars = Float.parseFloat(obj.getString("stars"));
+			String lat = obj.getString("latitude");
+			String longit = obj.getString("longitude");
+			double latitude=0;
+			double longitude=0;
+			if(lat!=null && longit !=null)
+			{
+				latitude = Double.parseDouble(obj.getString("latitude"));
+				longitude = Double.parseDouble(obj.getString("longitude"));
+				
+			}
 			//double stars = (obj.getDouble("stars"));
 			
 			DBCollection collReview = db.getCollection("review");
