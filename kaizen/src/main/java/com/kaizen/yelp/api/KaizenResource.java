@@ -302,10 +302,10 @@ public class KaizenResource {
 				String hours = businessObj.getString("hours");
 
 				Business business = new Business();
-				business.setBusinessId(business_id);
+				business.setBusiness_id(business_id);
 				business.setName(names);
 				business.setCategories(categories);
-				business.setFullAddress(full_address);
+				business.setFull_address(full_address);
 				business.setHours(hours);
 
 
