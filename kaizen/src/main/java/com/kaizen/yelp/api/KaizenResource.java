@@ -158,7 +158,6 @@ public class KaizenResource {
 		BasicDBObject revObj = new BasicDBObject("review", review);
 		reviewColl.insert(revObj);
 		return true;
-<<<<<<< HEAD
 
 	
 	}
@@ -308,8 +307,7 @@ public class KaizenResource {
 				business.setCategories(categories);
 				business.setFullAddress(full_address);
 				business.setHours(hours);
-=======
->>>>>>> 75c84757641e148825b671ba28e764d303d81e2e
+
 
 				businesses.addBusiness(business);
 
@@ -321,7 +319,7 @@ public class KaizenResource {
 		return businesses;
 	}
 
-<<<<<<< HEAD
+
 
 	@GET
 	@Path("/business")
@@ -387,7 +385,7 @@ public class KaizenResource {
 				business.setHours(hours);
 
 				businesses.addBusiness(business);
-=======
+
 	@POST
 	@Path("/publish")
 	@Timed(name = "publish")
@@ -398,7 +396,7 @@ public class KaizenResource {
 		String businessName = queryParams.getFirst("name");
 		System.out.println(businessName);
 		String message = queryParams.getFirst("text");
->>>>>>> 75c84757641e148825b671ba28e764d303d81e2e
+
 
 		SNS sns = new SNS();
 		sns.userPublishingToTopic(businessName, message);
