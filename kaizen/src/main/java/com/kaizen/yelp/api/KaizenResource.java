@@ -310,7 +310,8 @@ public class KaizenResource {
 				business.setCategories(categories);
 				business.setFull_address(full_address);
 				business.setHours(hours);
-
+				business.setLongitude(longitude);
+				business.setLatitude(latitude);
 
 				businesses.addBusiness(business);
 
