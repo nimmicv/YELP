@@ -4,72 +4,57 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder(alphabetic = true)
 public class Business {
-private String name;
-private String categories;
 private String business_id;
+private String name;
 private String full_address;
 private String hours;
+private String categories;
+private float review_count;
+private float stars;
 
-/**
- * @return the business_id
- */
-public String getBusinessId() {
-	return business_id;
-}
-/**
- * @param business_id to set
- */
-public void setBusinessId(String business_id) {
-	this.business_id = business_id;
-}
-
-/**
- * @return the name
- */
 public String getName() {
         return name;
 }
-/**
- * @param name to set
- */
+public String getBusiness_id() {
+	return business_id;
+}
+public void setBusiness_id(String business_id) {
+	this.business_id = business_id;
+}
+public String getFull_address() {
+	return full_address;
+}
+public void setFull_address(String full_address) {
+	this.full_address = full_address;
+}
 public void setName(String name) {
         this.name = name;
 }
 
-/**
- * @return the categories
- */
 public String getCategories() {
 	return categories;
 }
-/**
- * @param categories to set
- */
+
 public void setCategories(String categories) {
 	this.categories = categories;
 }
-/**
- * @return the full_address
- */
-public String getFullAddress() {
-	return full_address;
-}
-/**
- * @param full_address to set
- */
-public void setFullAddress(String full_address) {
-	this.full_address = full_address;
-}
-/**
- * @return the Hours
- */
 public String getHours() {
 	return hours;
 }
-/**
- * @param Hours to set
- */
 public void setHours(String hours) {
 	this.hours = hours;
 }
+public float getReview_count() {
+	return review_count;
+}
+public void setReview_count(float review_count) {
+	this.review_count = review_count;
+}
+public float getStars() {
+	return stars;
+}
+public void setStars(float stars) {
+	this.stars = stars;
+}
+
 }
