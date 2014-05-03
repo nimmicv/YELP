@@ -2,12 +2,10 @@ package com.kaizen.yelp.ui.views;
 
 import java.util.List;
 
-import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.HelloMessage;
 import com.kaizen.yelp.domain.Review;
 import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.domain.UserLogin;
-import com.kaizen.yelp.dto.ReviewDto;
 import com.yammer.dropwizard.views.View;
 
 

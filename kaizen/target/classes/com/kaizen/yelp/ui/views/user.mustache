@@ -60,9 +60,12 @@
     	<div class="registration" style="display:inline">
      	<input type="text" name="search_business" id="search_business" placeholder="Search Business" />
      	<input type="text" name="search_city" id="search_city" placeholder="Search City" />
+   
      	
+
      	Day:
      	<select name="search_day" id="search_day" placeholder="Day">
+     		<option value="">--Select--</option>
  			<option value="Monday">Monday</option>
   			<option value="Tuesday">Tuesday</option>
   			<option value="Wednesday">Wednesday</option>
@@ -125,7 +128,22 @@
   			<option value="22:00">22:00</option>
   			<option value="23:00">23:00</option>
 		</select>
-     	</div><br/><br/>
+		</br></br>
+		Wi-Fi:
+     	<select name="search_wifi" id="search_wifi" placeholder="Wi-Fi">
+     	    <option value="">--Select--</option>
+ 			<option value="free">Free</option>
+  			<option value="no">No</option>
+  			<option value="paid">Paid</option>		
+		</select>
+		Kids:
+     	<select name="search_kids" id="search_kids" placeholder="Good For Kids">
+     	    <option value="">--Select--</option>
+ 			<option value="true">Good</option>
+  			<option value="false">Not Good</option>	
+		</select>
+		
+     	</div>
      	<input type="submit" value="Search" class="btn btn-success" />
      	
      	</form>

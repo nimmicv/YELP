@@ -21,7 +21,6 @@ import com.kaizen.yelp.domain.Review;
 import com.kaizen.yelp.domain.Tip;
 import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.dto.BusinessDto;
-import com.kaizen.yelp.dto.ReviewDto;
 import com.kaizen.yelp.dto.TipDto;
 import com.kaizen.yelp.dto.UserDto;
 import com.mongodb.BasicDBObject;
@@ -302,10 +301,10 @@ public class KaizenResource {
 				String hours = businessObj.getString("hours");
 
 				Business business = new Business();
-				business.setBusinessId(business_id);
+				business.setBusiness_id(business_id);
 				business.setName(names);
 				business.setCategories(categories);
-				business.setFullAddress(full_address);
+				business.setFull_address(full_address);
 				business.setHours(hours);
 
 
@@ -321,70 +320,70 @@ public class KaizenResource {
 
 
 
-	@GET
-	@Path("/business")
-	@Timed(name = "get-business")
-	public BusinessDto getBusiness(@Context UriInfo uriInfo) {
-		MultivaluedMap<String, String> queryParams = uriInfo
-				.getQueryParameters();
-		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("business");
-		String businessID = queryParams.getFirst("business_id");
-		String name = queryParams.getFirst("name");
-		String state = queryParams.getFirst("state");
-		String city = queryParams.getFirst("city");
-		String address = queryParams.getFirst("address");
-		String zipcode = queryParams.getFirst("zipcode");
-		String category = queryParams.getFirst("categories");
-		System.out.println(name);
-
-		BasicDBObject searchQuery = new BasicDBObject();
-
-		if (businessID != null) {
-			searchQuery.append("business_id", businessID);
-		} else {
-			if (name != null) {
-				searchQuery.append("name", name);
-			}
-			if (state != null) {
-				searchQuery.append("state", state);
-			}
-			if (city != null) {
-				searchQuery.append("city", city);
-			}
-			if (zipcode != null) {
-				searchQuery.append("zipcode", zipcode);
-			}
-			if (category != null) {
-				searchQuery.append("categories", category);
-			}
-			if (address != null) {
-				searchQuery.append("address", address);
-			}
-		}
-
-		DBCursor busColl = coll.find(searchQuery);
-		busColl.limit(20);
-
-		BusinessDto businesses = new BusinessDto();
-
-		try {
-			while (busColl.hasNext()) {
-				BasicDBObject businessObj = (BasicDBObject) busColl.next();
-				String business_id = businessObj.getString("business_id");
-				String names = businessObj.getString("name");
-				String categories = businessObj.getString("categories");
-				String full_address = businessObj.getString("full_address");
-				String hours = businessObj.getString("hours");
-
-				Business business = new Business();
-				business.setBusinessId(business_id);
-				business.setName(names);
-				business.setCategories(categories);
-				business.setFullAddress(full_address);
-				business.setHours(hours);
-
-				businesses.addBusiness(business);
+//	@GET
+//	@Path("/business")
+//	@Timed(name = "get-business")
+//	public BusinessDto getBusiness(@Context UriInfo uriInfo) {
+//		MultivaluedMap<String, String> queryParams = uriInfo
+//				.getQueryParameters();
+//		DB db = mongo.getDB("273project");
+//		DBCollection coll = db.getCollection("business");
+//		String businessID = queryParams.getFirst("business_id");
+//		String name = queryParams.getFirst("name");
+//		String state = queryParams.getFirst("state");
+//		String city = queryParams.getFirst("city");
+//		String address = queryParams.getFirst("address");
+//		String zipcode = queryParams.getFirst("zipcode");
+//		String category = queryParams.getFirst("categories");
+//		System.out.println(name);
+//
+//		BasicDBObject searchQuery = new BasicDBObject();
+//
+//		if (businessID != null) {
+//			searchQuery.append("business_id", businessID);
+//		} else {
+//			if (name != null) {
+//				searchQuery.append("name", name);
+//			}
+//			if (state != null) {
+//				searchQuery.append("state", state);
+//			}
+//			if (city != null) {
+//				searchQuery.append("city", city);
+//			}
+//			if (zipcode != null) {
+//				searchQuery.append("zipcode", zipcode);
+//			}
+//			if (category != null) {
+//				searchQuery.append("categories", category);
+//			}
+//			if (address != null) {
+//				searchQuery.append("address", address);
+//			}
+//		}
+//
+//		DBCursor busColl = coll.find(searchQuery);
+//		busColl.limit(20);
+//
+//		BusinessDto businesses = new BusinessDto();
+//
+//		try {
+//			while (busColl.hasNext()) {
+//				BasicDBObject businessObj = (BasicDBObject) busColl.next();
+//				String business_id = businessObj.getString("business_id");
+//				String names = businessObj.getString("name");
+//				String categories = businessObj.getString("categories");
+//				String full_address = businessObj.getString("full_address");
+//				String hours = businessObj.getString("hours");
+//
+//				Business business = new Business();
+//				business.setBusiness_Id(business_id);
+//				business.setName(names);
+//				business.setCategories(categories);
+//				business.setFullAddress(full_address);
+//				business.setHours(hours);
+//
+//				businesses.addBusiness(business);
 
 	@POST
 	@Path("/publish")

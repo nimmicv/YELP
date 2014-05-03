@@ -12,13 +12,10 @@ import javax.ws.rs.core.MediaType;
 
 import com.kaizen.yelp.domain.Review;
 import com.kaizen.yelp.domain.Search;
-import com.kaizen.yelp.domain.UserLogin;
 import com.kaizen.yelp.repository.UserRepository;
 import com.kaizen.yelp.ui.views.ReviewView;
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 
 @Path("/kaizen/{username}/review/{business_id}")

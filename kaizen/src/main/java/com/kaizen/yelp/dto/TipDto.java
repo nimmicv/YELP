@@ -3,7 +3,6 @@ package com.kaizen.yelp.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.kaizen.yelp.domain.Tip;
 
 public class TipDto {

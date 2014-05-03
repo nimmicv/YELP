@@ -7,18 +7,10 @@ import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClient;
 import com.amazonaws.services.sns.model.CreateTopicRequest;
 import com.amazonaws.services.sns.model.CreateTopicResult;
-import com.amazonaws.services.sns.model.ListSubscriptionsByTopicRequest;
 import com.amazonaws.services.sns.model.ListSubscriptionsByTopicResult;
-import com.amazonaws.services.sns.model.ListSubscriptionsRequest;
-import com.amazonaws.services.sns.model.ListSubscriptionsResult;
-import com.amazonaws.services.sns.model.ListTopicsRequest;
-import com.amazonaws.services.sns.model.ListTopicsResult;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
-import com.amazonaws.services.sns.model.SubscribeRequest;
-import com.amazonaws.services.sns.model.SubscribeResult;
 import com.amazonaws.services.sns.model.Subscription;
-import com.amazonaws.services.sns.model.Topic;
 
 public class SNS {
 
@@ -169,12 +161,7 @@ public static void main(String[] args){
 		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 
 
-		String categoryName = category.replaceAll("\\s+","");
-
-		System.out.println(" category name " + categoryName);
-
-
-		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
+		
 
 
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
@@ -185,8 +172,7 @@ public static void main(String[] args){
 		String subject =  "publishing message from "+ categoryName;
 
 
-		String subject =  "publishing message from "+ categoryName;
-
+		
 
 		sns.publishToTopic(snsconnect, topicArn, message, subject);
 
