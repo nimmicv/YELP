@@ -11,6 +11,7 @@ $(document).ready(function () {
 =======
        parent.document.getElementById("mustFrame").src="http://localhost:8080/"+username+"/"+businessName;
 >>>>>>> 75c84757641e148825b671ba28e764d303d81e2e
+        parent.document.getElementById("mustFrame").src="http://localhost:8080/business/"+businessName+"/"+username;
       
     });
 });

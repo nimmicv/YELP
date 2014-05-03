@@ -161,9 +161,12 @@ public static void main(String[] args){
 		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 
 
+<<<<<<< HEAD
 		
 
 
+=======
+>>>>>>> FETCH_HEAD
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
 
 		String topicArn = created.getTopicArn();
@@ -172,8 +175,11 @@ public static void main(String[] args){
 		String subject =  "publishing message from "+ categoryName;
 
 
+<<<<<<< HEAD
 		
 
+=======
+>>>>>>> FETCH_HEAD
 		sns.publishToTopic(snsconnect, topicArn, message, subject);
 
 

@@ -299,6 +299,8 @@ public class KaizenResource {
 				String categories = businessObj.getString("categories");
 				String full_address = businessObj.getString("full_address");
 				String hours = businessObj.getString("hours");
+				String longitude = businessObj.getString("longitude");
+				String latitude = businessObj.getString("latitude");
 
 				Business business = new Business();
 				business.setBusiness_id(business_id);
@@ -306,7 +308,8 @@ public class KaizenResource {
 				business.setCategories(categories);
 				business.setFull_address(full_address);
 				business.setHours(hours);
-
+				business.setLongitude(longitude);
+				business.setLatitude(latitude);
 
 				businesses.addBusiness(business);
 
@@ -319,6 +322,7 @@ public class KaizenResource {
 	}
 
 
+<<<<<<< HEAD
 
 //	@GET
 //	@Path("/business")
@@ -385,6 +389,8 @@ public class KaizenResource {
 //
 //				businesses.addBusiness(business);
 
+=======
+>>>>>>> FETCH_HEAD
 	@POST
 	@Path("/publish")
 	@Timed(name = "publish")
