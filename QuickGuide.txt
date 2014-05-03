@@ -10,3 +10,13 @@ IP: 54.215.178.205
 
 URL : http://54.215.178.205:8080/kaizen
 HealthCheck : http://54.215.178.205:8081
+
+Commands to reset to a previous HEAD in github
+
+ git show HEAD    
+ git show HEAD~1 
+ git show HEAD~2
+ git reset --hard HEAD~2
+
+force overwrite
+git push origin <branch name> --force
