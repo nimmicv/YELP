@@ -300,7 +300,6 @@ public class KaizenResource {
 				String categories = businessObj.getString("categories");
 				String full_address = businessObj.getString("full_address");
 				String hours = businessObj.getString("hours");
-				String hours = businessObj.getString("hours");
 				String longitude = businessObj.getString("longitude");
 				String latitude = businessObj.getString("latitude");
 
