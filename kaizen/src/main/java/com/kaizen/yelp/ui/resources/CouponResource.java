@@ -16,10 +16,18 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONTokener;
+
+import com.amazonaws.http.HttpResponse;
+
+//import com.mashape.unirest.http.HttpResponse;
+//import com.mashape.unirest.http.JsonNode;
+//import com.mashape.unirest.http.Unirest;
+//import com.mashape.unirest.http.exceptions.UnirestException;
 
 
 @Path("/kaizen/coupons")
@@ -27,7 +35,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 public class CouponResource {
 	private final String USER_AGENT = "Mozilla/5.0";
 
-@GET
+	/*@GET
 
 	public Response getCoupons() throws UnirestException{
 		System.out.println(" hello get");
@@ -59,6 +67,77 @@ public class CouponResource {
 
 	return Response.status(200).build();
 
-}
 
+}
+*/
+
+	
+	
+	@GET
+	@Path("/test")
+
+	public Response getTest() throws  Exception{
+		System.out.println(" hello world");
+		
+		HttpClient client1 = new DefaultHttpClient();
+		
+		
+		HttpGet request1 = new HttpGet("http://api.8coupons.com/v1/getsubcategory");
+		org.apache.http.HttpResponse response = client1.execute(request1);
+		
+		
+		
+		System.out.println(" response" + response.getEntity().getContent().toString());
+		
+		BufferedReader reader = new BufferedReader  (new InputStreamReader(( response).getEntity().getContent()));
+		StringBuilder allContents = new StringBuilder();
+
+		String line = null;
+
+		while ((line = reader.readLine()) != null) {
+			allContents.append(line);
+		}
+		System.out.println(" string value :"+ allContents.toString());
+		
+	
+		//allContents.toString().replaceAll("\\s", "");
+//		
+//		System.out.println(" new output value:" + allContents.toString().replaceAll("\\s", ""));
+//		//allContents.replace(arg0, arg1, arg2)
+//		
+//		String input = allContents.toString().replaceAll("\\s", "");
+//		InputStream is = new ByteArrayInputStream(input.getBytes());
+//		 
+//		// read it with BufferedReader
+//		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+	 
+//		JSONTokener tokener = new JSONTokener(br);
+//		JSONArray finalResult = new JSONArray(tokener);
+//		
+		
+		String userSelectedCategory = "Moroccan";
+		
+		String categoryId;
+		
+		JSONArray arr = new JSONArray(allContents.toString());
+		for (int i =0 ; i < arr.length() ; i++){
+			//System.out.println(" array deatils :" + arr.getJSONObject(i).get("category"));
+			
+			String sub = (String) arr.getJSONObject(i).get("subcategory");
+			//System.out.println(" sub category" + sub);
+			
+			if ( sub.equals(userSelectedCategory)){
+				categoryId = (String) arr.getJSONObject(i).get("subcategoryID");
+				System.out.println(" id is " + arr.getJSONObject(i).get("subcategoryID"));
+				
+			}
+		}
+		
+		
+
+		return Response.status(200).build();
+
+		
+		
+	}
 }
