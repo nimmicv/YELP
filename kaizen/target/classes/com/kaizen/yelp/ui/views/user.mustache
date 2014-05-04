@@ -271,13 +271,11 @@
   		};
   	map = new google.maps.Map(document.getElementById('map-canvas'),
                             mapOptions);
-                            alert(map);
 	var oTable = document.getElementById('bizResults');
 	var rowLength = oTable.rows.length;
-	var markers = [];
 	var busName =[];
 	var infowindow = new google.maps.InfoWindow();
-	for (i = 0; i < rowLength; i++){
+	for (i = 1; i < rowLength; i++){
     //loops through rows
 
        var oCells = oTable.rows.item(i).cells;
@@ -305,11 +303,6 @@
  
 	});
 	
-	function setAllMap(map,markers) {
-	            	for (var i = 0; i < markers.length; i++) {
-	              		markers[i].setMap(map);
-	            	}
-	         }
 	
 	
 	/*$(".item").click(function(){

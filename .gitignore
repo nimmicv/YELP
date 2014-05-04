@@ -18,3 +18,5 @@ kaizen/target/classes/com/kaizen/yelp/dto/UserDto.class
 *.class
 
 *.class
+
+*.class

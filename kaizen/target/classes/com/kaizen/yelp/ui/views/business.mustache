@@ -85,7 +85,7 @@
 	 {{stars}}	 
 	 </td>
 	
-	 <td> <br/><br/><input type="submit" value="Subscribe" name="subscribe" id="subscribe" /> </td>
+	 <td> <br/><br/><button name="subscribe">Subscribe</button> </td>
 	 </tr>
 	 {{/business}}
 	 </table>
@@ -113,6 +113,17 @@
 	 <script src="//code.jquery.com/jquery.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script type = "text/javascript">
+	$(":button").click(function(){
+		var button_pressed=$(this).attr("name");
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		var business_id = pathArray[3];
+		if(button_pressed == "subscribe"){
+		alert(business_id);
+		window.location = '/kaizen/'+user+'/'+business_id+'/subscribe';
+		}
+		});
+	
 	function signOut(){
 		
 		var pathArray=window.location.pathname.split('/');

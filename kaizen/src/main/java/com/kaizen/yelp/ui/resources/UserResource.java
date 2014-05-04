@@ -123,6 +123,8 @@ public UserView getUser(@PathParam("username") String username) {
 			@FormParam("parking") String parking, @FormParam("creditcards") String creditcards, 
 			@FormParam("takeout") String takeout, @FormParam("wifi") String wifi,   
 			@FormParam("kids") String kids, @FormParam("groups") String groups){
+	
+	
 		
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
@@ -169,6 +171,16 @@ public UserView getUser(@PathParam("username") String username) {
 			String full_address = obj.getString("full_address");
 			float stars = Float.parseFloat(obj.getString("stars"));
 			//double stars = (obj.getDouble("stars"));
+			String lat = obj.getString("latitude");
+			String longit = obj.getString("longitude");
+			double latitude=0;
+			double longitude=0;
+			if(lat!=null && longit !=null)
+			{
+				latitude = Double.parseDouble(obj.getString("latitude"));
+				longitude = Double.parseDouble(obj.getString("longitude"));
+				
+			}
 			
 			DBCollection collReview = db.getCollection("review");
 			BasicDBObject searchBlockQuery = new BasicDBObject("business_id", business_id);
@@ -191,7 +203,8 @@ public UserView getUser(@PathParam("username") String username) {
 				search.setName(name);
 				search.setFull_address(full_address);
 				search.setStars(stars);
-			
+				search.setLatitude(latitude);
+			    search.setLongitude(longitude);
 				searchList.add(search);
 				userRepository.saveSearch(searchList);
 			}
