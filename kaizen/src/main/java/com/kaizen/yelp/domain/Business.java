@@ -18,6 +18,7 @@ private String takeout;
 private String wifi;
 private String kids;
 private String groups;
+private float review_count;
 
 public String getParking() {
 	return parking;
