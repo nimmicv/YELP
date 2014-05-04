@@ -36,8 +36,7 @@ public static void main(String[] args){
 
 
 	private AmazonSNS connectToSNS (){
-		//final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
-		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("accesskey",  "secretkey"));
+		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
 		snsConnection.setEndpoint("sns.us-west-1.amazonaws.com");
 		return snsConnection;
 
@@ -164,7 +163,8 @@ public static void main(String[] args){
 		AmazonSNS snsconnect = sns.connectToSNS();
 
 		
-		String categoryName = category.replaceAll("\\s+","");
+		String categoryName1 = category.replaceAll("\\s+","");
+		String categoryName = categoryName1.replaceAll("'","");
 		System.out.println(" category name " + categoryName);
 		
 		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
