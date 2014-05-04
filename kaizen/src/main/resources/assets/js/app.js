@@ -31,6 +31,7 @@
 		
 	});
 	*/
+
 var userid = "parul";
 $("#login").submit(function(event){
 	//alert("Form Submitted");
@@ -55,7 +56,8 @@ $("#login").submit(function(event){
 });
 
 $("#register").submit(function(event){
-	//alert("Form Submitted");
+	alert("Form Submitted");
+	
 	//window.location.reload();
 	event.preventDefault();
 	var $form = $( this );
@@ -86,6 +88,7 @@ $("#searchBiz").submit(function(event){
 		  url: '/kaizen/'+user+'/home/search',
 		  success: function() {
 			  	window.location = '/kaizen/'+user+'/home';
+			  	
 			  },
 			error:function() {
 				alert("Search failed");

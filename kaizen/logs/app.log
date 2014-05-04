@@ -1,16 +1,8 @@
-INFO  [2014-05-03 07:00:48,925] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 07:00:48,933] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 07:00:49,046] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 07:00:49,149] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 18:51:13,007] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 18:51:13,011] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 18:51:13,109] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 18:51:13,188] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -23,27 +15,25 @@ INFO  [2014-05-03 07:00:49,149] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 07:00:49,149] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 18:51:13,188] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 07:00:49,583] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
+WARN  [2014-05-04 18:51:13,546] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 07:00:49,614] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 07:00:49,620] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 07:02:05,245] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 07:02:05,250] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 07:02:05,347] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 07:02:05,459] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 18:51:13,572] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 18:51:13,578] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 18:52:53,518] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 18:52:53,520] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 18:52:53,520] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 18:52:53,520] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 18:52:55,574] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 18:52:55,574] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 18:54:13,729] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 18:54:13,733] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 18:54:13,839] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 18:54:13,911] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -56,30 +46,25 @@ INFO  [2014-05-03 07:02:05,459] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 07:02:05,459] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 18:54:13,911] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 07:02:05,870] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
+WARN  [2014-05-04 18:54:14,275] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 07:02:05,896] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 07:02:05,903] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 07:23:10,576] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 07:23:10,580] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 07:23:10,693] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 07:23:10,810] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 18:54:14,293] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 18:54:14,297] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 18:55:02,527] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 18:55:02,534] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 18:55:02,536] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 18:55:02,536] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 18:55:04,590] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 18:55:04,591] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 18:55:27,811] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 18:55:27,815] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 18:55:27,911] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 18:55:27,985] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -92,32 +77,25 @@ INFO  [2014-05-03 07:23:10,810] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 07:23:10,810] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 18:55:27,985] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 07:23:11,257] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 18:55:28,338] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 07:23:11,285] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 07:23:11,291] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 17:35:24,200] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 17:35:24,205] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 17:35:24,370] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 17:35:24,583] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 18:55:28,358] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 18:55:28,363] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 18:56:09,396] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 18:56:09,397] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 18:56:09,398] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 18:56:09,398] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 18:56:11,450] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 18:56:11,451] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 18:56:34,406] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 18:56:34,410] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 18:56:34,507] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 18:56:34,577] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -130,38 +108,25 @@ INFO  [2014-05-03 17:35:24,583] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 17:35:24,583] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 18:56:34,578] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 17:35:25,215] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 18:56:34,935] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 17:35:25,297] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 17:35:25,304] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 17:45:25,055] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 17:45:25,056] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 17:45:25,057] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 17:45:25,057] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 17:45:27,111] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 17:45:27,113] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 17:49:26,476] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 17:49:26,480] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 17:49:26,586] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 17:49:26,691] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 18:56:34,955] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 18:56:34,960] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:03:40,918] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:03:40,919] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:03:40,921] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:03:40,921] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:03:42,974] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:03:42,974] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:04:01,918] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 19:04:01,922] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 19:04:02,015] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 19:04:02,087] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -174,38 +139,25 @@ INFO  [2014-05-03 17:49:26,691] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 17:49:26,691] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 19:04:02,088] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 17:49:27,069] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 19:04:02,461] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 17:49:27,089] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 17:49:27,095] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 17:57:46,360] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 17:57:46,361] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 17:57:46,362] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 17:57:46,362] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 17:57:48,414] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 17:57:48,414] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 17:57:57,928] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 17:57:57,933] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 17:57:58,037] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 17:57:58,147] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 19:04:02,482] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:04:02,486] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:04:07,769] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:04:07,770] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:04:07,773] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:04:07,773] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:04:09,828] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:04:09,828] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:04:23,759] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 19:04:23,763] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 19:04:23,864] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 19:04:23,944] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -218,38 +170,25 @@ INFO  [2014-05-03 17:57:58,147] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 17:57:58,147] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 19:04:23,944] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 17:57:58,543] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 19:04:24,309] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 17:57:58,563] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 17:57:58,568] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 17:59:10,765] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 17:59:10,775] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 17:59:10,775] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 17:59:10,776] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 17:59:12,830] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 17:59:12,830] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 17:59:17,749] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 17:59:17,753] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 17:59:17,855] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 17:59:17,942] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 19:04:24,329] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:04:24,334] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:06:24,331] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:06:24,332] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:06:24,333] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:06:24,333] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:06:26,387] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:06:26,387] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:06:30,260] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 19:06:30,264] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 19:06:30,365] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 19:06:30,438] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -262,38 +201,25 @@ INFO  [2014-05-03 17:59:17,942] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 17:59:17,942] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 19:06:30,438] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 17:59:18,319] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 19:06:30,791] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 17:59:18,337] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 17:59:18,342] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:03:11,057] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:03:11,058] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:03:11,059] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:03:11,059] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:03:13,113] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:03:13,113] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:03:16,903] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:03:16,907] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:03:17,007] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:03:17,100] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 19:06:30,810] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:06:30,815] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:07:17,257] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:07:17,269] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:07:17,273] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:07:17,274] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:07:19,328] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:07:19,328] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:11:33,827] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 19:11:33,831] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 19:11:33,921] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 19:11:33,997] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -306,38 +232,25 @@ INFO  [2014-05-03 18:03:17,100] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 18:03:17,100] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 19:11:33,998] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 18:03:17,488] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 19:11:34,349] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:03:17,506] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:03:17,511] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:04:19,997] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:04:19,998] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:04:19,999] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:04:19,999] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:04:22,053] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:04:22,053] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:04:26,456] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:04:26,461] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:04:26,564] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:04:26,650] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 19:11:34,368] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:11:34,373] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:17:09,359] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:17:09,361] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:17:09,362] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:17:09,362] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:17:11,416] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:17:11,416] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:17:16,766] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 19:17:16,771] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 19:17:16,871] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 19:17:16,945] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -350,38 +263,25 @@ INFO  [2014-05-03 18:04:26,650] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 18:04:26,650] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 19:17:16,945] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 18:04:27,037] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 19:17:17,308] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:04:27,059] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:04:27,065] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:05:51,979] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:05:51,980] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:05:51,981] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:05:51,981] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:05:54,034] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:05:54,034] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:05:59,038] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:05:59,043] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:05:59,140] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:05:59,228] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+INFO  [2014-05-04 19:17:17,327] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:17:17,332] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:20:23,374] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:20:23,376] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:20:23,376] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:20:23,377] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:20:25,431] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:20:25,431] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:20:35,939] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
+INFO  [2014-05-04 19:20:35,944] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-04 19:20:36,061] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-04 19:20:36,157] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
 
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
     GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
     POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
@@ -394,837 +294,17 @@ INFO  [2014-05-03 18:05:59,228] com.yammer.dropwizard.config.Environment: The fo
     POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
     POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
 
-INFO  [2014-05-03 18:05:59,228] com.yammer.dropwizard.config.Environment: tasks = 
+INFO  [2014-05-04 19:20:36,157] com.yammer.dropwizard.config.Environment: tasks = 
 
     POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
 
-WARN  [2014-05-03 18:05:59,599] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
+WARN  [2014-05-04 19:20:36,580] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
   WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:05:59,616] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:05:59,621] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:07:05,502] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:07:05,503] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:07:05,505] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:07:05,505] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:07:07,557] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:07:07,558] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:07:36,401] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:07:36,404] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:07:36,501] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:07:36,588] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:07:36,588] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:07:36,947] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:07:36,965] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:07:36,970] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:10:24,675] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:10:24,684] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:10:24,698] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:10:24,698] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:10:26,751] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:10:26,751] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:10:30,399] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:10:30,403] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:10:30,502] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:10:30,597] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:10:30,597] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:10:30,976] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:10:30,996] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:10:31,001] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:24:06,386] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:24:06,387] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:24:06,387] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:24:06,387] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:24:08,440] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:24:08,441] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:24:11,209] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:24:11,213] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:24:11,318] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:24:11,405] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:24:11,405] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:24:11,775] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:24:11,795] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:24:11,800] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:25:26,973] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:25:26,975] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:25:26,975] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:25:26,975] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:25:29,029] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:25:29,029] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:26:01,587] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:26:01,592] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:26:01,693] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:26:01,782] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:26:01,782] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:26:02,137] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:26:02,155] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:26:02,160] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:28:34,353] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:28:34,354] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:28:34,355] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:28:34,355] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:28:36,408] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:28:36,408] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:28:40,663] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:28:40,668] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:28:40,760] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:28:40,847] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:28:40,847] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:28:41,217] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:28:41,235] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:28:41,240] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:46:03,410] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:46:03,412] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:46:03,412] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:46:03,412] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:46:05,464] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:46:05,464] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:46:08,744] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:46:08,748] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:46:08,856] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:46:08,953] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:46:08,953] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:46:09,320] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:46:09,339] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:46:09,344] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:46:47,834] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:46:47,836] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:46:47,836] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:46:47,836] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:46:49,891] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:46:49,892] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:46:54,343] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:46:54,347] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:46:54,439] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:46:54,526] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:46:54,526] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:46:54,935] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:46:54,958] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:46:54,964] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:51:01,472] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:51:01,474] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:51:01,474] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:51:01,474] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:51:03,526] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:51:03,526] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:51:07,585] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:51:07,589] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:51:07,680] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:51:07,768] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:51:07,768] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:51:08,131] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:51:08,148] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:51:08,153] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:52:51,281] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:52:51,282] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:52:51,283] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:52:51,283] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:52:53,336] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:52:53,336] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:52:59,610] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:52:59,614] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:52:59,712] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:52:59,803] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:52:59,803] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:53:00,171] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:53:00,189] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:53:00,194] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:53:51,681] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:53:51,682] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:53:51,683] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:53:51,683] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:53:53,737] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:53:53,737] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:54:00,895] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:54:00,899] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:54:00,995] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:54:01,087] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:54:01,088] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:54:01,446] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:54:01,465] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:54:01,470] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:54:24,181] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:54:24,182] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:54:24,183] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:54:24,183] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:54:26,236] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:54:26,236] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:57:35,389] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:57:35,393] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:57:35,493] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:57:35,581] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:57:35,582] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:57:35,933] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:57:35,952] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:57:35,956] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:57:37,259] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:57:37,261] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:57:37,266] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:57:37,267] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:57:39,320] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:57:39,321] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:57:50,302] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:57:50,306] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:57:50,401] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:57:50,490] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:57:50,491] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:57:50,865] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:57:50,883] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:57:50,888] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:58:24,495] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:58:24,496] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:58:24,496] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:58:24,497] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:58:26,550] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:58:26,551] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:58:29,633] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 18:58:29,637] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 18:58:29,731] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 18:58:29,820] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 18:58:29,820] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 18:58:30,186] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 18:58:30,204] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:58:30,209] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:59:07,295] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 18:59:07,296] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 18:59:07,296] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 18:59:07,297] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:59:09,350] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 18:59:09,351] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 19:06:27,513] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 19:06:27,518] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 19:06:27,618] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 19:06:27,740] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 19:06:27,741] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 19:06:28,202] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 19:06:28,228] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:06:28,234] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:07:34,151] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 19:07:34,156] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 19:07:34,273] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 19:07:34,383] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 19:07:34,383] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 19:07:34,816] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 19:07:34,836] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:07:34,841] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:14:02,568] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:14:02,570] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:14:02,570] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 19:14:02,571] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 19:14:04,624] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 19:14:04,624] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 19:14:10,207] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 19:14:10,211] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 19:14:10,309] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 19:14:10,390] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 19:14:10,390] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 19:14:10,748] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 19:14:10,771] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:14:10,778] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:34:17,589] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:34:17,590] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:34:17,594] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 19:34:17,594] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 19:34:19,648] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 19:34:19,648] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 19:37:51,459] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 19:37:51,463] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 19:37:51,559] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 19:37:51,642] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 19:37:51,642] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 19:37:51,989] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 19:37:52,006] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:37:52,011] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:38:36,656] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:38:36,657] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:38:36,658] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 19:38:36,658] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 19:38:38,711] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
-INFO  [2014-05-03 19:38:38,711] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
-INFO  [2014-05-03 19:38:48,427] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 19:38:48,431] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 19:38:48,543] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 19:38:48,655] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 19:38:48,655] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 19:38:49,091] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 19:38:49,118] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:38:49,126] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
-INFO  [2014-05-03 19:48:06,726] com.yammer.dropwizard.cli.ServerCommand: Starting kaizen-service
-INFO  [2014-05-03 19:48:06,731] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
-INFO  [2014-05-03 19:48:06,835] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
-INFO  [2014-05-03 19:48:06,936] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
-
-    GET     /kaizen/v1 (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/tip (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/user (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{hoursDay}/{time1}/{time2} (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen/v1/{city}/{categories}/{when} (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/insertReview (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/publish (com.kaizen.yelp.api.KaizenResource)
-    POST    /kaizen/v1/subscribe (com.kaizen.yelp.api.KaizenResource)
-    GET     /kaizen (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/authenticate/ (com.kaizen.yelp.ui.resources.LoginResource)
-    POST    /kaizen/register/ (com.kaizen.yelp.ui.resources.LoginResource)
-    GET     /kaizen/{username}/home (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/search/ (com.kaizen.yelp.ui.resources.UserResource)
-    POST    /kaizen/{username}/home/signout (com.kaizen.yelp.ui.resources.UserResource)
-    GET     /kaizen/{username}/{business_id} (com.kaizen.yelp.ui.resources.BusinessResource)
-    POST    /kaizen/{username}/{business_id}/signout (com.kaizen.yelp.ui.resources.BusinessResource)
-    GET     /kaizen/{username}/review/{business_id} (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/ (com.kaizen.yelp.ui.resources.ReviewResource)
-    POST    /kaizen/{username}/review/{business_id}/signout (com.kaizen.yelp.ui.resources.ReviewResource)
-
-INFO  [2014-05-03 19:48:06,937] com.yammer.dropwizard.config.Environment: tasks = 
-
-    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
-
-WARN  [2014-05-03 19:48:07,384] com.sun.jersey.spi.inject.Errors: The following warnings have been detected with resource and/or provider classes:
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userSubscribe(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A HTTP GET method, public javax.ws.rs.core.Response com.kaizen.yelp.api.KaizenResource.userPublish(java.lang.String,java.lang.String), should not consume any entity.
-  WARNING: A sub-resource method, public void com.kaizen.yelp.ui.resources.ReviewResource.postReview(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String), with URI template, "/", is treated as a resource method
-INFO  [2014-05-03 19:48:07,411] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
-INFO  [2014-05-03 19:48:07,418] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:20:36,599] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:20:36,604] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:22:04,326] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8002
+INFO  [2014-05-04 19:22:04,327] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8001
+INFO  [2014-05-04 19:22:04,328] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2014-05-04 19:22:04,328] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:22:06,381] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/nimmicv/Documents/Nimmi/Cmpe273/YELP/kaizen/target/classes/}
+INFO  [2014-05-04 19:22:06,382] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}

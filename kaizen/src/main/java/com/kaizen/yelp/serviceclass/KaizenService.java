@@ -43,7 +43,7 @@ public class KaizenService extends Service<KaizenConfiguration> {
 		MongoManaged mongoManaged = new MongoManaged(mongo);
 		environment.manage(mongoManaged);
 		environment.addHealthCheck(new MongoHealthCheck(mongo));
-		environment.addResource(new KaizenResource( mongo,  coll));
+		//environment.addResource(new KaizenResource( mongo,  coll));
 		/** UI Resources */
 		UserRepository userRepository = new UserRepository();
 		environment.addResource(new LoginResource(userRepository));
