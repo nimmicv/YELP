@@ -32,11 +32,25 @@ public class ReviewResource {
 		this.mongo = mongo;
 		this.userRepository = userRepository;
 	}
-
+/*
 	@GET
 	public ReviewView getReview(@PathParam("username") String username) {
 		
 		return new ReviewView(username);
+	}
+*/
+	@GET
+	public ReviewView getReview(@PathParam("username") String username, @PathParam("business_id") String business_id) {
+
+		DB db = mongo.getDB("273project");
+		DBCollection coll = db.getCollection("business");
+		BasicDBObject searchQuery = new BasicDBObject("business_id", business_id);
+		DBCursor myCol = coll.find(searchQuery);
+
+		BasicDBObject obj= (BasicDBObject) myCol.next();
+		String name = obj.getString("name");
+
+		return new ReviewView(username, name);
 	}
 	
 	@POST
