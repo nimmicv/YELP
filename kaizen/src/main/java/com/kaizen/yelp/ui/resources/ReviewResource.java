@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.kaizen.yelp.amazonsns.SNS;
 import com.kaizen.yelp.domain.Review;
 import com.kaizen.yelp.domain.Search;
 import com.kaizen.yelp.domain.UserLogin;
@@ -33,17 +34,9 @@ public class ReviewResource {
 	}
 
 	@GET
-	public ReviewView getReview(@PathParam("username") String username, @PathParam("business_id") String business_id) {
+	public ReviewView getReview(@PathParam("username") String username) {
 		
-		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("business");
-		BasicDBObject searchQuery = new BasicDBObject("business_id", business_id);
-		DBCursor myCol = coll.find(searchQuery);
-		
-		BasicDBObject obj= (BasicDBObject) myCol.next();
-		String name = obj.getString("name");
-		
-		return new ReviewView(username, name);
+		return new ReviewView(username);
 	}
 	
 	@POST
@@ -60,12 +53,12 @@ public class ReviewResource {
 	@Path("/")
 	public void postReview(@PathParam("username") String username, @PathParam("business_id") String business_id, @FormParam("rating") String rating, @FormParam("review_content") String review_content, @FormParam("block") String block) {
 		
+		String name = null;
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("review");
 		
 		 Review review = new Review();
-		 ArrayList<Search> tempSearchList;
-		 
+		
 		review.setBusiness_id(business_id);
 		review.setUser_id(username);
 		review.setRating(Float.parseFloat(rating));
@@ -76,19 +69,22 @@ public class ReviewResource {
 		{
 			userRepository.saveReview(review);
 		}
-		if(!(block == null))
-		{
-			tempSearchList = userRepository.getSearch();
-			for (int i=0;i<tempSearchList.size();i++) {
-			      Search searchObj = tempSearchList.get(i);
-			      if(searchObj.getBusiness_id().equals(business_id))
-			      {
-			    	  tempSearchList.remove(i);
-			      }
-			  }
-			userRepository.saveSearch(tempSearchList);			
+		DBCollection collBusiness = db.getCollection("business");
+		BasicDBObject searchQuery = new BasicDBObject();
+		if (business_id != null) {
+			searchQuery.append("business_id", business_id);
 		}
-		
+		DBCursor myCol = collBusiness.find(searchQuery);
+		while(myCol.hasNext()) {
+			 
+			  BasicDBObject businessObj = (BasicDBObject) myCol.next();
+			  String b_id = businessObj.getString("business_id");
+			   name = businessObj.getString("name");
+		}
+
+		SNS sns = new SNS();
+		sns.userPublishingToTopic(name, review_content);
+
 	}
 	
 }
