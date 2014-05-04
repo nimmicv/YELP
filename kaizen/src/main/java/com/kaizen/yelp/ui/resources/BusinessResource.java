@@ -9,6 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.kaizen.yelp.amazonsns.SNS;
 import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.Search;
 import com.kaizen.yelp.repository.UserRepository;
@@ -40,7 +41,38 @@ public class BusinessResource {
 		searchRef.clear();
 		userRepository.saveSearch(searchRef);
 	}
+	
+	@GET 
+	@Path("/subscribe")
+	public void subscribe(@PathParam("username") String username, @PathParam("business_id") String business_id) {
+		String email = null;
+		String name = null;
+		DB db = mongo.getDB("273project");
+		DBCollection userInfoColl = db.getCollection("userInfo");
+		DBCollection coll = db.getCollection("business");
 
+		BasicDBObject query = new BasicDBObject("username", username);
+		DBCursor userCursor = userInfoColl.find(query);
+		while (userCursor.hasNext()) {
+			BasicDBObject userObj1 = (BasicDBObject) userCursor.next();
+			email = userObj1.getString("email");
+		}
+		System.out.println("id "+business_id );
+		BasicDBObject searchQuery = new BasicDBObject();
+		if (business_id != null) {
+			searchQuery.append("business_id", business_id);
+		}
+		DBCursor myCol = coll.find(searchQuery);
+		while(myCol.hasNext()) {
+			 
+			  BasicDBObject businessObj = (BasicDBObject) myCol.next();
+			  String b_id = businessObj.getString("business_id");
+			   name = businessObj.getString("name");
+		}
+		System.out.println(name);
+		SNS sns = new SNS();
+		sns.userSubscribeToTopic(name, email);
+	}
 	@GET
 	public BusinessView getBusiness(@PathParam("username") String username, @PathParam("business_id") String business_id) {
 		
@@ -51,7 +83,6 @@ public class BusinessResource {
 		String foundBusiness_id = "";
 		
 		BasicDBObject searchQuery = new BasicDBObject();
-
 		if (business_id != null) {
 			searchQuery.append("business_id", business_id);
 		}
@@ -67,6 +98,7 @@ public class BusinessResource {
 		  String name = businessObj.getString("name");
 		  String full_address = businessObj.getString("full_address");
 		  String categories = businessObj.getString("categories");
+		  float review_count = Float.parseFloat(businessObj.getString("review_count"));
 		  float stars = Float.parseFloat(businessObj.getString("stars"));
 		  
 		  DBObject tempDbObject = new BasicDBObject();
@@ -91,12 +123,12 @@ public class BusinessResource {
 		  business.setName(name);
 		  business.setFull_address(full_address);
 		  business.setCategories(categories);
+		  business.setReview_count(review_count);
 		  business.setStars(stars);
 		   
 		  } } finally { myCol.close(); }
 		
 		return new BusinessView(username, business);
 	}
-	
-	
+		
 }
