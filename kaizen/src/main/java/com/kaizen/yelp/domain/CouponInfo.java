@@ -15,5 +15,11 @@ public class CouponInfo {
 		this.dealLink = dealLink;
 		
 	}
+	@Override
+	public String toString(){
+		
+		return dealName + ":" + dealSource + ":" + dealImage + ":" + dealSource;
+		
+	}
 
 }
