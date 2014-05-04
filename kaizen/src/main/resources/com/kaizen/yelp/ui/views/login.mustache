@@ -42,10 +42,10 @@
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form" method="POST"  id="login">
             <div class="form-group">
-              <input type="text" id="username" name= "username" placeholder="Username" class="form-control">
+              <input type="text" id="username" name= "username" placeholder="Username" class="form-control" required>
             </div>
             <div class="form-group">
-              <input type="password" id="password" name="password" placeholder="Password" class="form-control" style="margin-left: 5px;">
+              <input type="password" id="password" name="password" placeholder="Password" class="form-control" required style="margin-left: 5px;">
             </div>
             <input type="submit" name="submit" value="Sign in" class="btn btn-success"/> 
 			
@@ -71,13 +71,13 @@
        <h3> We would like to connect with you</h3>
        <form id="register" class="navbar-form navbar-right" method="POST" >
 						 <div class="registration">
-						<input type="text" name="registername" placeholder="Username" >
+						<input type="text" name="registername" placeholder="Username" required>
 						</div><br/>
 						 <div class="registration">
-						<input type="password" name="pass" placeholder="Password" >
+						<input type="password" name="pass" placeholder="Password" required>
 						</div><br/>
 						 <div class="registration">
-						<input type="text" name="email" placeholder="Email" >
+						<input type="text" name="email" placeholder="Email" required>
 						</div><br/>
 						
 						<input type="submit" value="Create Account" class="btn btn-success" style="margin-left:-1px;"/>

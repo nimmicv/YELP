@@ -55,98 +55,18 @@
 </br>
 	
       <div class="container">	
-    	<form method="POST" id="searchBiz" >
+    	<br/>
     	
-    	<div class="registration" style="display:inline">
-     	<input type="text" name="search_business" id="search_business" placeholder="Search Business" />
-     	<input type="text" name="search_city" id="search_city" placeholder="Search City" />
-   
+    	<div class="registration" style="display:inline; margin-left:200px;">
      	
-
-     	Day:
-     	<select name="search_day" id="search_day" placeholder="Day">
-     		<option value="">--Select--</option>
- 			<option value="Monday">Monday</option>
-  			<option value="Tuesday">Tuesday</option>
-  			<option value="Wednesday">Wednesday</option>
-  			<option value="Thursday">Thursday</option>
-  			<option value="Friday">Friday</option>
-  			<option value="Saturday">Saturday</option>
-  			<option value="Sunday">Sunday</option>
-		</select>
-		Start Time:
-		<select name="search_startTime" id="search_startTime" placeholder="Start time">
- 			<option value="00:00">00:00</option>
-  			<option value="01:00">01:00</option>
-  			<option value="02:00">02:00</option>
-  			<option value="03:00">03:00</option>
-  			<option value="04:00">04:00</option>
-  			<option value="05:00">05:00</option>
-  			<option value="06:00">06:00</option>
-  			<option value="07:00">07:00</option>
-  			<option value="08:00">08:00</option>
-  			<option value="09:00">09:00</option>
-  			<option value="10:00">10:00</option>
-  			<option value="11:00">11:00</option>
-  			<option value="12:00">12:00</option>
-  			<option value="13:00">13:00</option>
-  			<option value="14:00">14:00</option>
-  			<option value="15:00">15:00</option>
-  			<option value="16:00">16:00</option>
-  			<option value="17:00">17:00</option>
-  			<option value="18:00">18:00</option>
-  			<option value="19:00">19:00</option>
-  			<option value="20:00">20:00</option>
-  			<option value="21:00">21:00</option>
-  			<option value="22:00">22:00</option>
-  			<option value="23:00">23:00</option>
-		</select>
-		End Time:
-     	<select name="search_endTime" id="search_endTime" placeholder="End time">
- 			<option value="00:00">00:00</option>
-  			<option value="01:00">01:00</option>
-  			<option value="02:00">02:00</option>
-  			<option value="03:00">03:00</option>
-  			<option value="04:00">04:00</option>
-  			<option value="05:00">05:00</option>
-  			<option value="06:00">06:00</option>
-  			<option value="07:00">07:00</option>
-  			<option value="08:00">08:00</option>
-  			<option value="09:00">09:00</option>
-  			<option value="10:00">10:00</option>
-  			<option value="11:00">11:00</option>
-  			<option value="12:00">12:00</option>
-  			<option value="13:00">13:00</option>
-  			<option value="14:00">14:00</option>
-  			<option value="15:00">15:00</option>
-  			<option value="16:00">16:00</option>
-  			<option value="17:00">17:00</option>
-  			<option value="18:00">18:00</option>
-  			<option value="19:00">19:00</option>
-  			<option value="20:00">20:00</option>
-  			<option value="21:00">21:00</option>
-  			<option value="22:00">22:00</option>
-  			<option value="23:00">23:00</option>
-		</select>
-		</br></br>
-		Wi-Fi:
-     	<select name="search_wifi" id="search_wifi" placeholder="Wi-Fi">
-     	    <option value="">--Select--</option>
- 			<option value="free">Free</option>
-  			<option value="no">No</option>
-  			<option value="paid">Paid</option>		
-		</select>
-		Kids:
-     	<select name="search_kids" id="search_kids" placeholder="Good For Kids">
-     	    <option value="">--Select--</option>
- 			<option value="true">Good</option>
-  			<option value="false">Not Good</option>	
-		</select>
-		
-     	</div>
-     	<input type="submit" value="Search" class="btn btn-success" />
+     	<input type="text" name="search_business1" id="search_business1" placeholder="Search Business" required/>
+     	<input type="text" name="search_city1" id="search_city1" placeholder="Search City" required/>
+     	<button class="btn btn-success" data-toggle="modal" data-target="#myModal" onClick="return modalClick();" >
+  		Search
+		</button>
+     	</div> 
      	
-     	</form>
+     	
       
       <br/>
       <br/>
@@ -221,15 +141,112 @@
 	 </table>
 	 </div>
 	 </div>
-    </div>
-
-			 
-					
+    </div>				
 					
     <div style="height:300px" class="container">
     <div  style="height:100%" id="map-canvas"></div>
     </div> <!-- /container -->
-
+    
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Select your preferences</h4>
+      </div>
+      <div class="modal-body" style="margin-left: 70px;">
+       	<br/>
+       	<form method="POST" id="searchBiz" >
+    	
+     	<input type="hidden" name="search_business" id="search_business" placeholder="Search Business" required/>
+     	<input type="hidden" name="search_city" id="search_city" placeholder="Search City" required/>
+     	
+     	<strong>Day:</strong>
+     	<select name="search_day" id="search_day" placeholder="Day">
+ 			<option value="Monday">Monday</option>
+  			<option value="Tuesday">Tuesday</option>
+  			<option value="Wednesday">Wednesday</option>
+  			<option value="Thursday">Thursday</option>
+  			<option value="Friday">Friday</option>
+  			<option value="Saturday">Saturday</option>
+  			<option value="Sunday">Sunday</option>
+		</select>&nbsp;&nbsp;
+		
+		<strong>Start Time:</strong>
+		<select name="search_startTime" id="search_startTime" placeholder="Start time">
+ 			<option value="00:00">00:00</option>
+  			<option value="01:00">01:00</option>
+  			<option value="02:00">02:00</option>
+  			<option value="03:00">03:00</option>
+  			<option value="04:00">04:00</option>
+  			<option value="05:00">05:00</option>
+  			<option value="06:00">06:00</option>
+  			<option value="07:00">07:00</option>
+  			<option value="08:00">08:00</option>
+  			<option value="09:00">09:00</option>
+  			<option value="10:00">10:00</option>
+  			<option value="11:00">11:00</option>
+  			<option value="12:00">12:00</option>
+  			<option value="13:00">13:00</option>
+  			<option value="14:00">14:00</option>
+  			<option value="15:00">15:00</option>
+  			<option value="16:00">16:00</option>
+  			<option value="17:00">17:00</option>
+  			<option value="18:00">18:00</option>
+  			<option value="19:00">19:00</option>
+  			<option value="20:00">20:00</option>
+  			<option value="21:00">21:00</option>
+  			<option value="22:00">22:00</option>
+  			<option value="23:00">23:00</option>
+		</select>&nbsp;&nbsp;
+		<strong>End Time:</strong>
+     	<select name="search_endTime" id="search_endTime" placeholder="End time">
+ 			<option value="00:00">00:00</option>
+  			<option value="01:00">01:00</option>
+  			<option value="02:00">02:00</option>
+  			<option value="03:00">03:00</option>
+  			<option value="04:00">04:00</option>
+  			<option value="05:00">05:00</option>
+  			<option value="06:00">06:00</option>
+  			<option value="07:00">07:00</option>
+  			<option value="08:00">08:00</option>
+  			<option value="09:00">09:00</option>
+  			<option value="10:00">10:00</option>
+  			<option value="11:00">11:00</option>
+  			<option value="12:00">12:00</option>
+  			<option value="13:00">13:00</option>
+  			<option value="14:00">14:00</option>
+  			<option value="15:00">15:00</option>
+  			<option value="16:00">16:00</option>
+  			<option value="17:00">17:00</option>
+  			<option value="18:00">18:00</option>
+  			<option value="19:00">19:00</option>
+  			<option value="20:00">20:00</option>
+  			<option value="21:00">21:00</option>
+  			<option value="22:00">22:00</option>
+  			<option value="23:00">23:00</option>
+		</select>
+     	<br/><br/><br/>	
+     	<strong>Facilities:</strong><br/><br/>
+     	<input type="checkbox" name="parking" id="parking">&nbsp; Parking &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     	<input type="checkbox" name="creditcards" id="creditcards">	&nbsp; Accept Credit Cards &nbsp;&nbsp;&nbsp; <br/><br/>
+     	
+     	<strong>(Only for Restaurants business):</strong><br/><br/>
+     	<input type="checkbox" name="takeout" id="takeout">&nbsp;Take-out &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     	<input type="checkbox" name="kids" id="kids">&nbsp;Good for Kids &nbsp;&nbsp;&nbsp; <br/><br/>
+     	<input type="checkbox" name="wifi" id="wifi">&nbsp;&nbsp;Wi-Fi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     	<input type="checkbox" name="groups" id="groups">&nbsp;Good for Groups &nbsp;&nbsp;&nbsp; <br/><br/>
+     	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit"  value="Submit" class="btn btn-success" />
+     	</form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -321,23 +338,33 @@
 	
 	
 	$("#arrow1").click(function(){
-	
-	$("#recommendations").slideToggle(1000);
+		$("#recommendations").slideToggle(1000);
+	});
+			
 		
+	$("#arrow2").click(function(){
+		$("#normalResults").slideToggle(1000);
+	});
+	
+	
+	function modalClick(){
+		var business = $("#search_business1").val();
+		var city = $("#search_city1").val();
 		
-		});
-		$("#arrow2").click(function(){
-	
-	
-	
-	$("#normalResults").slideToggle(1000);
+		if(business == "" || city == "")
+		{
+			alert("Please enter the fields!");
+		}
+		else
+		{
+			$('#myModal').modal('show')
+		}
 		
-		
-		});
+		$("#search_business").val(business);
+		$("#search_city").val(city);
+	}
 	
-	
-	function signOut(){
-		
+	function signOut(){	
 		var pathArray=window.location.pathname.split('/');
 		var user=pathArray[2];
 		
@@ -355,10 +382,7 @@
 							}
 			}  
 		});
-		
-	 	
 	}
-	
 	
 	</script>
   </body>
