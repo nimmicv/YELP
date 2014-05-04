@@ -94,6 +94,14 @@ public void setStars(float stars) {
 	this.stars = stars;
 }
 
+public float getReview_count() {
+	return review_count;
+}
+public void setReview_count(float review_count) {
+	this.review_count = review_count;
+}
+
+
 public String getLongitude() {
 	return longitude;
 }
