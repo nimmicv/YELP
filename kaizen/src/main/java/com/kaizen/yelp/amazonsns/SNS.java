@@ -7,10 +7,18 @@ import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClient;
 import com.amazonaws.services.sns.model.CreateTopicRequest;
 import com.amazonaws.services.sns.model.CreateTopicResult;
+import com.amazonaws.services.sns.model.ListSubscriptionsByTopicRequest;
 import com.amazonaws.services.sns.model.ListSubscriptionsByTopicResult;
+import com.amazonaws.services.sns.model.ListSubscriptionsRequest;
+import com.amazonaws.services.sns.model.ListSubscriptionsResult;
+import com.amazonaws.services.sns.model.ListTopicsRequest;
+import com.amazonaws.services.sns.model.ListTopicsResult;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
+import com.amazonaws.services.sns.model.SubscribeRequest;
+import com.amazonaws.services.sns.model.SubscribeResult;
 import com.amazonaws.services.sns.model.Subscription;
+import com.amazonaws.services.sns.model.Topic;
 
 public class SNS {
 
@@ -29,7 +37,7 @@ public static void main(String[] args){
 
 	private AmazonSNS connectToSNS (){
 		//final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
-		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("AKIAJ7K2MAJXLWYXUBUA",  "cXazKIn16Jao2vEv0TkisjrTDV6l327BkWbPdlUj"));
+		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("accesskey",  "secretkey"));
 		snsConnection.setEndpoint("sns.us-west-1.amazonaws.com");
 		return snsConnection;
 
@@ -43,7 +51,8 @@ public static void main(String[] args){
 		AmazonSNS snsconnect = sns.connectToSNS();
 
 
-		String categoryName = category.replaceAll("\\s+","");
+		String categoryName1 = category.replaceAll("\\s+","");
+		String categoryName = categoryName1.replaceAll("'","");
 
 		System.out.println(" category name " + categoryName);
 
@@ -161,14 +170,12 @@ public static void main(String[] args){
 		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 
 
-
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
 
 		String topicArn = created.getTopicArn();
 
 		
 		String subject =  "publishing message from "+ categoryName;
-
 
 
 		sns.publishToTopic(snsconnect, topicArn, message, subject);
