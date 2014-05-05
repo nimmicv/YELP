@@ -51,7 +51,7 @@ public class KaizenService extends Service<KaizenConfiguration> {
 		environment.addResource(new UserResource(mongo, userRepository));
 		environment.addResource(new BusinessResource(mongo, userRepository));
 		environment.addResource(new ReviewResource(mongo, userRepository));
-		environment.addResource(new CouponResource());
+		environment.addResource(new CouponResource(mongo));
 	}
 
 }
