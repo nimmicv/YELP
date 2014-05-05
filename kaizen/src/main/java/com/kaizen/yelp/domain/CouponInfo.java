@@ -18,8 +18,7 @@ public class CouponInfo {
 	@Override
 	public String toString(){
 		
-		return dealName + ":" + dealSource + ":" + dealImage + ":" + dealSource;
-		
+		return dealName + "***" + dealSource + "***" + dealImage + "***" + dealLink;
 	}
 
 }
