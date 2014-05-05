@@ -82,7 +82,7 @@
 	 <div>Rating: </div>
 	 <td>
 	 <div>{{business_id}} </div>
-	 <div>{{name}} </div>
+	 <div id="businessname">{{name}} </div>
 	 <div>{{full_address}} </div>
 	 <div>{{categories}} </div>
 	 <div id="latitude">{{latitude}} </div>
@@ -171,19 +171,19 @@
   		};
   	map = new google.maps.Map(document.getElementById('map-canvas'),
                             mapOptions);
-	var oTable = document.getElementById('bizResults');
-	var rowLength = oTable.rows.length;
+	//var oTable = document.getElementById('bizResults');
+	//var rowLength = oTable.rows.length;
 	var busName =[];
 	var infowindow = new google.maps.InfoWindow();
-	for (i = 1; i < rowLength; i++){
-    //loops through rows
+	//for (i = 1; i < rowLength; i++){
+    	//loops through rows
 
-       var oCells = oTable.rows.item(i).cells;
+       //var oCells = oTable.rows.item(i).cells;
        //gets cells of current row
-       var cellLength = oCells.length;
-       var latitude = oCells.item(3).innerHTML;
-       var longitude = oCells.item(4).innerHTML;
-       var business = oCells.item(1).innerHTML;
+       //var cellLength = oCells.length;
+       var latitude = document.getElementById('latitude').innerHTML;
+       var longitude = document.getElementById('longitude').innerHTML;
+       var business = document.getElementById('businessname').innerHTML;
        busName.push(business);
        //alert("Adding Marker");
         var marker = new google.maps.Marker({
@@ -191,15 +191,15 @@
                         map: map,
                         title: 'Click Me'
                     });
-  		 google.maps.event.addListener(marker, 'click', (function(marker, i) {
+  		google.maps.event.addListener(marker, 'click', (function(marker, 1) {
     		return function() {
-      		infowindow.setContent(busName[i]);
+      		infowindow.setContent(busName[1]);
       		infowindow.open(map, marker);
     		}
   		})(marker, i));	
     
    marker.setMap(map);      
-    }
+   // }
  
 	});
 	
