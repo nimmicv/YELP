@@ -38,6 +38,11 @@ import com.kaizen.yelp.domain.CouponInfo;
 @Produces(MediaType.TEXT_HTML)
 
 public class CouponResource {
+	private Mongo mongo;
+	
+	public CouponResource(Mongo mongo) {
+		this.mongo = mongo;
+	}
 	//private final String USER_AGENT = "Mozilla/5.0";
 
 	/*@GET
