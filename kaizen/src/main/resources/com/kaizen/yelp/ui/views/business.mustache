@@ -82,13 +82,13 @@
 	 <div>Rating: </div>
 	 <td>
 	 <div>{{business_id}} </div>
-	 <div id="businessname">{{name}} </div>
-	 <div>{{full_address}} </div>
-	 <div>{{categories}} </div>
-	 <div id="latitude">{{latitude}} </div>
-	 <div id="longitude">{{longitude}} </div>
-	 <div>{{review_count}} </div>
-	 <div>{{stars}} </div>	 
+         <div id="businessname">{{name}} </div>
+         <div id="full_address">{{full_address}} </div>
+         <div>{{categories}} </div>
+         <div id="latitude">{{latitude}} </div>
+         <div id="longitude">{{longitude}} </div>
+         <div>{{review_count}} </div>
+         <div>{{stars}} </div>
 	 </td>
 	
 	 <td> <br/><br/><button name="subscribe">Subscribe</button> </td>
@@ -100,7 +100,7 @@
 
 			 
 					
-   <div style="height:300px" class="container">
+    <div style="height:300px" class="container">
     <div  style="height:100%" id="map-canvas"></div>
     </div> <!-- /container -->
     
@@ -160,48 +160,33 @@
 		
 	}
 	
-				$(document).ready(function() {
-
-	var map;
-
-	var mapOptions = {
-    	zoom: 8,
-    	center: new google.maps.LatLng(33.479306999999999, -111.9864),
-    	mapTypeId: google.maps.MapTypeId.ROADMAP
-  		};
-  	map = new google.maps.Map(document.getElementById('map-canvas'),
+     $(document).ready(function() {
+        var latitude = document.getElementById('latitude').innerHTML;
+        var longitude = document.getElementById('longitude').innerHTML;
+        var business = document.getElementById('businessname').innerHTML;
+        var full_address = document.getElementById('full_address').innerHTML;
+        var map;
+        var mapOptions = {
+        zoom: 12,
+        center: new google.maps.LatLng(latitude, longitude),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
                             mapOptions);
-	//var oTable = document.getElementById('bizResults');
-	//var rowLength = oTable.rows.length;
-	//var busName =[];
-	var infowindow = new google.maps.InfoWindow();
-	//for (i = 1; i < rowLength; i++){
-    	//loops through rows
-
-       //var oCells = oTable.rows.item(i).cells;
-       //gets cells of current row
-       //var cellLength = oCells.length;
-       var latitude = document.getElementById('latitude').innerHTML;
-       var longitude = document.getElementById('longitude').innerHTML;
-       var business = document.getElementById('businessname').innerHTML;
-       //busName.push(business);
-       //alert("Adding Marker");
+        var infowindow = new google.maps.InfoWindow();
         var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(latitude, longitude),
                         map: map,
-                        title: 'Click Me'
-                    });
-  		google.maps.event.addListener(marker, 'click', (function(marker) {
-    		return function() {
-      		infowindow.setContent(business);
-      		infowindow.open(map, marker);
-    		}
-  		})(marker));	
-    
-   marker.setMap(map);      
-   // }
- 
-	});
+                        title: 'Click Business'
+                });
+                google.maps.event.addListener(marker, 'click', (function(marker) {
+                return function() {
+                infowindow.setContent(business+'<br/>'+full_address);
+                infowindow.open(map, marker);
+                }
+                })(marker));
+         marker.setMap(map);
+        });
 	
 	</script>
 
