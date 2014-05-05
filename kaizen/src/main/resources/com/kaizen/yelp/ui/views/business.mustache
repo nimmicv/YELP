@@ -173,7 +173,7 @@
                             mapOptions);
 	//var oTable = document.getElementById('bizResults');
 	//var rowLength = oTable.rows.length;
-	var busName =[];
+	//var busName =[];
 	var infowindow = new google.maps.InfoWindow();
 	//for (i = 1; i < rowLength; i++){
     	//loops through rows
@@ -184,19 +184,19 @@
        var latitude = document.getElementById('latitude').innerHTML;
        var longitude = document.getElementById('longitude').innerHTML;
        var business = document.getElementById('businessname').innerHTML;
-       busName.push(business);
+       //busName.push(business);
        //alert("Adding Marker");
         var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(latitude, longitude),
                         map: map,
                         title: 'Click Me'
                     });
-  		google.maps.event.addListener(marker, 'click', (function(marker, 1) {
+  		google.maps.event.addListener(marker, 'click', (function(marker) {
     		return function() {
-      		infowindow.setContent(busName[1]);
+      		infowindow.setContent(business);
       		infowindow.open(map, marker);
     		}
-  		})(marker, 1));	
+  		})(marker));	
     
    marker.setMap(map);      
    // }
