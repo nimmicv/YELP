@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,6 +26,7 @@ import org.json.JSONTokener;
 
 import com.amazonaws.http.HttpResponse;
 import com.kaizen.yelp.coupon.Coupon;
+import com.kaizen.yelp.domain.CouponInfo;
 
 //import com.mashape.unirest.http.HttpResponse;
 //import com.mashape.unirest.http.JsonNode;
@@ -33,8 +36,9 @@ import com.kaizen.yelp.coupon.Coupon;
 
 @Path("/kaizen/coupons")
 @Produces(MediaType.TEXT_HTML)
+
 public class CouponResource {
-	private final String USER_AGENT = "Mozilla/5.0";
+	//private final String USER_AGENT = "Mozilla/5.0";
 
 	/*@GET
 
@@ -80,7 +84,15 @@ public class CouponResource {
 	public Response getTest() throws  Exception{
 		System.out.println(" hello world");
 
-		HttpClient client1 = new DefaultHttpClient();
+
+		String baseurl = "http://api.8coupons.com/v1/getsubcategory";
+
+		Coupon coupon = new Coupon();
+		StringBuilder contentsOfURL = coupon.getFromCouponApi(baseurl);
+
+
+
+		/*HttpClient client1 = new DefaultHttpClient();
 
 
 		HttpGet request1 = new HttpGet("http://api.8coupons.com/v1/getsubcategory");
@@ -98,7 +110,7 @@ public class CouponResource {
 		while ((line = reader.readLine()) != null) {
 			allContents.append(line);
 		}
-		System.out.println(" string value :"+ allContents.toString());
+		System.out.println(" string value :"+ allContents.toString());*/
 
 
 		//allContents.toString().replaceAll("\\s", "");
@@ -117,10 +129,10 @@ public class CouponResource {
 		//		
 
 		String userSelectedCategory = "Moroccan";
-		
-		
 
-		String categoryIdFromCouponAPI = "";
+
+
+		/*String categoryIdFromCouponAPI = "";
 
 		JSONArray arr = new JSONArray(allContents.toString());
 		for (int i =0 ; i < arr.length() ; i++){
@@ -178,17 +190,88 @@ public class CouponResource {
 			System.out.println(" deal title :" +  arr2.getJSONObject(i).get("dealTitle"));
 			System.out.println(" deal source :" +arr2.getJSONObject(i).get("dealSource"));
 
+		}*/
+
+		//return Response.status(200).build();
+
+
+		//Coupon coupon = new Coupon();
+		String categoryIdFromCoupon = coupon.getSubCategoryId(contentsOfURL, userSelectedCategory);
+
+		String zipcode = "85233" ;
+		String newQuery = coupon.newQuery(zipcode, categoryIdFromCoupon);
+
+
+		StringBuilder newQueryContents = coupon.getFromCouponApi(newQuery);
+
+		/*HttpClient client2 = new DefaultHttpClient();
+
+
+		HttpGet request2 = new HttpGet(newQuery);
+		org.apache.http.HttpResponse response2 = client1.execute(request2);
+
+
+
+		System.out.println(" response" + response2.getEntity().getContent().toString());
+
+		BufferedReader reader2 = new BufferedReader  (new InputStreamReader(( response2).getEntity().getContent()));
+		StringBuilder allContents2 = new StringBuilder();
+
+		String line2 = null;
+
+		while ((line2 = reader2.readLine()) != null) {
+			allContents2.append(line2);
+		}*/
+
+		ArrayList<CouponInfo> couponlist = coupon.getCouponDetails(newQueryContents);
+
+		System.out.println(" coupon list" +couponlist.toString());
+
+		for (int i = 0 ; i < couponlist.size() ; i++){
+
+			System.out.println(" list: "+couponlist.get(i).toString());
+
 		}
 
 		return Response.status(200).build();
 
 
 
-		
-		
-		
+
+	}
 
 
+	@GET
+	@Path("/couponDetails")
 
+	public Response getCouponDetails() throws  Exception{
+		System.out.println(" hello coupon details");
+
+
+		String baseurl = "http://api.8coupons.com/v1/getsubcategory";
+
+		Coupon coupon = new Coupon();
+		StringBuilder contentsOfURL = coupon.getFromCouponApi(baseurl);
+
+		String userSelectedCategory = "Moroccan";
+
+		String categoryIdFromCoupon = coupon.getSubCategoryId(contentsOfURL, userSelectedCategory);
+
+		String zipcode = "85233" ;
+		String newQuery = coupon.newQuery(zipcode, categoryIdFromCoupon);
+
+
+		StringBuilder newQueryContents = coupon.getFromCouponApi(newQuery);
+		ArrayList<CouponInfo> couponlist = coupon.getCouponDetails(newQueryContents);
+
+		System.out.println(" coupon list" +couponlist.toString());
+
+		for (int i = 0 ; i < couponlist.size() ; i++){
+
+			System.out.println(" list: "+couponlist.get(i).toString());
+
+		}
+
+		return Response.status(200).build();
 	}
 }
