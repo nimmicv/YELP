@@ -98,6 +98,8 @@ public class BusinessResource {
 		  String name = businessObj.getString("name");
 		  String full_address = businessObj.getString("full_address");
 		  String categories = businessObj.getString("categories");
+		  String latitude = businessObj.getString("latitude");
+		  String longitude = businessObj.getString("longitude");
 		  float review_count = Float.parseFloat(businessObj.getString("review_count"));
 		  float stars = Float.parseFloat(businessObj.getString("stars"));
 		  
@@ -123,6 +125,8 @@ public class BusinessResource {
 		  business.setName(name);
 		  business.setFull_address(full_address);
 		  business.setCategories(categories);
+		  business.setLatitude(latitude);
+		  business.setLongitude(longitude);
 		  business.setReview_count(review_count);
 		  business.setStars(stars);
 		   
