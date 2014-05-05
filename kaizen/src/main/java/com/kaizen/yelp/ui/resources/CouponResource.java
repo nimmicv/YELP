@@ -27,6 +27,7 @@ import org.json.JSONTokener;
 import com.amazonaws.http.HttpResponse;
 import com.kaizen.yelp.coupon.Coupon;
 import com.kaizen.yelp.domain.CouponInfo;
+import com.mongodb.Mongo;
 
 //import com.mashape.unirest.http.HttpResponse;
 //import com.mashape.unirest.http.JsonNode;
