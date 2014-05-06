@@ -127,7 +127,7 @@ public UserView getUser(@PathParam("username") String username) {
 	
 		
 		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("business");
+		DBCollection coll = db.getCollection("business2");
 		//BasicDBObject searchQuery = new BasicDBObject("city", search_city);
 		BasicDBObject searchQuery = new BasicDBObject("city", "Phoenix");
 /*		searchQuery.append("open", true);
@@ -157,6 +157,10 @@ public UserView getUser(@PathParam("username") String username) {
 				searchQuery.append("attributes.Good For Groups", true);
 			}
 		
+		double[] loc = {33.479306999999999, -111.9864};
+		searchQuery.append("near", loc);
+		searchQuery.append("spherical", true);
+		myCmd.append("maxDistance", 8047);
 		DBCursor myCol = coll.find(searchQuery);
 		myCol.limit(20);
 		
