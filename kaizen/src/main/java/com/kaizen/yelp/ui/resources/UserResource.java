@@ -128,13 +128,14 @@ public UserView getUser(@PathParam("username") String username) {
 		
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
-		BasicDBObject searchQuery = new BasicDBObject("city", search_city);
-		searchQuery.append("open", true);
+		//BasicDBObject searchQuery = new BasicDBObject("city", search_city);
+		BasicDBObject searchQuery = new BasicDBObject("city", "Phoenix");
+/*		searchQuery.append("open", true);
 
 		searchQuery.append("hours." + search_day + ".open",
 				new BasicDBObject("$lte", search_startTime)).append(
 				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
-		
+*/		
 		searchQuery.append("categories", search_business);
 		
 		if (parking != null) {
@@ -204,7 +205,7 @@ public UserView getUser(@PathParam("username") String username) {
 				search.setFull_address(full_address);
 				search.setStars(stars);
 				search.setLatitude(latitude);
-			    search.setLongitude(longitude);
+  	                        search.setLongitude(longitude);
 				searchList.add(search);
 				userRepository.saveSearch(searchList);
 			}
