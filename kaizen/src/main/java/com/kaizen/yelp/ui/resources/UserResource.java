@@ -135,8 +135,8 @@ public UserView getUser(@PathParam("username") String username) {
 		searchQuery.append("hours." + search_day + ".open",
 				new BasicDBObject("$lte", search_startTime)).append(
 				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
-*/		
 		searchQuery.append("categories", search_business);
+*/		
 		
 		if (parking != null) {
 				searchQuery.append("attributes.Parking", new BasicDBObject("$exists", true));
