@@ -21,8 +21,17 @@ public class Coupon {
 
 	public String getSubCategoryId (StringBuilder content , String userSelectedCategory){
 		//String userSelectedCategory = "Moroccan";
-
-		String categoryIdFromCouponAPI = "";
+		
+		
+		//There is no subcategory called restuarents , restuarents is the main  category
+		if( userSelectedCategory.equals("Restaurants")){
+			return "1***1";
+		}
+		
+		
+		String subcategoryIdsFromCouponAPI = "";
+		
+		
 
 		JSONArray arr = new JSONArray(content.toString());
 		for (int i =0 ; i < arr.length() ; i++){
@@ -32,13 +41,20 @@ public class Coupon {
 			//System.out.println(" sub category" + sub);
 
 			if ( sub.equals(userSelectedCategory)){
-				categoryIdFromCouponAPI = (String) arr.getJSONObject(i).get("subcategoryID");
-				System.out.println(" id is " + arr.getJSONObject(i).get("subcategoryID"));
-
+				
+				String categoryId = (String) arr.getJSONObject(i).get("categoryID");
+				String subCategoryID = (String) arr.getJSONObject(i).get("subcategoryID");
+				
+				 
+				System.out.println(" sub id is " + arr.getJSONObject(i).get("subcategoryID"));
+				System.out.println("id is "+ arr.getJSONObject(i).get("categoryID"));
+				
+				subcategoryIdsFromCouponAPI = categoryId + "***" + subCategoryID;
+				System.out.println(" category and subcategory id : " + subcategoryIdsFromCouponAPI);
 			}
 		}
 
-		return categoryIdFromCouponAPI;
+		return subcategoryIdsFromCouponAPI;
 	}
 
 
@@ -52,9 +68,19 @@ public class Coupon {
 
 		//String zip = "85233";
 		String zipQuery = "&zip="+zip;
-		String categoryQuery = "&subcategoryID="+categoryIdFromCouponAPI;
+		
+		
+		String[] ids = categoryIdFromCouponAPI.split("\\*\\*\\*");
+		String categoryQuery = "&categoryID="+ ids[0];
+		
+		System.out.println(" category query"+ categoryQuery);
+		
+		String subcategoryQuery = "&subcategoryID="+ids[1];
+		
+		System.out.println(" sub category query"+ subcategoryQuery);
+		
 
-		String fullQuery = baseUrl + zipQuery + include + categoryQuery;
+		String fullQuery = baseUrl + zipQuery + include + categoryQuery + subcategoryQuery;
 
 		System.out.println(" full query" + fullQuery);
 
