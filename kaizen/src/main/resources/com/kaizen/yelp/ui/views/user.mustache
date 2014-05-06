@@ -258,30 +258,45 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAja5FiokzlJmdgUUzq0MJKsF3qkZ8xf8c&sensor=false">
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	<script type="text/javascript">
-	
-	$(document).ready(function() {
-	
-	var map;
-	
-	var mapOptions = {
-    	zoom: 8,
-    	center: new google.maps.LatLng(33.479306999999999, -111.9864),
-    	mapTypeId: google.maps.MapTypeId.ROADMAP
-  		};
-  	map = new google.maps.Map(document.getElementById('map-canvas'),
+ <script type="text/javascript">
+        $(document).ready(function() {
+
+        var map;
+        var lat = 33.479306999999999;
+        var long = -111.9864;
+        var mapOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(33.479306999999999, -111.9864),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
                             mapOptions);
-	var oTable = document.getElementById('bizResults');
-	var rowLength = oTable.rows.length;
-	var busName =[];
-	var infowindow = new google.maps.InfoWindow();
-	for (i = 1; i < rowLength; i++){
-    //loops through rows
+        var oTable = document.getElementById('bizResults');
+        var rowLength = oTable.rows.length;
+        var busName =[];
+        var infowindow = new google.maps.InfoWindow();
+        navigator.geolocation.getCurrentPosition(myLoc);
+        function myLoc(position)
+        {
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+                if (lat>34){
+                        lat = 33.479306999999999;
+                        long = -111.9864;
+                }
+        }
+        var you = new google.maps.Marker({
+                        position: new google.maps.LatLng(lat, long),
+                        map: map,
+                        title: 'You are Here!'
+                    });
+        for (i = 1; i < rowLength; i++){
+        //loops through rows
 
        var oCells = oTable.rows.item(i).cells;
        //gets cells of current row
        var cellLength = oCells.length;
-       var latitude = oCells.item(3).innerHTML;
+         var latitude = oCells.item(3).innerHTML;
        var longitude = oCells.item(4).innerHTML;
        var business = oCells.item(1).innerHTML;
        busName.push(business);
@@ -291,15 +306,16 @@
                         map: map,
                         title: 'Click Me'
                     });
-  		 google.maps.event.addListener(marker, 'click', (function(marker, i) {
-    		return function() {
-      		infowindow.setContent(busName[i]);
-      		infowindow.open(map, marker);
-    		}
-  		})(marker, i));	
-    
-     marker.setMap(map);      
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                infowindow.setContent(busName[i]);
+                infowindow.open(map, marker);
+                }
+                })(marker, i));
+                marker.setMap(map);
     }
+        you.setMap(map);
+
  
 	});
 	
