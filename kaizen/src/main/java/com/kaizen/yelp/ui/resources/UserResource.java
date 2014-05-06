@@ -160,7 +160,7 @@ public UserView getUser(@PathParam("username") String username) {
 		double[] loc = {33.479306999999999, -111.9864};
 		searchQuery.append("near", loc);
 		searchQuery.append("spherical", true);
-		myCmd.append("maxDistance", 8047);
+		searchQuery.append("maxDistance", 8047);
 		DBCursor myCol = coll.find(searchQuery);
 		myCol.limit(20);
 		
