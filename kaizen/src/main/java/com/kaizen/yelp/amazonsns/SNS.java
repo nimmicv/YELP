@@ -38,8 +38,7 @@ public static void main(String[] args){
 
 
 	private AmazonSNS connectToSNS (){
-		//final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
-		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("AKIAJRSCQLXMLU5VPLLA",  "jbBW7HwWVYlOVNCqy0YgJZabLdS5Piu1m9x4WRYN"));
+		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
 
 		snsConnection.setEndpoint("sns.us-west-1.amazonaws.com");
 		return snsConnection;
