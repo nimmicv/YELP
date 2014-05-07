@@ -15,5 +15,6 @@ public class ReviewView extends View {
 		this.username = user;
 		this.name = name;
 	}
+	
 
 }

@@ -292,8 +292,9 @@
                 
                
         }
-        document.getElementById("curLatitude").value = lat;
-        document.getElementById("curLongitude").value = long; 
+        alert(document.getElementById("curLatitude").value);
+        alert(document.getElementById("curLongitude").value);
+         
         var you = new google.maps.Marker({
                         position: new google.maps.LatLng(lat, long),
                         map: map,
