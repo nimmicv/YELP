@@ -36,6 +36,7 @@ import com.mongodb.Mongo;
 
 
 @Path("/kaizen/coupons")
+
 @Produces(MediaType.TEXT_HTML)
 
 public class CouponResource {
@@ -83,7 +84,7 @@ public class CouponResource {
 	 */
 
 
-
+/*
 	@GET
 	@Path("/test")
 
@@ -98,7 +99,7 @@ public class CouponResource {
 
 
 
-		/*HttpClient client1 = new DefaultHttpClient();
+		HttpClient client1 = new DefaultHttpClient();
 
 
 		HttpGet request1 = new HttpGet("http://api.8coupons.com/v1/getsubcategory");
@@ -116,7 +117,7 @@ public class CouponResource {
 		while ((line = reader.readLine()) != null) {
 			allContents.append(line);
 		}
-		System.out.println(" string value :"+ allContents.toString());*/
+		System.out.println(" string value :"+ allContents.toString());
 
 
 		//allContents.toString().replaceAll("\\s", "");
@@ -138,7 +139,7 @@ public class CouponResource {
 
 
 
-		/*String categoryIdFromCouponAPI = "";
+		String categoryIdFromCouponAPI = "";
 
 		JSONArray arr = new JSONArray(allContents.toString());
 		for (int i =0 ; i < arr.length() ; i++){
@@ -196,7 +197,7 @@ public class CouponResource {
 			System.out.println(" deal title :" +  arr2.getJSONObject(i).get("dealTitle"));
 			System.out.println(" deal source :" +arr2.getJSONObject(i).get("dealSource"));
 
-		}*/
+		}
 
 		//return Response.status(200).build();
 
@@ -210,7 +211,7 @@ public class CouponResource {
 
 		StringBuilder newQueryContents = coupon.getFromCouponApi(newQuery);
 
-		/*HttpClient client2 = new DefaultHttpClient();
+		HttpClient client2 = new DefaultHttpClient();
 
 
 		HttpGet request2 = new HttpGet(newQuery);
@@ -227,7 +228,7 @@ public class CouponResource {
 
 		while ((line2 = reader2.readLine()) != null) {
 			allContents2.append(line2);
-		}*/
+		}
 
 		ArrayList<CouponInfo> couponlist = coupon.getCouponDetails(newQueryContents);
 
@@ -245,7 +246,7 @@ public class CouponResource {
 
 
 	}
-
+*/
 
 	@GET
 	@Path("/couponDetails")
@@ -259,7 +260,8 @@ public class CouponResource {
 		Coupon coupon = new Coupon();
 		StringBuilder contentsOfURL = coupon.getFromCouponApi(baseurl);
 
-		String userSelectedCategory = "Moroccan";
+		String userSelectedCategory = "REstaurants";
+		//String userSelectedCategory = "Moroccan";
 
 		String categoryIdFromCoupon = coupon.getSubCategoryId(contentsOfURL, userSelectedCategory);
 
@@ -277,7 +279,9 @@ public class CouponResource {
 			System.out.println(" list: "+couponlist.get(i).toString());
 
 		}
-
+		
+		
+		
 		return Response.status(200).build();
 	}
 }
