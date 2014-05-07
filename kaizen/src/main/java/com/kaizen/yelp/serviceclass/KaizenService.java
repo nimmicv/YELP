@@ -1,6 +1,5 @@
 package com.kaizen.yelp.serviceclass;
 
-import com.kaizen.yelp.api.KaizenResource;
 import com.kaizen.yelp.config.KaizenConfiguration;
 import com.kaizen.yelp.repository.UserRepository;
 import com.kaizen.yelp.ui.resources.BusinessResource;

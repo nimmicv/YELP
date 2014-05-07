@@ -267,8 +267,7 @@
         var map;
         var lat = 32.960389;
         var long = -111.338143;
-        document.getElementById("curLatitude").value = lat;
-        document.getElementById("curLongitude").value = long;
+        
         var mapOptions = {
         zoom: 8,
         center: new google.maps.LatLng(33.479306999999999, -111.9864),
@@ -289,9 +288,12 @@
                         lat = 32.960389;
                         long = -111.338143;
                 }
-                
-               
+         alert("inside=" + document.getElementById("curLatitude").value);
+        alert("inside=" +document.getElementById("curLongitude").value);       
+        document.getElementById("curLatitude").value = lat;
+        document.getElementById("curLongitude").value = long;     
         }
+        
         alert(document.getElementById("curLatitude").value);
         alert(document.getElementById("curLongitude").value);
          

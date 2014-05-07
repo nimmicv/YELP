@@ -71,18 +71,24 @@
       
 	 {{#business}}
 	 <tr class="item">
-	 <td style="width: 15%;">Business ID: <br/>
-	 Name: <br/> 
-	 Address: <br/>
-	 Categories: <br/>
-	 Review Count: <br/>
-	 Rating: </td>
-	 <td>{{business_id}} <br/>
-	 {{name}} <br/>
-	 {{full_address}} <br/>
-	 {{categories}} <br/>
-	 {{review_count}} <br/>
-	 {{stars}}	 
+	 <td style="width: 15%;">
+	 <div style="display:none">Business ID: </div>
+	 <div>Name: </div>
+	 <div>Address: </div>
+	 <div>Categories: </div>
+	 <div style="display:none">Latitude: </div>
+	 <div style="display:none">Longitude: </div>
+	 <div>Review Count: </div>
+	 <div>Rating: </div>
+	 <td>
+	 <div style="display:none">{{business_id}} </div>
+         <div id="businessname">{{name}} </div>
+         <div id="full_address">{{full_address}} </div>
+         <div>{{categories}} </div>
+         <div id="latitude" style="display:none">{{latitude}} </div>
+         <div id="longitude" style="display:none">{{longitude}} </div>
+         <div>{{review_count}} </div>
+         <div>{{stars}} </div>
 	 </td>
 	
 	 <td> <br/><br/><button name="subscribe">Subscribe</button> </td>
@@ -94,7 +100,10 @@
 
 			 
 					
-					
+    <div style="height:300px" class="container">
+    <div  style="height:100%" id="map-canvas"></div>
+    </div> <!-- /container -->
+    
     <div class="container">
       <!-- Example row of columns -->
      
@@ -111,6 +120,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	 <script src="//code.jquery.com/jquery.js"></script>
+   <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAja5FiokzlJmdgUUzq0MJKsF3qkZ8xf8c&sensor=false">
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script type = "text/javascript">
 	$(":button").click(function(){
@@ -145,8 +158,37 @@
 			}  
 		});
 		
-	 	
 	}
+	
+     $(document).ready(function() {
+        var latitude = document.getElementById('latitude').innerHTML;
+        var longitude = document.getElementById('longitude').innerHTML;
+        var business = document.getElementById('businessname').innerHTML;
+        var full_address = document.getElementById('full_address').innerHTML;
+        var map;
+        var mapOptions = {
+        zoom: 12,
+        center: new google.maps.LatLng(latitude, longitude),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+                            mapOptions);
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(latitude, longitude),
+                        map: map,
+                        title: 'Click Business'
+                });
+                google.maps.event.addListener(marker, 'click', (function(marker) {
+                return function() {
+                infowindow.setContent(business+'<br/>'+full_address);
+                infowindow.open(map, marker);
+                }
+                })(marker));
+         marker.setMap(map);
+        });
+	
 	</script>
+
 	</body>
 </html>
