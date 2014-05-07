@@ -128,8 +128,23 @@ public UserView getUser(@PathParam("username") String username) {
 	
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
+		if(curLatitude==null || curLatitude.isEmpty())
+		{
+			curLatitude ="-111.338143";
+		}
+		if(curLongitude==null || curLongitude.isEmpty())
+		{
+			curLongitude = "32.960389";
+		}
+		double curLat = Double.parseDouble(curLatitude);
+		double curLong = Double.parseDouble(curLongitude);
+		double[] loc = {curLat,curLong};
+		
+		BasicDBObject filter = new BasicDBObject("$near",loc);
+		filter.put("$maxDistance",8047);
 		BasicDBObject searchQuery = new BasicDBObject("city", search_city);
-	    	
+		searchQuery.append( "loc",filter);
+			
 		searchQuery.append("open", true);
 
 		searchQuery.append("hours." + search_day + ".open",
