@@ -47,6 +47,7 @@ public class Search {
 	public void setStars(float stars) {
 		this.stars = stars;
 	}
+
 	
 
 }

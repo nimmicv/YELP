@@ -122,14 +122,16 @@ public UserView getUser(@PathParam("username") String username) {
 			@FormParam("search_startTime") String search_startTime, @FormParam("search_endTime") String search_endTime, 
 			@FormParam("parking") String parking, @FormParam("creditcards") String creditcards, 
 			@FormParam("takeout") String takeout, @FormParam("wifi") String wifi,   
-			@FormParam("kids") String kids, @FormParam("groups") String groups){
+			@FormParam("kids") String kids, @FormParam("groups") String groups,@FormParam("curLatitude") String curLatitude,
+			@FormParam("curLongitude") String curLongitude){
 	
-	
-		
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
 		//BasicDBObject searchQuery = new BasicDBObject("city", search_city);
-                double[] loc = {-111.338143,  32.960389};
+		        double curLat = Double.parseDouble(curLatitude);
+		        double curLong = Double.parseDouble(curLongitude);
+                //double[] loc = {-111.338143,  32.960389};
+		        double[] loc = {curLat,  curLong};
                 final BasicDBObject filter = new BasicDBObject("$near", loc);
                 filter.put("$maxDistance", 8047);
                 final BasicDBObject searchQuery = new BasicDBObject("loc", filter);
@@ -213,7 +215,7 @@ public UserView getUser(@PathParam("username") String username) {
 				search.setFull_address(full_address);
 				search.setStars(stars);
 				search.setLatitude(latitude);
-  	                        search.setLongitude(longitude);
+  	            search.setLongitude(longitude);
 				searchList.add(search);
 				userRepository.saveSearch(searchList);
 			}

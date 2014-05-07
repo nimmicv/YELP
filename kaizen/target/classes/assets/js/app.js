@@ -80,6 +80,7 @@ $("#searchBiz").submit(function(event){
 	var pathArray=window.location.pathname.split('/');
 	var user=pathArray[2];
 	event.preventDefault();
+	
 	var $form = $( this );
 	var formdata = $form.serialize();
 	$.ajax({

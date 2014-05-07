@@ -61,6 +61,7 @@
      	
      	<input type="text" name="search_business1" id="search_business1" placeholder="Search Business" required/>
      	<input type="text" name="search_city1" id="search_city1" placeholder="Search City" required/>
+     	
      	<button class="btn btn-success" data-toggle="modal" data-target="#myModal" onClick="return modalClick();" >
   		Search
 		</button>
@@ -161,6 +162,8 @@
     	
      	<input type="hidden" name="search_business" id="search_business" placeholder="Search Business" required/>
      	<input type="hidden" name="search_city" id="search_city" placeholder="Search City" required/>
+     	<input style="display:none" type="text" name="curLatitude" id="curLatitude"  />
+     	<input style="display:none" type="text" name="curLongitude" id="curLongitude" />
      	
      	<strong>Day:</strong>
      	<select name="search_day" id="search_day" placeholder="Day">
@@ -264,6 +267,8 @@
         var map;
         var lat = 32.960389;
         var long = -111.338143;
+        document.getElementById("curLatitude").value = lat;
+        document.getElementById("curLongitude").value = long;
         var mapOptions = {
         zoom: 8,
         center: new google.maps.LatLng(33.479306999999999, -111.9864),
@@ -284,7 +289,11 @@
                         lat = 32.960389;
                         long = -111.338143;
                 }
+                
+               
         }
+        document.getElementById("curLatitude").value = lat;
+        document.getElementById("curLongitude").value = long; 
         var you = new google.maps.Marker({
                         position: new google.maps.LatLng(lat, long),
                         map: map,
