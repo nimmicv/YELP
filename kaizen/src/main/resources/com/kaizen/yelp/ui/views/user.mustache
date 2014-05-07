@@ -279,12 +279,12 @@
         var rowLength = oTable.rows.length;
         var busName =[];
         var infowindow = new google.maps.InfoWindow();
-    //   navigator.geolocation.getCurrentPosition(myLoc)
-        var options = { enableHighAccuracy: true, maximumAge: 100, timeout: 60000 };
-	if( navigator.geolocation) {
-   		var watchID = navigator.geolocation.watchPosition( gotPos, gotErr, options );
-   		var timeout = setTimeout( function() { navigator.geolocation.clearWatch( watchID ); }, 5000 );
-	} else { gotErr(); }
+        navigator.geolocation.getCurrentPosition(myLoc)
+       // var options = { enableHighAccuracy: true, maximumAge: 100, timeout: 60000 };
+   //	if( navigator.geolocation) {
+   	//	var watchID = navigator.geolocation.watchPosition( gotPos, gotErr, options );
+   		//var timeout = setTimeout( function() { navigator.geolocation.clearWatch( watchID ); }, 5000 );
+	//} else { gotErr(); }
         
         function myLoc(position)
         {
@@ -293,21 +293,24 @@
                 if (lat>34){
                         lat = 32.960389;
                         long = -111.338143;
-                }
-         alert("inside=" + document.getElementById("curLatitude").value);
-        alert("inside=" +document.getElementById("curLongitude").value);       
+                }      
         document.getElementById("curLatitude").value = lat;
-        document.getElementById("curLongitude").value = long;     
-        }
-        
-        alert(document.getElementById("curLatitude").value);
-        alert(document.getElementById("curLongitude").value);
-         
-        var you = new google.maps.Marker({
+        document.getElementById("curLongitude").value = long;  
+        alert("inside=" + document.getElementById("curLatitude").value);
+        alert("inside=" +document.getElementById("curLongitude").value);  
+         var you = new google.maps.Marker({
                         position: new google.maps.LatLng(lat, long),
                         map: map,
                         title: 'You are Here!'
-                    });
+                    });   
+           
+          you.setMap(map);  
+        }
+        
+        alert(lat);
+        alert(long);
+         
+       
         for (i = 1; i < rowLength; i++){
         //loops through rows
 
@@ -332,7 +335,7 @@
                 })(marker, i));
                 marker.setMap(map);
     }
-        you.setMap(map);
+        
 
  
 	});

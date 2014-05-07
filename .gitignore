@@ -22,3 +22,5 @@ kaizen/target/classes/com/kaizen/yelp/dto/UserDto.class
 *.class
 
 kaizen/target/classes/com/kaizen/yelp/ui/resources/ReviewResource.class
+
+*.class

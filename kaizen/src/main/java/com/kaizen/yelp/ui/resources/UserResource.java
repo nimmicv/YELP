@@ -130,7 +130,9 @@ public UserView getUser(@PathParam("username") String username) {
 		//BasicDBObject searchQuery = new BasicDBObject("city", search_city);
 		        double curLat = Double.parseDouble(curLatitude);
 		        double curLong = Double.parseDouble(curLongitude);
-                //double[] loc = {-111.338143,  32.960389};
+		        System.out.println(curLat);
+                System.out.println(curLong);
+		        //double[] loc = {-111.338143,  32.960389};
 		        double[] loc = {curLat,  curLong};
                 final BasicDBObject filter = new BasicDBObject("$near", loc);
                 filter.put("$maxDistance", 8047);
