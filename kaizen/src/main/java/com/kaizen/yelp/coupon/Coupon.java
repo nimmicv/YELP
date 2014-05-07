@@ -24,7 +24,7 @@ public class Coupon {
 		
 		
 		//There is no subcategory called restuarents , restuarents is the main  category
-		if( userSelectedCategory.equals("Restaurants")){
+		if( userSelectedCategory.equalsIgnoreCase("Restaurants")){
 			return "1***1";
 		}
 		
@@ -40,7 +40,7 @@ public class Coupon {
 			String sub = (String) arr.getJSONObject(i).get("subcategory");
 			//System.out.println(" sub category" + sub);
 
-			if ( sub.equals(userSelectedCategory)){
+			if ( sub.equalsIgnoreCase(userSelectedCategory)){
 				
 				String categoryId = (String) arr.getJSONObject(i).get("categoryID");
 				String subCategoryID = (String) arr.getJSONObject(i).get("subcategoryID");
