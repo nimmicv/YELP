@@ -59,13 +59,12 @@
       
       <br/>
       <br/>
-     <table class="table table-hover" style="font-family:calibri;padding: 3px 15px;margin: 0 auto; width: 700px;">
+     <table id="business" class="table table-hover" style="font-family:calibri;padding: 3px 15px;margin: 0 auto; width: 700px;">
       <thead>
       <tr style="background-color:#c41200;color:#fff;">
       <td> Business Details</td><td></td>
       <td>&nbsp;&nbsp; Subscribe </td>
-            <td>&nbsp;&nbsp; Coupons </td>
-
+       <td>&nbsp;&nbsp; Coupons </td>
       </tr>	
       </thead>
       <tbody>
@@ -86,7 +85,7 @@
 	 <div style="display:none">{{business_id}} </div>
          <div id="businessname">{{name}} </div>
          <div id="full_address">{{full_address}} </div>
-         <div>{{categories}} </div>
+         <div id = "categories">{{categories}} </div>
          <div id="latitude" style="display:none">{{latitude}} </div>
          <div id="longitude" style="display:none">{{longitude}} </div>
          <div>{{review_count}} </div>
@@ -95,7 +94,7 @@
 	
 	 <td> <br/><br/><button name="subscribe">Subscribe</button> </td>
 	 	 <td> <br/><br/><button name="coupon">Get Coupons</button> </td>
-
+	 
 	 </tr>
 	 {{/business}}
 	 </table>
@@ -125,7 +124,12 @@
     <!-- Placed at the end of the document so the pages load faster -->
 	 <script src="//code.jquery.com/jquery.js"></script>
    <script type="text/javascript"
-  $(":button").click(function(){
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAja5FiokzlJmdgUUzq0MJKsF3qkZ8xf8c&sensor=false">
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script type = "text/javascript">
+	$(":button").click(function(){
 		var button_pressed=$(this).attr("name");
 		var pathArray=window.location.pathname.split('/');
 		var user=pathArray[2];
@@ -137,25 +141,28 @@
 		var items = oCells.item(1).innerHTML;
 		
 		}
-		var cat = items.split('<br>');
-		var cat1 = cat[3].replace('[ "',"");
+		var cat = document.getElementById('categories').innerHTML;
+		
+		var cat1 = cat.replace('[ "',"");
 		var category = cat1.replace('"]',"");
+		 var address = document.getElementById('full_address').innerHTML;
 		var zip1 = cat[2];
 		var length = cat[2].length;
 		
 		
-		var zip = zip1.slice(-6);
+		var zip = address.slice(-6);
+		
 		
 		if(button_pressed == "subscribe"){
+		alert(user);
 		window.location = '/kaizen/'+user+'/'+business_id+'/subscribe';
 		}
 		else if (button_pressed == "coupon")
 		{
+		alert(category);
 			window.location = '/kaizen/coupons/'+user+'/'+category+'/'+zip;
 		}
 		});
-	
-	
 	function signOut(){
 		
 		var pathArray=window.location.pathname.split('/');
