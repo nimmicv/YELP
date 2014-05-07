@@ -50,7 +50,40 @@ public class ReviewResource {
 		BasicDBObject obj= (BasicDBObject) myCol.next();
 		String name = obj.getString("name");
 
-		return new ReviewView(username, name);
+		ArrayList<Review> reviewList = new ArrayList<Review>();
+		long review_count = 0;
+		
+		DBCollection revColl = db.getCollection("review");
+		BasicDBObject reviewQuery = new BasicDBObject("business_id", business_id);
+		
+		DBCursor revCur = revColl.find(reviewQuery);
+		revCur.limit(20);
+		
+		try { while(revCur.hasNext()) {
+			
+			BasicDBObject revObj = (BasicDBObject)revCur.next();
+									
+			String uname = revObj.getString("user_id");
+			String review_content = revObj.getString("review_content");
+			float rating = Float.parseFloat(revObj.getString("rating"));
+			
+			Review rev = new Review();
+			rev.setUser_id(uname);
+			rev.setReview_content(review_content);
+			rev.setRating(rating);
+			
+			reviewList.add(rev);
+			
+			review_count++;
+			
+		}
+		} finally {
+					revCur.close();
+					myCol.close();
+		}
+			
+		
+		return new ReviewView(username, name, reviewList, review_count);
 	}
 	
 	@POST
@@ -71,7 +104,8 @@ public class ReviewResource {
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("review");
 		
-		 Review review = new Review();
+		ArrayList<Search> tempSearchList;
+		Review review = new Review();
 		
 		review.setBusiness_id(business_id);
 		review.setUser_id(username);
@@ -95,6 +129,19 @@ public class ReviewResource {
 			  String b_id = businessObj.getString("business_id");
 			   name = businessObj.getString("name");
 		}
+		if(!(block == null))
+		{
+			tempSearchList = userRepository.getSearch();
+			for (int i=0;i<tempSearchList.size();i++) {
+			      Search searchObj = tempSearchList.get(i);
+			      if(searchObj.getBusiness_id().equals(business_id))
+			      {
+			    	  tempSearchList.remove(i);
+			      }
+			  }
+			userRepository.saveSearch(tempSearchList);			
+		}
+
 
 		SNS sns = new SNS();
 		sns.userPublishingToTopic(name, review_content);

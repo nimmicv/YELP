@@ -35,7 +35,7 @@ public class BusinessResource {
 	@POST
 	@Path("/signout")
 	public void signout() {
-		
+		System.out.println("SIGNOUT*******************************************");
 		ArrayList<Search> searchRef;
 		searchRef = userRepository.getSearch();
 		searchRef.clear();

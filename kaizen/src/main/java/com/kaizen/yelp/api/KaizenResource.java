@@ -18,11 +18,7 @@ import javax.ws.rs.core.UriInfo;
 import com.kaizen.yelp.amazonsns.SNS;
 import com.kaizen.yelp.domain.Business;
 import com.kaizen.yelp.domain.Review;
-import com.kaizen.yelp.domain.Tip;
-import com.kaizen.yelp.domain.User;
 import com.kaizen.yelp.dto.BusinessDto;
-import com.kaizen.yelp.dto.TipDto;
-import com.kaizen.yelp.dto.UserDto;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -540,111 +536,8 @@ public class KaizenResource {
 //		return reviews;
 //	}
 
-	@GET
-	@Timed(name = "get-user")
-	@Path("/user")
-	public UserDto getUser(@Context UriInfo uriInfo) {
-		MultivaluedMap<String, String> queryParams = uriInfo
-				.getQueryParameters();
-		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("user");
-
-		String businessID = queryParams.getFirst("business_id");
-		String userID = queryParams.getFirst("user_id");
-
-		BasicDBObject searchQuery = new BasicDBObject();
-
-		if (userID != null) {
-			searchQuery.append("user_id", userID);
-		}
-
-		DBCursor userCol = coll.find(searchQuery);
-		userCol.limit(20);
-
-		UserDto users = new UserDto();
-
-		try {
-			while (userCol.hasNext()) {
-				BasicDBObject userObj = (BasicDBObject) userCol.next();
-
-				String user_id = userObj.getString("user_id");
-				String yelping_since = userObj.getString("yelping_since");
-				String review_count = userObj.getString("review_count");
-				String name = userObj.getString("name");
-				String fans = userObj.getString("fans");
-				String average_stars = userObj.getString("average_stars");
-
-				User user = new User();
-				user.setUserId(user_id);
-				user.setYelpingSince(yelping_since);
-				user.setReviewCount(review_count);
-				user.setName(name);
-				user.setFans(fans);
-				user.setAverageStars(average_stars);
-
-				users.addUser(user);
-
-			}
-		} finally {
-			userCol.close();
-		}
-
-		return users;
-	}
-
-	@GET
-	@Timed(name = "get-tip")
-	@Path("/tip")
-	public TipDto getTip(@Context UriInfo uriInfo) {
-		MultivaluedMap<String, String> queryParams = uriInfo
-				.getQueryParameters();
-		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("tip");
-
-		String businessID = queryParams.getFirst("business_id");
-		String userID = queryParams.getFirst("user_id");
-
-		BasicDBObject searchQuery = new BasicDBObject();
-
-		if (userID != null) {
-			searchQuery.append("user_id", userID);
-		}
-		if (businessID != null) {
-			searchQuery.append("business_id", businessID);
-		}
-
-		DBCursor tipCol = coll.find(searchQuery);
-		tipCol.limit(20);
-
-		TipDto tips = new TipDto();
-
-		try {
-			while (tipCol.hasNext()) {
-				BasicDBObject userObj = (BasicDBObject) tipCol.next();
-
-				String user_id = userObj.getString("user_id");
-				String business_id = userObj.getString("business_id");
-				String likes = userObj.getString("likes");
-				String date = userObj.getString("date");
-				String text = userObj.getString("text");
-
-				Tip tip = new Tip();
-				tip.setUserId(user_id);
-				tip.setBusinessId(business_id);
-				tip.setLikes(likes);
-				tip.setDate(date);
-				tip.setText(text);
-
-				tips.addTip(tip);
-
-			}
-		} finally {
-			tipCol.close();
-		}
-
-		return tips;
-	}
-
+	
+	
 	@GET
 	@Path("/{city}/{categories}")
 	@Timed(name = "get-categories")

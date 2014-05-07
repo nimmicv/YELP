@@ -112,6 +112,7 @@ public UserView getUser(@PathParam("username") String username) {
 				myReco.close();
 		 	}		
 		
+		
 		return new UserView(username, searchList, recoList);
 	}
 	
@@ -127,29 +128,15 @@ public UserView getUser(@PathParam("username") String username) {
 	
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
-		//BasicDBObject searchQuery = new BasicDBObject("city", search_city);
-	        if(curLatitude == null || curLatitude.isEmpty()) curLatitude = "-111.338143";
-	        if(curLongitude == null || curLongitude.isEmpty()) curLongitude = "32.960389";
-	        double curLat = Double.parseDouble(curLatitude);
-	        double curLong = Double.parseDouble(curLongitude);
-	        System.out.println(curLat);
-                System.out.println(curLong);
-	        //double[] loc = {-111.338143,  32.960389};
-	        double[] loc = {curLat,  curLong};
-                final BasicDBObject filter = new BasicDBObject("$near", loc);
-                filter.put("$maxDistance", 8047);
-                final BasicDBObject searchQuery = new BasicDBObject("loc", filter);
-
-		searchQuery.append("city", "Phoenix");
-
-/*		BasicDBObject searchQuery = new BasicDBObject("city", "Phoenix");
+		BasicDBObject searchQuery = new BasicDBObject("city", search_city);
+	    	
 		searchQuery.append("open", true);
 
 		searchQuery.append("hours." + search_day + ".open",
 				new BasicDBObject("$lte", search_startTime)).append(
 				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
 		searchQuery.append("categories", search_business);
-*/		
+		
 		
 		if (parking != null) {
 				searchQuery.append("attributes.Parking", new BasicDBObject("$exists", true));

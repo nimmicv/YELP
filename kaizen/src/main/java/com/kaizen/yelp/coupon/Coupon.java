@@ -77,6 +77,8 @@ public class Coupon {
 		
 		String subcategoryQuery = "&subcategoryID="+ids[1];
 		
+		
+		
 		System.out.println(" sub category query"+ subcategoryQuery);
 		
 

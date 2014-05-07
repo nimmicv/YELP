@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../assets/css/styles.css" rel="stylesheet">
  
 
     <!-- Custom styles for this template -->
@@ -37,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"></a>
+          <a class="navbar-brand" onClick="return home();"></a>
         </div>
         <div class="navbar-collapse collapse">
           <div class="navbar-form navbar-right" >
@@ -81,7 +82,7 @@
       <table class="table table-hover" style="font-family:calibri;padding: 3px 15px;">
       <thead>
       <tr style="background-color:#c41200;color:#fff">
-      <td> Business ID </td>
+      <td style="display:none"> Business ID </td>
       <td> Bussiness </td>
       <td> Average Rating </td>
       <td> Business Details </td>
@@ -91,8 +92,8 @@
       <tbody>
       {{#recoList}}
 	 <tr class="item">
-	 <td>{{business_id}} </td>
-	 <td><span>{{name}} </span><br/> {{full_address}} </td>
+	 <td style="display:none">{{business_id}} </td>
+	 <td><span><strong>{{name}}</strong> </span><br/> {{full_address}} </td>
 	 <td> {{stars}} </td>
 	 <td> <button name="details">Business Details</button> </td>
 	 <td> <button name="review">Write Review</button> </td>
@@ -116,7 +117,7 @@
      
       <thead>
       <tr style="background-color:#c41200;color:#fff">
-      <td> Business ID </td>
+      <td style="display:none"> Business ID </td>
       <td> Bussiness </td>
       <td> Average Rating </td>
       <td style="display:none"> Latitude </td>
@@ -130,8 +131,8 @@
       
 	 {{#searchList}}
 	 <tr class="item">
-	 <td>{{business_id}} </td>
-	 <td><span>{{name}} </span><br/> {{full_address}} </td>
+	 <td style="display:none">{{business_id}} </td>
+	 <td><span><strong>{{name}}</strong> </span><br/> {{full_address}} </td>
 	 <td> {{stars}} </td>
 	 <td style="display:none">{{latitude}} </td>
 	 <td style="display:none">{{longitude}} </td>
@@ -296,8 +297,8 @@
                 }      
         document.getElementById("curLatitude").value = lat;
         document.getElementById("curLongitude").value = long;  
-        alert("inside=" + document.getElementById("curLatitude").value);
-        alert("inside=" +document.getElementById("curLongitude").value);  
+        //alert("inside=" + document.getElementById("curLatitude").value);
+        //alert("inside=" +document.getElementById("curLongitude").value);  
          var you = new google.maps.Marker({
                         position: new google.maps.LatLng(lat, long),
                         map: map,
@@ -307,8 +308,8 @@
           you.setMap(map);  
         }
         
-        alert(lat);
-        alert(long);
+        //alert(lat);
+        //alert(long);
          
        
         for (i = 1; i < rowLength; i++){
@@ -385,10 +386,6 @@
 		{
 			alert("Please enter the fields!");
 		}
-		else
-		{
-			$('#myModal').modal('show')
-		}
 		
 		$("#search_business").val(business);
 		$("#search_city").val(city);
@@ -413,6 +410,16 @@
 			}  
 		});
 	}
+	
+	function home(){
+	
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		
+		window.location="/kaizen/"+user+"/home";
+		
+	}
+	
 	
 	</script>
   </body>
