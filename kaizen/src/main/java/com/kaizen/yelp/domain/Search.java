@@ -10,6 +10,22 @@ public class Search {
 	private float stars;
 	private double latitude;
 	private double longitude;
+	private double mylatitude;
+	private double mylongitude;
+	
+	public double getMylatitude() {
+		return mylatitude;
+	}
+	public void setMylatitude(double mylatitude) {
+		this.mylatitude = mylatitude;
+	}
+	public double getMylongitude() {
+		return mylongitude;
+	}
+	public void setMylongitude(double mylongitude) {
+		this.mylongitude = mylongitude;
+	}
+
 	
 	public double getLatitude() {
 		return latitude;

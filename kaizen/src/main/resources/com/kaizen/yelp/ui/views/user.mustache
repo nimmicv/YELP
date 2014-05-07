@@ -121,6 +121,8 @@
       <td> Average Rating </td>
       <td style="display:none"> Latitude </td>
       <td style="display:none"> Longitude</td>
+      <td style="display:none"> myLatitude </td>
+      <td style="display:none"> myLongitude</td>
       <td> Business Details </td>
       <td> Write Review </td>
       </tr>
@@ -135,6 +137,8 @@
 	 <td> {{stars}} </td>
 	 <td style="display:none">{{latitude}} </td>
 	 <td style="display:none">{{longitude}} </td>
+	  <td style="display:none">{{mylatitude}}</td>
+      <td style="display:none"> {{mylongitude}}</td>
 	 <td> <button name="details">Business Details</button> </td>
 	 <td> <button name="review">Write Review</button> </td>
 	 </tr>
@@ -262,52 +266,60 @@
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
  <script type="text/javascript">
+ 
+       var you;
         $(document).ready(function() {
 
         var map;
-        var lat = 32.960389;
-        var long = -111.338143;
+        var mylatitude = 32.960389;
+        var mylongitude = -111.338143;
+        var oTable = document.getElementById('bizResults');
+        var rowLength = oTable.rows.length;
+        if(rowLength>1)
+        {
+       		var cells = oTable.rows.item(1).cells;
+       		//gets cells of current row
+       		var cell_Length = cells.length;
+      		 mylatitude = cells.item(5).innerHTML;
+      		 mylongitude = cells.item(6).innerHTML;
+      		 //alert("Set My Position="+ mylatitude);
+             //alert("Set My Position="+ mylongitude);
+        }
         
         var mapOptions = {
         zoom: 8,
-        center: new google.maps.LatLng(33.479306999999999, -111.9864),
+        center: new google.maps.LatLng(mylatitude, mylongitude),
         mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
         map = new google.maps.Map(document.getElementById('map-canvas'),
                             mapOptions);
-        var oTable = document.getElementById('bizResults');
-        var rowLength = oTable.rows.length;
+        
         var busName =[];
         var infowindow = new google.maps.InfoWindow();
-        navigator.geolocation.getCurrentPosition(myLoc)
-  
         
-        function myLoc(position)
-        {
-                lat = position.coords.latitude;
-                long = position.coords.longitude;
-                if (lat>34){
-                        lat = 32.960389;
-                        long = -111.338143;
-                }      
-        document.getElementById("curLatitude").value = lat;
-        document.getElementById("curLongitude").value = long;  
-        alert("inside=" + document.getElementById("curLatitude").value);
-        alert("inside=" +document.getElementById("curLongitude").value); 
-        var image = 'male-2.png';
-
-         var you = new google.maps.Marker({
-                        position: new google.maps.LatLng(lat, long),
+        var image = 'http://maps-api-best-practices-io12.appspot.com/images/beachflag.png';
+        you = new google.maps.Marker({
+                        position: new google.maps.LatLng(mylatitude, mylongitude),
                         map: map,
                         icon:image,
                         title: 'You are Here!'
                     });   
            
-          you.setMap(map);  
-        }
+        you.setMap(map);  
+        //alert(mylatitude);
+        //alert(mylongitude);
+        you.setDraggable (true);
+
+   		google.maps.event.addListener(you, "dragend", function(event) {
+
+  		 var point = you.getPosition();
+  		 map.panTo(point);
+  		 //alert(point.lat());
+  		 //alert(point.lng());
+         document.getElementById("curLatitude").value =point.lat();
+         document.getElementById("curLongitude").value = point.lng();  
+   		 });
         
-        alert(lat);
-        alert(long);
          
        
         for (i = 1; i < rowLength; i++){
@@ -316,7 +328,7 @@
        var oCells = oTable.rows.item(i).cells;
        //gets cells of current row
        var cellLength = oCells.length;
-         var latitude = oCells.item(3).innerHTML;
+       var latitude = oCells.item(3).innerHTML;
        var longitude = oCells.item(4).innerHTML;
        var business = oCells.item(1).innerHTML;
        busName.push(business);

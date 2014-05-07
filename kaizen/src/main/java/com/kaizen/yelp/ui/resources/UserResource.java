@@ -220,6 +220,8 @@ public UserView getUser(@PathParam("username") String username) {
 				search.setStars(stars);
 				search.setLatitude(latitude);
   	            search.setLongitude(longitude);
+  	            search.setMylatitude(curLat);
+	            search.setMylongitude(curLong);
 				searchList.add(search);
 				userRepository.saveSearch(searchList);
 			}

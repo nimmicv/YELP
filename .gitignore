@@ -24,3 +24,9 @@ kaizen/target/classes/com/kaizen/yelp/dto/UserDto.class
 kaizen/target/classes/com/kaizen/yelp/ui/resources/ReviewResource.class
 
 *.class
+
+kaizen/target/classes/com/kaizen/yelp/jdbi/Mongo_Pojo.class
+
+*.class
+
+*.class
