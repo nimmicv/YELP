@@ -51,7 +51,7 @@ public class BusinessResource {
 		DBCollection userInfoColl = db.getCollection("userInfo");
 		DBCollection coll = db.getCollection("business");
 
-		BasicDBObject query = new BasicDBObject("username", username);
+		BasicDBObject query = new BasicDBObject("_id", username);
 		DBCursor userCursor = userInfoColl.find(query);
 		while (userCursor.hasNext()) {
 			BasicDBObject userObj1 = (BasicDBObject) userCursor.next();

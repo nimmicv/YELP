@@ -24,7 +24,7 @@ public class Coupon {
 		
 		
 		//There is no subcategory called restuarents , restuarents is the main  category
-		if( userSelectedCategory.equalsIgnoreCase("Restaurants")){
+		if( userSelectedCategory.contains("Restaurants")){
 			return "1***1";
 		}
 		

@@ -26,21 +26,56 @@ public class SNS {
 public static void main(String[] args){
 
 
-		//if user comes and clicks on subscribe button  
+		
 
 		SNS sns = new SNS();
-		//sns.userSubscribeToTopic("category10", "karthikswetha3@gmail.com");
-		sns.userPublishingToTopic("category1", "message 2for category1");
+		// for testing the subscribe and publishing topic
+		
+		//sns.userSubscribeToTopic("Sweet Cakes Café", "swetha.patnala@gmail.com");
+		sns.userPublishingToTopic("Sweet Cakes Café", "message 3for category1");
 		
 	}
 
 
 	private AmazonSNS connectToSNS (){
-		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("AKIAIZISEJG3LLRVLFXA",  "8akFmw9ukwJN+uWzqsrnjSwU3OWXVeVs/4HPYvTu"));
-		/*final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));*/
+		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
+
 		snsConnection.setEndpoint("sns.us-west-1.amazonaws.com");
 		return snsConnection;
 
+	}
+	
+	
+	
+	public String getTopicName (String category){
+		
+		
+		//String str = "Sweet Cakes Café";
+
+		String topicName = "";
+
+		StringBuilder sb = new StringBuilder(category.toLowerCase());
+
+		for (int i =0 ; i < sb.length() ; i++){
+
+			char c= sb.charAt(i);
+
+			//System.out.println("" +c );
+
+			if ( c >= 'a' && c <= 'z'){
+
+				topicName = topicName + c;
+				//System.out.println(" topic" + topic);
+
+			}
+
+		}
+		
+		System.out.println(" final topic name "+ topicName);
+
+	
+		
+		return topicName;
 	}
 
 
@@ -50,18 +85,19 @@ public static void main(String[] args){
 
 		AmazonSNS snsconnect = sns.connectToSNS();
 
-
-		String categoryName1 = category.replaceAll("\\s+","");
-		String categoryName = categoryName1.replaceAll("'","");
+		
+		
+		//String categoryName = category.replaceAll("\\s+","");
+		
+		String categoryName = sns.getTopicName(category);
 
 		System.out.println(" category name " + categoryName);
 
 
 		String topicArn = sns.createTopic(snsconnect, categoryName);
 
-
-		System.out.println(" New topic arn" + topicArn);
-
+		
+		
 
 
 		/*String[] split = topicArn.split(":");
@@ -163,21 +199,20 @@ public static void main(String[] args){
 
 		AmazonSNS snsconnect = sns.connectToSNS();
 
-		
-		String categoryName1 = category.replaceAll("\\s+","");
-		String categoryName = categoryName1.replaceAll("'","");
-		System.out.println(" category name " + categoryName);
-		
-		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
+		String categoryName = sns.getTopicName(category);
+		//String categoryName = category.replaceAll("\\s+","");
 
+		System.out.println(" category name " + categoryName);
+
+
+		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 
 		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
 
 		String topicArn = created.getTopicArn();
 
-		
-		String subject =  "publishing message from "+ categoryName;
 
+		String subject =  "Publishing message from "+ category;
 
 		sns.publishToTopic(snsconnect, topicArn, message, subject);
 
