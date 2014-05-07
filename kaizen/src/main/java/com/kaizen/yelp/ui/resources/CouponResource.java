@@ -253,7 +253,7 @@ public class CouponResource {
 
 	@GET
 
-	public CouponView getCouponDetails(@PathParam("username") String username, @PathParam("category") String userSelectedCategory1, @PathParam("zipcode") String zipcode) throws  Exception{
+	public CouponView getCouponDetails(@PathParam("username") String username, @PathParam("category") String userSelectedCategory, @PathParam("zipcode") String zipcode) throws  Exception{
 		System.out.println(" hello coupon details");
 
 
@@ -261,7 +261,7 @@ public class CouponResource {
 
 		Coupon coupon = new Coupon();
 		StringBuilder contentsOfURL = coupon.getFromCouponApi(baseurl);
-		String userSelectedCategory = "jhgdkjhgfh";
+		//String userSelectedCategory = "jhgdkjhgfh";
 		//String userSelectedCategory = "Moroccan123";
 		String categoryIdFromCoupon = coupon.getSubCategoryId(contentsOfURL, userSelectedCategory);
 		ArrayList<CouponInfo> couponlist = null;
