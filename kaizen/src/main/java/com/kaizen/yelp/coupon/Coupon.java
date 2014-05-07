@@ -23,7 +23,7 @@ public class Coupon {
 		//String userSelectedCategory = "Moroccan";
 		
 		
-		String subcategoryIdsFromCouponAPI = "";
+	String subcategoryIdsFromCouponAPI = "";
 
 
 // If the category selected by the user is one of the main category of 8 coupons
@@ -35,7 +35,16 @@ public class Coupon {
 
 			if(mainCategory.contains(userSelectedCategory)){
 				String categoryId = (String) arr.getJSONObject(i).get("categoryID");
-				subcategoryIdsFromCouponAPI = categoryId + "***0";
+				
+				
+				String subcategoryId = (String) arr.getJSONObject(i).get("subcategoryID");
+				if(categoryId.equalsIgnoreCase("1")){
+					// The category is restaurants
+					// By default giving the subcategory as Chinese restuarent
+					subcategoryId = "12";
+					
+				}
+				subcategoryIdsFromCouponAPI = categoryId + "***" + subcategoryId;
 				System.out.println(" main category if loop "+ subcategoryIdsFromCouponAPI);
 				return subcategoryIdsFromCouponAPI;
 
@@ -74,9 +83,9 @@ public class Coupon {
 
 		//String zip = "85233";
 		String zipQuery = "&zip="+zip;
-		
-		
-	String[] ids = categoryIdFromCouponAPI.split("\\*\\*\\*");
+
+
+		String[] ids = categoryIdFromCouponAPI.split("\\*\\*\\*");
 		String categoryQuery = "&categoryID="+ ids[0];
 
 		System.out.println(" category query"+ categoryQuery);
@@ -84,20 +93,21 @@ public class Coupon {
 		String subcategoryQuery = "&subcategoryID="+ids[1];
 
 		System.out.println(" sub category query"+ subcategoryQuery);
-		String fullQuery = baseUrl + zipQuery + include;
+		String fullQuery = baseUrl + zipQuery + include+ categoryQuery +subcategoryQuery;
 		
-		if ( ids[1].equals("0")){
+		/*if ( ids[1].equals("0")){
 			 fullQuery = fullQuery+ categoryQuery +"&subcategoryID=1" ;
 		}
 		else{
 		 fullQuery = fullQuery+ categoryQuery + subcategoryQuery;
-		}
+		}*/
 
 		System.out.println(" full query" + fullQuery);
 
 		return fullQuery;
 
 	}
+
 
 	public StringBuilder getFromCouponApi(String url) throws ClientProtocolException, IOException{
 
