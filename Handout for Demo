@@ -7,14 +7,15 @@ http://kaizenyelp.com:8001/kaizen
 3.	Login with the username and password.
 4.	Search for any category , city with your preferences.
 5.	A list of businesses would be displayed based on the search criteria.
-6.	Click on any of the business details button to get the particulars  of that business
-7.	All the details of the business would be displayed along with the location in Google maps.
-8.	
-9.	Click on Subscribe button to subscribe to that business.
-10.	You would get an email for confirming the subscription from AWS.
-11.	If any other user publishes a review to the same business , the subscribed user would get an email regarding the review.
-12.	In the business details page , click on the Coupons button
-13.	All the coupons available for that business in the selected area within the 20 miles radius would be displayed.
+6.	The businesses can be located in Google maps as well.
+7.	You can also search by dragging user to a new location mocking up the fact that user can be searching from a different location.
+8.	Click on any of the business details button to get the particulars  of that business
+9.	All the details of the business would be displayed along with the location in Google maps.
+10.	Click on Subscribe button to subscribe to that business.
+11.	You would get an email for confirming the subscription from AWS.
+12.	If any other user publishes a review to the same business , the subscribed user would get an email regarding the review.
+13.	In the business details page , click on the Coupons button
+14.	All the coupons available for that business in the selected area within the 20 miles radius would be displayed.
 
 Yelp Dataset is limited to Arizona , so we are providing some of the search criteria.
 Here are some of the search criteria 
