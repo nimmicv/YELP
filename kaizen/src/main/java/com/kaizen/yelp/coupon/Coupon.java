@@ -26,14 +26,16 @@ public class Coupon {
 	String subcategoryIdsFromCouponAPI = "";
 
 
-// If the category selected by the user is one of the main category of 8 coupons
+	// If the category selected by the user is one of the main category of 8 coupons
 		JSONArray arr = new JSONArray(content.toString());
 		for (int i =0 ; i < arr.length() ; i++){
 			//System.out.println(" array deatils :" + arr.getJSONObject(i).get("category"));
 
 			String mainCategory = (String)arr.getJSONObject(i).get("category");
-
-			if(mainCategory.contains(userSelectedCategory)){
+			System.out.println("USERCATEGORY "+userSelectedCategory);
+			System.out.println("Main category "+mainCategory);
+			if(mainCategory.trim().contains(userSelectedCategory.trim())){
+				System.out.println("inside if");
 				String categoryId = (String) arr.getJSONObject(i).get("categoryID");
 				
 				

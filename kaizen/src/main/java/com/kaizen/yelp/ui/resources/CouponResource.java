@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -28,6 +29,8 @@ import com.amazonaws.http.HttpResponse;
 import com.kaizen.yelp.coupon.Coupon;
 import com.kaizen.yelp.domain.CouponInfo;
 import com.kaizen.yelp.ui.views.CouponView;
+import com.kaizen.yelp.ui.views.NoCouponView;
+import com.kaizen.yelp.ui.views.UserView;
 import com.mongodb.Mongo;
 
 //import com.mashape.unirest.http.HttpResponse;
@@ -250,16 +253,15 @@ public class CouponResource {
 
 	@GET
 
-	public CouponView getCouponDetails(@PathParam("username") String username, @PathParam("category") String userSelectedCategory, @PathParam("zipcode") String zipcode) throws  Exception{
+	public CouponView getCouponDetails(@PathParam("username") String username, @PathParam("category") String userSelectedCategory1, @PathParam("zipcode") String zipcode) throws  Exception{
 		System.out.println(" hello coupon details");
 
-		//System.out.println(userSelectedCategory+" " + zipcode);
 
 		String baseurl = "http://api.8coupons.com/v1/getsubcategory";
 
 		Coupon coupon = new Coupon();
 		StringBuilder contentsOfURL = coupon.getFromCouponApi(baseurl);
-		//String userSelectedCategory = "Italian";
+		String userSelectedCategory = "jhgdkjhgfh";
 		//String userSelectedCategory = "Moroccan123";
 		String categoryIdFromCoupon = coupon.getSubCategoryId(contentsOfURL, userSelectedCategory);
 		ArrayList<CouponInfo> couponlist = null;
@@ -286,6 +288,7 @@ public class CouponResource {
 		} catch (ArrayIndexOutOfBoundsException ex) {
 			
 		System.out.println(" There are no coupons in this category");
+		return new CouponView(username);
 		}
 		
 		catch (Exception e) {
