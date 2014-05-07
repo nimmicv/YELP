@@ -127,7 +127,7 @@ public UserView getUser(@PathParam("username") String username) {
 	
 		
 		DB db = mongo.getDB("273project");
-		DBCollection coll = db.getCollection("business2");
+		DBCollection coll = db.getCollection("business");
 		//BasicDBObject searchQuery = new BasicDBObject("city", search_city);
                 double[] loc = {-111.338143,  32.960389};
                 final BasicDBObject filter = new BasicDBObject("$near", loc);
