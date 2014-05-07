@@ -12,7 +12,8 @@
 
     <!-- Bootstrap core CSS -->
   <!--  <link href="../../assets/css/bootstrap.css" rel="stylesheet">-->
-
+ <link href="../../../../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../../../../assets/css/styles.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     
 
@@ -26,31 +27,47 @@
     <![endif]-->
   </head>
 
-  <body bgcolor="#F2F2F2">
- <div style="background-color:#c41200";>
-<img src='../../../../../assets/images/logo.png' style="background-color:#c41200; /></div>
-    
-
+  <body>
+ Hi {{username}}
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" onClick="return home();"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <div class="navbar-form navbar-right" >
+           <div style="color:#fff;display:inline;"> Hi {{username}}! </div>
+            <input type="submit" name="submit" value="Sign Out" onClick = "return signOut()" class="btn btn-success" style="margin-left:5px"/> 
+			
+          </div>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
     </br>
 </br>
-	
+
       <div class="container" style="background-color:#F2F2F2" >	
       
      <h3>   Hi {{username}}, here are your coupons! </h3>
         
-    <a href="/kaizen/{{username}}/home/" style="text-decoration:none;color:maroon; float:right;"> &#x25c0; &nbsp; Back to Results </a>
+    <a href="/kaizen/{{username}}/home/" style="text-decoration:none;color:maroon; float:left;"> &#x25c0; &nbsp; Back to Results </a>
  
-      <div >
-<h2 align="center">Grab your Coupons.....!!!!</h2></div>
+ <h2 style="text-align:center">Grab your Coupons.....!!!!</h2>
     
         <br>
      <table  frame="box" class="table table-hover" style="font-family:calibri;padding: 3px 15px;margin: 0 auto; width: 700px;">
       <thead>
-      <tr>
+  <tr style="background-color:#c41200;color:#fff">
       
-      <th ></th>
+      <td colspan="3" style="text-align:center">Coupons</td>
       <br/><br/><br/>
       </tr>	
       </thead>
@@ -62,12 +79,12 @@
 	 <td style="width: 15%; font-weight:bold""> Deal name: <br/>
 	 Deal Source: <br/>
 	 Deal Image: <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	 Deal Link: <br/></td>
+	 <br/></td>
 	<td></td><td > {{dealName}} <br/>
 	 {{dealSource}} <br/>
 	<img src={{dealImage}}  width="200" height="200"> <br/>
 	<a href ={{dealLink}} > {{dealLink}}</a> <br/>
-	
+
 	 </td>
 
 	 </tr>
@@ -77,9 +94,9 @@
 	 </div>
     </div>
 
-			 
-					
-					
+
+
+
     <div class="container">
       <!-- Example row of columns -->
      
@@ -108,36 +125,35 @@
 		for (i = 1; i < rowLength; i++){
 		var oCells = tableData.rows.item(i).cells;
 		var items = oCells.item(1).innerHTML;
-		
+
 		}
 		var cat = items.split('<br>');
 		var cat1 = cat[3].replace('[ "',"");
 		var category = cat1.replace('"]',"");
 		var zip1 = cat[2];
 		var length = cat[2].length;
-		
-		
+
+
 		var zip = zip1.slice(-6);
-		
+
 		if(button_pressed == "subscribe"){
 		window.location = '/kaizen/'+user+'/'+business_id+'/subscribe';
 		}
 		else if (button_pressed == "coupon")
 		{
-			alert(zip);
 			window.location = '/kaizen/coupons/'+user+'/'+category+'/'+zip;
 		}
 		});
-	
+
 	function signOut(){
-		
+
 		var pathArray=window.location.pathname.split('/');
 		var user=pathArray[2];
 		var bid=pathArray[3];
-		
+
 		$.ajax({
 		  type: 'POST',
-		  
+
 		  url: '/kaizen/'+user+'/'+bid+'/signout',
 		  success: function() {
 			  	window.location = '/kaizen/';
@@ -149,8 +165,8 @@
 							}
 			}  
 		});
-		
-	 	
+
+
 	}
 	</script>
 	</body>

@@ -15,7 +15,7 @@
 }
 
 .star-rating {
-    margin: 0 auto;
+    margin: 17px auto;
     display:inline-block;
 }
 /* radio button stars */
@@ -132,4 +132,41 @@ label.rb10l:hover ~ .rating
 .ie8 .rating-bg,
 .ie8 .star-rating label.star {
     display: none;
+}
+
+.reviewBox{
+	width:400px;
+	background-color:#ddd;
+	height:90px;
+	border: 1px 0px solid #000;
+	margin:6px;
+	overflow:auto;
+}
+
+.clear { clear: both; }
+
+.commentBox{
+	display:inline-block;
+	min-height:90%;
+	margin: 4px 4px;
+	width:75%;
+	padding:4px;
+}
+
+.userAgent{
+	padding:2px;
+	float:left;
+	width:20%;
+	height:90%;
+	margin: 4px 4px;
+	
+}
+
+.userpic{
+	width:10%;
+	margin:2px auto;
+	background: url('../images/userAgent1.png') no-repeat;
+	height:96%;	
+}
+	
 }

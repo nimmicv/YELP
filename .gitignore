@@ -30,3 +30,5 @@ kaizen/target/classes/com/kaizen/yelp/jdbi/Mongo_Pojo.class
 *.class
 
 *.class
+
+*.mustache

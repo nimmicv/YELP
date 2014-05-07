@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+     <link href="../../../assets/css/styles.css" rel="stylesheet">
   	
     <!-- Custom styles for this template -->
     
@@ -37,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"></a>
+          <a class="navbar-brand" onClick="return home();"></a>
         </div>
         <div class="navbar-collapse collapse">
           <div class="navbar-form navbar-right" >
@@ -54,8 +55,11 @@
     </br>
 </br>
 	
+	<a href="/kaizen/{{username}}/home/" style="color:maroon;"> &#x25c0; &nbsp; Back to Results </a>
       <div class="container" >	
       
+      
+      <div id="reviewform" style="float:left">
       <h2 style="font-family:cursive"><strong>{{name}}</strong></h2>
       <br/><br/>
        
@@ -118,6 +122,59 @@
       
       </form>
       <br/>
+      </div>
+	<div style="display:inline-block; margin-left:180px;margin-top:60px;">
+	<img src="../../../assets/images/review.jpg" width="70%" height="40%" />
+	</div>
+	
+	<br/>
+	<br/>
+	<br/><br/>
+		
+	<br/>
+	<br/>
+	
+	<!--
+	{{#reviewList}}
+	<div class="reviewBox">
+	<div class="userAgent">
+	<div class="userpic"></div>
+	</div>
+	<div class="commentBox">
+	<strong>{{user_id}}</strong> says
+	<br/>
+	{{review_content}}<br/>
+	
+	Rating: {{rating}}
+	</div>
+	
+	</div>
+	{{/reviewList}}
+	<br/>
+	
+	-->
+	
+	 <table class="table table-hover" style="font-family:calibri;padding: 3px 15px; width:82.5%">
+     <thead>
+      <tr style="background-color:#c41200;color:#fff">
+      <td colspan="2">Total Reviews: {{review_count}}</td>
+      </tr>
+      </thead>
+      <tbody>
+     {{#reviewList}}
+	 <tr class="item">
+	 <td class="userpic"></td>
+	 <td> <strong><big>{{user_id}}</big></strong> <small><em>says</em></small>
+	<br/>
+	<small>{{review_content}}</small><br/>
+	
+	<strong> Rating: </strong> {{rating}}
+	</td>
+	</tr>
+	{{/reviewList}}
+	</tbody>
+	</table>
+	
 	
 	 </div>
     </div>
@@ -183,6 +240,14 @@
 		
 		});
 		
+	function home(){
+	
+		var pathArray=window.location.pathname.split('/');
+		var user=pathArray[2];
+		
+		window.location="/kaizen/"+user+"/home";
+		
+	}
 	</script>
 	</body>
 </html>

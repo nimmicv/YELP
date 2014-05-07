@@ -260,21 +260,36 @@ public class CouponResource {
 		Coupon coupon = new Coupon();
 		StringBuilder contentsOfURL = coupon.getFromCouponApi(baseurl);
 		//String userSelectedCategory = "Italian";
+		//String userSelectedCategory = "Moroccan123";
 		String categoryIdFromCoupon = coupon.getSubCategoryId(contentsOfURL, userSelectedCategory);
-		System.out.println("categoryIdFromCoupon" +categoryIdFromCoupon);
-		//String zipcode = "85233" ;
-		String newQuery = coupon.newQuery(zipcode, categoryIdFromCoupon);
+		ArrayList<CouponInfo> couponlist = null;
+		
+		try {
+			
+			
+			
+			//String zipcode = "85233" ;
+			String newQuery = coupon.newQuery(zipcode, categoryIdFromCoupon);
 
 
-		StringBuilder newQueryContents = coupon.getFromCouponApi(newQuery);
-		ArrayList<CouponInfo> couponlist = coupon.getCouponDetails(newQueryContents);
+			StringBuilder newQueryContents = coupon.getFromCouponApi(newQuery);
+			 couponlist = coupon.getCouponDetails(newQueryContents);
 
-		System.out.println(" coupon list" +couponlist.toString());
+			System.out.println(" coupon list" +couponlist.toString());
 
-		for (int i = 0 ; i < couponlist.size() ; i++){
+			for (int i = 0 ; i < couponlist.size() ; i++){
 
-			System.out.println(" list: "+couponlist.get(i).toString());
+				System.out.println(" list: "+couponlist.get(i).toString());
 
+			}
+			
+		} catch (ArrayIndexOutOfBoundsException ex) {
+			
+		System.out.println(" There are no coupons in this category");
+		}
+		
+		catch (Exception e) {
+			System.out.println(" There is some other problem");
 		}
 
 		return new CouponView(username,couponlist);

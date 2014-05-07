@@ -2,6 +2,7 @@ package com.kaizen.yelp.amazonsns;
 
 import java.util.List;
 
+import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClient;
@@ -32,14 +33,14 @@ public static void main(String[] args){
 		// for testing the subscribe and publishing topic
 		
 		//sns.userSubscribeToTopic("Sweet Cakes Café", "swetha.patnala@gmail.com");
-		sns.userPublishingToTopic("Sweet Cakes Café", "message 3for category1");
+		sns.userPublishingToTopic("Sweet Cakes Café", "message 3 for category1");
 		
 	}
 
 
 	private AmazonSNS connectToSNS (){
-		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("<accesskey>",  "<secret key>"));
-
+		final AmazonSNS snsConnection = new AmazonSNSClient(new BasicAWSCredentials("AKIAIC33WZ7HEEURQ3WA",  "qpXBJfKec2tDPQUQKVMPv7TXuSXTU+q6pXJGdTUe"));
+		
 		snsConnection.setEndpoint("sns.us-west-1.amazonaws.com");
 		return snsConnection;
 
@@ -80,65 +81,76 @@ public static void main(String[] args){
 
 
 	public void userSubscribeToTopic (  String category , String email ){
-
-		SNS sns = new SNS();
-
-		AmazonSNS snsconnect = sns.connectToSNS();
-
 		
-		
-		//String categoryName = category.replaceAll("\\s+","");
-		
-		String categoryName = sns.getTopicName(category);
+		try {
+			
+			SNS sns = new SNS();
 
-		System.out.println(" category name " + categoryName);
+			AmazonSNS snsconnect = sns.connectToSNS();
+
+			
+			
+			//String categoryName = category.replaceAll("\\s+","");
+			
+			String categoryName = sns.getTopicName(category);
+
+			System.out.println(" category name " + categoryName);
 
 
-		String topicArn = sns.createTopic(snsconnect, categoryName);
+			String topicArn = sns.createTopic(snsconnect, categoryName);
 
-		
-		
+			
+			
 
 
-		/*String[] split = topicArn.split(":");
-		String categoryName = split[split.length-1];
-		System.out.println(" category name is "+ categoryName);
+			/*String[] split = topicArn.split(":");
+			String categoryName = split[split.length-1];
+			System.out.println(" category name is "+ categoryName);
 
-		ListTopicsRequest listTopicsRequest = new ListTopicsRequest();
-		snsconnect.listTopics(listTopicsRequest);
-		List<Topic> allTopics = snsconnect.listTopics().getTopics();
+			ListTopicsRequest listTopicsRequest = new ListTopicsRequest();
+			snsconnect.listTopics(listTopicsRequest);
+			List<Topic> allTopics = snsconnect.listTopics().getTopics();
 
-		for (Topic topic : allTopics){
-			String existingTopicArn = topic.getTopicArn();
+			for (Topic topic : allTopics){
+				String existingTopicArn = topic.getTopicArn();
 
-			String[] splitting = existingTopicArn.split(":");
-			String existingTopicName= splitting[splitting.length-1];
-			System.out.println(" existing topic name" + existingTopicName);
+				String[] splitting = existingTopicArn.split(":");
+				String existingTopicName= splitting[splitting.length-1];
+				System.out.println(" existing topic name" + existingTopicName);
 
-			if ( !topicArn.equalsIgnoreCase(existingTopicArn)){
-				System.out.println(" have to subscribe  to new topic");
-				//sns.subscribeToTopic(snsconnect, topicArn, "email", email);
-				break;
+				if ( !topicArn.equalsIgnoreCase(existingTopicArn)){
+					System.out.println(" have to subscribe  to new topic");
+					//sns.subscribeToTopic(snsconnect, topicArn, "email", email);
+					break;
+				}
+				else{
+					System.out.println(" already subscribed");
+				}
+			}
+			 */
+
+
+			boolean subscribeStatus = sns.isSubscribed(snsconnect, topicArn, email);
+
+			if(subscribeStatus == true){
+				System.out.println(" User already subscribed to topic "+ categoryName);
 			}
 			else{
-				System.out.println(" already subscribed");
+
+				System.out.println(" Sending email to user to  subscribe to topic "+ categoryName);
+				sns.subscribeToTopic(snsconnect, topicArn, "email", email);
 			}
-		}
-		 */
 
 
-		boolean subscribeStatus = sns.isSubscribed(snsconnect, topicArn, email);
-
-		if(subscribeStatus == true){
-			System.out.println(" User already subscribed to topic "+ categoryName);
-		}
-		else{
-
-			System.out.println(" Sending email to user to  subscribe to topic "+ categoryName);
-			sns.subscribeToTopic(snsconnect, topicArn, "email", email);
+			
+		} catch (AmazonServiceException e) {
+			
+			System.out.println(" Invalid  access key or secret key");
 		}
 
+		
 
+		
 		//sns.publishToTopic(snsconnect, topicArn, message, "publishing new review");
 
 	}
@@ -194,27 +206,38 @@ public static void main(String[] args){
 	}
 
 	public void userPublishingToTopic(String category , String message){
+		
+		try {
+			
+			SNS sns = new SNS();
 
-		SNS sns = new SNS();
+			AmazonSNS snsconnect = sns.connectToSNS();
 
-		AmazonSNS snsconnect = sns.connectToSNS();
+			String categoryName = sns.getTopicName(category);
+			//String categoryName = category.replaceAll("\\s+","");
 
-		String categoryName = sns.getTopicName(category);
-		//String categoryName = category.replaceAll("\\s+","");
-
-		System.out.println(" category name " + categoryName);
-
-
-		CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
-
-		CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
-
-		String topicArn = created.getTopicArn();
+			System.out.println(" category name " + categoryName);
 
 
-		String subject =  "Publishing message from "+ category;
+			CreateTopicRequest createTopicRequest = new CreateTopicRequest(categoryName);
 
-		sns.publishToTopic(snsconnect, topicArn, message, subject);
+			CreateTopicResult created = snsconnect.createTopic(createTopicRequest);
+
+			String topicArn = created.getTopicArn();
+
+
+			String subject =  "Publishing message from "+ category;
+
+			sns.publishToTopic(snsconnect, topicArn, message, subject);
+			
+			
+			
+		} catch (AmazonServiceException e) {
+			
+			System.out.println(" Invalid  access key or secret key");
+		}
+
+		
 
 
 
