@@ -48,6 +48,7 @@ public class Search {
 		this.stars = stars;
 	}
 
+
 	
 
 }

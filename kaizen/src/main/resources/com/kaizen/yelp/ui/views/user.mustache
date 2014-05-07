@@ -280,11 +280,7 @@
         var busName =[];
         var infowindow = new google.maps.InfoWindow();
         navigator.geolocation.getCurrentPosition(myLoc)
-       // var options = { enableHighAccuracy: true, maximumAge: 100, timeout: 60000 };
-   //	if( navigator.geolocation) {
-   	//	var watchID = navigator.geolocation.watchPosition( gotPos, gotErr, options );
-   		//var timeout = setTimeout( function() { navigator.geolocation.clearWatch( watchID ); }, 5000 );
-	//} else { gotErr(); }
+  
         
         function myLoc(position)
         {
@@ -297,10 +293,13 @@
         document.getElementById("curLatitude").value = lat;
         document.getElementById("curLongitude").value = long;  
         alert("inside=" + document.getElementById("curLatitude").value);
-        alert("inside=" +document.getElementById("curLongitude").value);  
+        alert("inside=" +document.getElementById("curLongitude").value); 
+        var image = 'male-2.png';
+
          var you = new google.maps.Marker({
                         position: new google.maps.LatLng(lat, long),
                         map: map,
+                        icon:image,
                         title: 'You are Here!'
                     });   
            
