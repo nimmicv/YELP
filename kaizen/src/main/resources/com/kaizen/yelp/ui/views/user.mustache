@@ -279,7 +279,14 @@
         var rowLength = oTable.rows.length;
         var busName =[];
         var infowindow = new google.maps.InfoWindow();
-        navigator.geolocation.getCurrentPosition(myLoc);
+    //   navigator.geolocation.getCurrentPosition(myLoc)
+        var options = { enableHighAccuracy: true, maximumAge: 100, timeout: 60000 };
+	if( navigator.geolocation) {
+   		var watchID = navigator.geolocation.watchPosition( gotPos, gotErr, options );
+   		var timeout = setTimeout( function() { navigator.geolocation.clearWatch( watchID ); }, 5000 );
+	} else { gotErr(); }
+        
+        ;
         function myLoc(position)
         {
                 lat = position.coords.latitude;
