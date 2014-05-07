@@ -23,32 +23,38 @@ public class Coupon {
 		//String userSelectedCategory = "Moroccan";
 		
 		
-		//There is no subcategory called restuarents , restuarents is the main  category
-		if( userSelectedCategory.contains("Restaurants")){
-			return "1***1";
-		}
-		
-		
 		String subcategoryIdsFromCouponAPI = "";
-		
-		
 
+
+// If the category selected by the user is one of the main category of 8 coupons
 		JSONArray arr = new JSONArray(content.toString());
 		for (int i =0 ; i < arr.length() ; i++){
 			//System.out.println(" array deatils :" + arr.getJSONObject(i).get("category"));
 
+			String mainCategory = (String)arr.getJSONObject(i).get("category");
+
+			if(mainCategory.contains(userSelectedCategory)){
+				String categoryId = (String) arr.getJSONObject(i).get("categoryID");
+				subcategoryIdsFromCouponAPI = categoryId + "***0";
+				System.out.println(" main category if loop "+ subcategoryIdsFromCouponAPI);
+				return subcategoryIdsFromCouponAPI;
+
+			}
+
+			// If the category selected by the user is one of the sub category of 8 coupons
+
 			String sub = (String) arr.getJSONObject(i).get("subcategory");
 			//System.out.println(" sub category" + sub);
 
-			if ( sub.equalsIgnoreCase(userSelectedCategory)){
-				
+			if ( sub.contains(userSelectedCategory)){
+
 				String categoryId = (String) arr.getJSONObject(i).get("categoryID");
 				String subCategoryID = (String) arr.getJSONObject(i).get("subcategoryID");
-				
-				 
+
+
 				System.out.println(" sub id is " + arr.getJSONObject(i).get("subcategoryID"));
 				System.out.println("id is "+ arr.getJSONObject(i).get("categoryID"));
-				
+
 				subcategoryIdsFromCouponAPI = categoryId + "***" + subCategoryID;
 				System.out.println(" category and subcategory id : " + subcategoryIdsFromCouponAPI);
 			}
@@ -70,19 +76,22 @@ public class Coupon {
 		String zipQuery = "&zip="+zip;
 		
 		
-		String[] ids = categoryIdFromCouponAPI.split("\\*\\*\\*");
+	String[] ids = categoryIdFromCouponAPI.split("\\*\\*\\*");
 		String categoryQuery = "&categoryID="+ ids[0];
-		
-		System.out.println(" category query"+ categoryQuery);
-		
-		String subcategoryQuery = "&subcategoryID="+ids[1];
-		
-		
-		
-		System.out.println(" sub category query"+ subcategoryQuery);
-		
 
-		String fullQuery = baseUrl + zipQuery + include + categoryQuery + subcategoryQuery;
+		System.out.println(" category query"+ categoryQuery);
+
+		String subcategoryQuery = "&subcategoryID="+ids[1];
+
+		System.out.println(" sub category query"+ subcategoryQuery);
+		String fullQuery = baseUrl + zipQuery + include;
+		
+		if ( ids[1].equals("0")){
+			 fullQuery = fullQuery+ categoryQuery +"&subcategoryID=1" ;
+		}
+		else{
+		 fullQuery = fullQuery+ categoryQuery + subcategoryQuery;
+		}
 
 		System.out.println(" full query" + fullQuery);
 
