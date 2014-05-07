@@ -128,8 +128,8 @@ public UserView getUser(@PathParam("username") String username) {
 		DB db = mongo.getDB("273project");
 		DBCollection coll = db.getCollection("business");
 		//BasicDBObject searchQuery = new BasicDBObject("city", search_city);
-	        if(curLatitude == null || curLatitude.isEmpty()) curLatitude = '-111.338143';
-	        if(curLongitude == null || curLongitude.isEmpty()) curLongitude = '32.960389';
+	        if(curLatitude == null || curLatitude.isEmpty()) curLatitude = "-111.338143";
+	        if(curLongitude == null || curLongitude.isEmpty()) curLongitude = "32.960389";
 	        double curLat = Double.parseDouble(curLatitude);
 	        double curLong = Double.parseDouble(curLongitude);
 	        System.out.println(curLat);
