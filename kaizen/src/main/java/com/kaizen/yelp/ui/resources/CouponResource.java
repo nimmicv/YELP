@@ -257,22 +257,21 @@ public class CouponResource {
 
 		String baseurl = "http://api.8coupons.com/v1/getsubcategory";
 
-		Coupon coupon = new Coupon();
+				Coupon coupon = new Coupon();
 		StringBuilder contentsOfURL = coupon.getFromCouponApi(baseurl);
 		//String userSelectedCategory = "Italian";
 		//String userSelectedCategory = "Moroccan123";
 		String categoryIdFromCoupon = coupon.getSubCategoryId(contentsOfURL, userSelectedCategory);
+		ArrayList<CouponInfo> couponlist = null;
 		
 		try {
 			
-			
-			
-			String zipcode = "85233" ;
+			//String zipcode = "85233" ;
 			String newQuery = coupon.newQuery(zipcode, categoryIdFromCoupon);
 
 
 			StringBuilder newQueryContents = coupon.getFromCouponApi(newQuery);
-			ArrayList<CouponInfo> couponlist = coupon.getCouponDetails(newQueryContents);
+			 couponlist = coupon.getCouponDetails(newQueryContents);
 
 			System.out.println(" coupon list" +couponlist.toString());
 
