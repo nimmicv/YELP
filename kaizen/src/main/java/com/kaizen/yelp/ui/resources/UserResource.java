@@ -149,12 +149,19 @@ public UserView getUser(@PathParam("username") String username) {
 			searchQuery.append( "city", search_city);
 		}
 			
-		searchQuery.append("open", true);
-
+		//searchQuery.append("open", true);
+       
+        if(!(search_endTime.equals("00:00")&&search_startTime.equals("00:00")))
+        {
 		searchQuery.append("hours." + search_day + ".open",
 				new BasicDBObject("$lte", search_startTime)).append(
 				"hours." + search_day + ".close", new BasicDBObject("$gt", search_endTime));
-		searchQuery.append("categories", search_business);
+        }
+		
+		//searchQuery.append("categories", search_business);
+        ArrayList<String> category = new ArrayList<String>();
+		category.add(search_business);
+		searchQuery.append("categories", new BasicDBObject("$in", category));
 		
 		
 		if (parking != null) {

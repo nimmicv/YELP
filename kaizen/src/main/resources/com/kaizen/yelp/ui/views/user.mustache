@@ -392,6 +392,8 @@
 	function modalClick(){
 		var business = $("#search_business1").val();
 		var city = $("#search_city1").val();
+		$("#search_business").val(business);
+		$("#search_city").val(city);
 		
 		if(business == "" || city == "")
 		{
@@ -402,8 +404,8 @@
 			$('#myModal').modal('show')
 		}
 		
-		$("#search_business").val(business);
-		$("#search_city").val(city);
+		
+		
 	}
 	
 	function signOut(){	

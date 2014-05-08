@@ -297,7 +297,8 @@
         var busName =[];
         var infowindow = new google.maps.InfoWindow();
         
-        var image = 'http://maps-api-best-practices-io12.appspot.com/images/beachflag.png';
+        //var image = 'http://maps-api-best-practices-io12.appspot.com/images/beachflag.png';
+        var image = 'http://maps.google.com/mapfiles/kml/pal4/icon62.png';
         you = new google.maps.Marker({
                         position: new google.maps.LatLng(mylatitude, mylongitude),
                         map: map,
@@ -391,6 +392,8 @@
 	function modalClick(){
 		var business = $("#search_business1").val();
 		var city = $("#search_city1").val();
+		$("#search_business").val(business);
+		$("#search_city").val(city);
 		
 		if(business == "" || city == "")
 		{
@@ -401,8 +404,8 @@
 			$('#myModal').modal('show')
 		}
 		
-		$("#search_business").val(business);
-		$("#search_city").val(city);
+		
+		
 	}
 	
 	function signOut(){	
