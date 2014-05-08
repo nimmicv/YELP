@@ -4239,8 +4239,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #333;
 }
 .navbar-inverse {
-  background-image: url('../images/header_strip.png');
+  /*background-image: url('../images/header_strip.png');
   background-repeat: repeat-x;
+  border-color: #080808;*/
+  background-color: #c41200;
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
