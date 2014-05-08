@@ -140,7 +140,9 @@
 		}
 		var cat = document.getElementById('categories').innerHTML;
 		var cat1 = cat.replace('[ "',"");
-		var category = cat1.replace('"]',"");
+		var cat2 = cat1.replace('"]',"");
+		var cat3 = cat2.replace('"',"");
+		var category = cat3.split(',')[0];		
 		 var address = document.getElementById('full_address').innerHTML;
 		var zip1 = cat[2];
 		var length = cat[2].length;
@@ -156,6 +158,7 @@
 		}
 		else if (button_pressed == "coupon")
 		{
+		alert(category);
 			window.location = '/kaizen/coupons/'+user+'/'+category+'/'+zip;
 		}
 		});
