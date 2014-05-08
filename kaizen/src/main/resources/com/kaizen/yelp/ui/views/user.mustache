@@ -282,8 +282,8 @@
        		var cell_Length = cells.length;
       		 mylatitude = cells.item(5).innerHTML;
       		 mylongitude = cells.item(6).innerHTML;
-      		 alert("Set My Position="+ mylatitude);
-             alert("Set My Position="+ mylongitude);
+      		// alert("Set My Position="+ mylatitude);
+             //alert("Set My Position="+ mylongitude);
         }
         
         var mapOptions = {
@@ -307,8 +307,8 @@
                     });   
            
         you.setMap(map);  
-        alert(mylatitude);
-        alert(mylongitude);
+        //alert(mylatitude);
+        //alert(mylongitude);
         you.setDraggable (true);
 
    		google.maps.event.addListener(you, "dragend", function(event) {
