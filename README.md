@@ -15,5 +15,5 @@ Framework : Dropwizard
 Backend : MongoDB
 -----------------
 
-URL : http://54.215.178.205:8080/kaizen
-HealthCheck : http://54.215.178.205:8081
+URL : http://kaizenyelp.com:8001/kaizen
+
